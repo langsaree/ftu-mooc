@@ -96,3 +96,9 @@ Route::get('AddPretest','InstructorsController@AddPretest');
 //Posttest
 
 Route::get('Posttest','InstructorsController@Posttest');
+
+
+
+Route::get('admin', function () {
+    return view('admin');
+});

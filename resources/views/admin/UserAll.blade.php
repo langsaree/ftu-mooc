@@ -1,5 +1,7 @@
 @extends('layouts.admin')
 
+{{--@extends('adminlte::page')--}}
+
 @section('content')
 
     <section id="content">
