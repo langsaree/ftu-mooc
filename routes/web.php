@@ -96,3 +96,8 @@ Route::get('AddPretest','InstructorsController@AddPretest');
 //Posttest
 
 Route::get('Posttest','InstructorsController@Posttest');
+
+//test adminlte tempalte render
+Route::get('adminlte', function () {
+    return view('adminlte');
+});

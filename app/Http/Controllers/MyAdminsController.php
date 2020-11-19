@@ -11,7 +11,8 @@ class MyAdminsController extends Controller
 {
     public function index(){
         $users = User::all();
-        return view('admin.UserAll',compact('users'));
+//        return view('admin.UserAll',compact('users'));
+        return view('admin.user-all-refactoring',compact('users'));
     }
 
     public function courseAll(){
