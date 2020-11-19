@@ -1,6 +1,5 @@
 @extends('layouts.admin')
 
-{{--@extends('adminlte::page')--}}
 
 @section('content')
 
