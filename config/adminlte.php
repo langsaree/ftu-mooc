@@ -253,24 +253,34 @@ return [
             'label'       => 4,
             'label_color' => 'success',
         ],
-        ['header' => 'หลักสูตร'],
+        ['header' => 'Course'],
         [
-            'text' => 'จัดการหลักสูตร',
+            'text' => 'Manage courses',
+            'url'  => 'instructor-ViewCourseAll',
+            'icon' => 'fas fa-fw fa-user',
+            'label_color' => 'success',
+        ],
+        [
+            'text' => 'Manage subjects',
             'url'  => 'admin/settings',
             'icon' => 'fas fa-fw fa-user',
         ],
+        ['header' => 'Exam'],
         [
-            'text' => 'จัดการรายวิชา',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-user',
+            'text'    => 'Examination',
+            'icon'    => 'fas fa-fw fa-share',
+            'submenu' => [
+                [
+                    'text' => 'After',
+                    'url'  => 'Pretest',
+                ],
+                [
+                    'text' => 'Before',
+                    'url'  => 'Posttest',
+                ],
+            ],
         ],
-        ['header' => 'การสอบ'],
-        [
-            'text' => 'ข้อสอบ',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-user',
-        ],
-        ['header' => 'การตั้งค่าบัญชี'],
+        ['header' => 'Account settings'],
         [
             'text' => 'profile',
             'url'  => 'admin/settings',
@@ -281,6 +291,7 @@ return [
             'url'  => 'admin/settings',
             'icon' => 'fas fa-fw fa-lock',
         ],
+ 
 //        [
 //            'text'        => 'pages',
 //            'url'         => 'admin/pages',

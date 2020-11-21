@@ -40,6 +40,7 @@ Route::get('/home', 'FrontendsController@index')->name('home');
 Route::resource('/instructors','InstructorsController');
 Route::get('instructor-dashboard','InstructorsController@index');
 Route::get('instructor-ViewCourseAll','InstructorsController@ViewCourseAll');
+Route::get('instructor-ViewCourseAll','InstructorsController@ViewCourseAll');
 Route::post('insert-course','InstructorsController@insertCourse');
 
 //view
