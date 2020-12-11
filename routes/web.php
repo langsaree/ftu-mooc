@@ -106,6 +106,9 @@ Route::get('adminlte', function () {
     return view('adminlte');
 });
 
+<<<<<<< Updated upstream
 //Profile
 Route::get('profile','FrontendsController@profile');
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes

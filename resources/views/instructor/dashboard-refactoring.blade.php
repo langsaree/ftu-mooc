@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream
 @extends('adminlte::page')
+=======
+
+>>>>>>> Stashed changes
 
 @section('content')
     <section id="content">
@@ -75,7 +79,11 @@
                                             <div class="clearfix"></div>
 
                                             <div class="m-t-10">
+<<<<<<< Updated upstream
                                                 <a href="{{ url('viewcoursebyID-refactoring/'.$key->id) }}" class="btn bg-blue btn-icon-text"><i class="zmdi zmdi-view-list"></i>View</a>
+=======
+                                                <a href="{{ url('viewcourse/'.$key->id) }}" class="btn bg-blue btn-icon-text"><i class="zmdi zmdi-view-list"></i>View</a>
+>>>>>>> Stashed changes
                                                 <a href="javascript:void(0)" onclick="delcourse('{{ $key->id }}','{{ $key->course_name }}')" class="btn bg-pink btn-icon-text"><i class="zmdi zmdi-close"></i>Delete</a>
                                             </div>
                                         </div>
