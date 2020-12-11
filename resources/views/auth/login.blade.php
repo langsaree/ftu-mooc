@@ -63,7 +63,7 @@
                                 <form role="form" id="login" name="loginSubmit" action="{{ route('login') }}" method="post" class="pretty-form">
                                     @csrf
                                     <div class="form-group">
-                                        <label for="exampleInputEmail1">อีเมลล์</label>
+                                        <label for="exampleInputEmail1">Email</label>
                                         <input type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" id="email"  placeholder="xxx@gmail.com" >
                                         <span class="fa fa-user"></span>
                                         @if ($errors->has('email'))
@@ -74,7 +74,7 @@
 
                                     </div>
                                     <div class="form-group">
-                                        <label for="exampleInputPassword1">รหัส</label>
+                                        <label for="exampleInputPassword1">Password</label>
                                         <input type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" id="password" placeholder="ต้องใส่6ตัวขึ้นไป มีตัวพิมพ์เล็กใหญ่">
                                         <span class="fa fa-lock"></span>
                                         @if ($errors->has('password'))
@@ -84,13 +84,13 @@
                                         @endif
                                     </div>
 
-                                    <button type="submit" id="loginSubmit" class="btn btn-success btn-square btn-block btn-lg">เข้าสู่ระบบ</button>
+                                    <button type="submit" id="loginSubmit" class="btn btn-success btn-square btn-block btn-lg">Login</button>
                                     <br>
                                     <p>Student=fadeelah@gmail.com /123456</p>
                                     <p>lecturer=abdul_latif@gmail.com /Abdul12345</p>
                                     <p>admin=myadmin@gmail.com /adminadmin</p>
-                               
-                               
+
+
                                 </form><!-- .pretty-form -->
                             </div><!-- .sign-form -->
 

@@ -40,7 +40,7 @@
                         <h2>รายละเอียดหลักสูตร</h2>
 
                         <ul>
-                           
+
                             <li><i class="zmdi zmdi-flag zmdi-hc-fw"></i> {{ $course->course_name }}
                             </li>
                             <li><i class="zmdi zmdi-label zmdi-hc-fw"></i> {{ $course->faculty->faculty_name }}</li>
@@ -449,7 +449,7 @@
                             </div>
 
 
-                    
+
 
                         </div>
                         <!--End Tab Information-->

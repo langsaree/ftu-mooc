@@ -56,9 +56,10 @@ Route::post('InstructorUpdateDescription','InstructorsController@InstructorUpdat
 //insert section
 Route::post('InsertSection','InstructorsController@InsertSection');
 Route::get('addlecture/{id}','InstructorsController@addlecture');
-//save
 
+//save
 Route::post('saveLecture','InstructorsController@saveLecture');
+
 //update section & edit section
 Route::get('EditSection/{id}','InstructorsController@EditSection');
 Route::post('InsertUpdateSection','InstructorsController@InsertUpdateSection');
@@ -95,4 +96,16 @@ Route::get('Pretest','InstructorsController@Pretest');
 Route::get('AddPretest','InstructorsController@AddPretest');
 //Posttest
 
+<<<<<<< Updated upstream
 Route::get('Posttest','InstructorsController@Posttest');
+=======
+Route::get('Posttest','InstructorsController@Posttest');
+
+//test adminlte tempalte render
+Route::get('adminlte', function () {
+    return view('adminlte');
+});
+
+//Profile
+Route::get('profile','FrontendsController@profile');
+>>>>>>> Stashed changes

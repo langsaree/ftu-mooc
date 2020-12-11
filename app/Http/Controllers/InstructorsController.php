@@ -32,7 +32,12 @@ class InstructorsController extends Controller
         $countLecture = Lecture::where('user_id',Auth::id())->count();
 
         $courses = Course::where('user_id',Auth::id())->get();
+<<<<<<< Updated upstream
         return view('instructor.dashboard',compact(
+=======
+
+        return view('instructor.dashboard-refactoring',compact(
+>>>>>>> Stashed changes
             'courses',
             'countStudent',
             'countCourse',
@@ -137,7 +142,11 @@ class InstructorsController extends Controller
     public function ViewCourseAll()
     {
         $courses = Course::where('user_id', Auth::id())->get();
+<<<<<<< Updated upstream
         return view('instructor.view-course-all', compact('courses'));
+=======
+        return view('instructor.view-course-all-refactoring', compact('courses'));
+>>>>>>> Stashed changes
     }
 
     public function viewcourse($code)
@@ -151,7 +160,11 @@ class InstructorsController extends Controller
         //รายชื่อนักเรียนที่ลงทะเบียน
         $students = Register::where('course_id',$code)->get();
 
+<<<<<<< Updated upstream
         return view('instructor.viewcoursebyID', compact(
+=======
+        return view('instructor.viewcoursebyID-refactoring', compact(
+>>>>>>> Stashed changes
             'course',
             'groups',
             'faculties',
@@ -163,7 +176,11 @@ class InstructorsController extends Controller
     public function insertCourse(Request $request)
     {
 
+<<<<<<< Updated upstream
        // dd($request->all());
+=======
+        // dd($request->all());
+>>>>>>> Stashed changes
         $course = new Course();
         $course->course_code = NULL;
         $course->course_name = $request->course_name;
@@ -516,12 +533,20 @@ class InstructorsController extends Controller
     //pretest
     public function Pretest(){
         $course = Course::where('user_id',Auth::id())->where('course_pretest',1)->get();
+<<<<<<< Updated upstream
         return view('instructor.pretest',compact('course'));
+=======
+        return view('instructor.pretest-refactoring',compact('course'));
+>>>>>>> Stashed changes
     }
 
     //posttest
     public function Posttest(){
         $course = Course::where('user_id',Auth::id())->where('course_posttest',1)->get();
+<<<<<<< Updated upstream
         return view('instructor.posttest',compact('course'));
+=======
+        return view('instructor.posttest-refactoring',compact('course'));
+>>>>>>> Stashed changes
     }
 }

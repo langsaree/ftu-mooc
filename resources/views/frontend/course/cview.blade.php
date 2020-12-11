@@ -1,4 +1,5 @@
 @extends('layouts.frontend')
+
 @section('content')
 
     <!-- slider -->
@@ -43,7 +44,7 @@
                     <article>
                         <div class="news-container">
 
-                            
+
 
                             <div class="news-image">
 
@@ -114,9 +115,9 @@
                                                                                    href="{{ $lec->youtube }}">ดูวีดีโอ</a>
                                                                             </li>
 
-                                                                            
 
-                                                                            
+
+
                                                                             @endguest
                                                                             @endforeach
 
@@ -151,7 +152,7 @@
                         </div><!-- .about-author -->
                         <div class="about-bio">
                             <table class="table">
-                                
+
 
                                 <tr>
                                     <td><i class="glyphicon glyphicon-xbt"></i> ราคา</td>
