@@ -96,9 +96,9 @@ Route::get('Pretest','InstructorsController@Pretest');
 Route::get('AddPretest','InstructorsController@AddPretest');
 //Posttest
 
-<<<<<<< Updated upstream
+
 Route::get('Posttest','InstructorsController@Posttest');
-=======
+
 Route::get('Posttest','InstructorsController@Posttest');
 
 //test adminlte tempalte render
@@ -106,9 +106,5 @@ Route::get('adminlte', function () {
     return view('adminlte');
 });
 
-<<<<<<< Updated upstream
 //Profile
 Route::get('profile','FrontendsController@profile');
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
