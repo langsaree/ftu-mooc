@@ -247,14 +247,14 @@ return [
             'can'  => 'manage-blog',
         ],
         [
-            'text'        => 'Dashboard',
+            'text'        => 'Manage users',
             'url'         => 'myadmin',
             'icon'        => 'far fa-fw fa-file',
             'label'       => 4,
             'label_color' => 'success',
         ],
         [
-            'text'        => 'Home',
+            'text'        => 'Dashboard',
             'url'         => 'instructor-dashboard',
             'icon'        => 'far fa-fw fa-file',
             'label_color' => 'success',
