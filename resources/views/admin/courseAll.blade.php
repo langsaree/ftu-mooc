@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="page-title">
-                <h2>All courses</h2>
+                <h2>หลักสูตรทั้งหมด</h2>
             </div><!-- .page-title -->
         </div><!-- .col-md-12 -->
     </div>

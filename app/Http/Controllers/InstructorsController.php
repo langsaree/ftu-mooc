@@ -137,7 +137,7 @@ class InstructorsController extends Controller
     public function ViewCourseAll()
     {
         $courses = Course::where('user_id', Auth::id())->get();
-        return view('instructor.view-course-all-refactoring', compact('courses'));
+        return view('instructor.view-course-all', compact('courses'));
     }
 
     public function viewcourse($code)
@@ -516,12 +516,12 @@ class InstructorsController extends Controller
     //pretest
     public function Pretest(){
         $course = Course::where('user_id',Auth::id())->where('course_pretest',1)->get();
-        return view('instructor.pretest-refactoring',compact('course'));
+        return view('instructor.pretest',compact('course'));
     }
 
     //posttest
     public function Posttest(){
         $course = Course::where('user_id',Auth::id())->where('course_posttest',1)->get();
-        return view('instructor.posttest-refactoring',compact('course'));
+        return view('instructor.posttest',compact('course'));
     }
 }
