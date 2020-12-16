@@ -7,7 +7,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>ผู้สอน</h1>
+                        <h1>Instructor</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
@@ -39,10 +39,10 @@
                                 <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>ชื่อ</th>
-                                    <th>อีเมล</th>
-                                    <th>สถานะ</th>
-                                    <th>จัดการ</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Status</th>
+                                    <th>Manage</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -53,16 +53,16 @@
                                     <td>{{ $key->email }}</td>
                                     <td>
                                         @if($key->status == 0)
-                                            <span class="badge bg-danger">รออนุมัติ</span>
+                                            <span class="badge bg-danger">Wait for approval</span>
                                         @else
-                                            <span class="badge bg-warning">รออนุมัติ</span>
+                                            <span class="badge bg-warning">Wait for approval</span>
                                         @endif
                                     </td>
                                     <td>
                                         @if($key->status == 1)
-                                            <a href="{{ url('status0/'.$key->id) }}" class="btn btn-sm btn-danger btn-icon-text"> ยกเลิกใช้งาน</a>
+                                            <a href="{{ url('status0/'.$key->id) }}" class="btn btn-sm btn-danger btn-icon-text">Cancel</a>
                                         @else
-                                            <a href="{{ url('status1/'.$key->id) }}" class="btn btn-sm btn-success btn-icon-text"> อนุมัติใช้งาน</a>
+                                            <a href="{{ url('status1/'.$key->id) }}" class="btn btn-sm btn-success btn-icon-text">Approved</a>
                                         @endif
 
                                     </td>

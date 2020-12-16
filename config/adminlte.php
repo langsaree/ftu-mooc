@@ -247,33 +247,44 @@ return [
             'can'  => 'manage-blog',
         ],
         [
-            'text'        => 'Dashboard',
+            'text'        => 'Manage User',
             'url'         => 'myadmin',
             'icon'        => 'far fa-fw fa-file',
             'label'       => 4,
             'label_color' => 'success',
         ],
-        ['header' => 'หลักสูตร'],
         [
-            'text' => 'จัดการหลักสูตร',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-user',
+            'text'        => 'Dashboard',
+            'url'         => 'instructor-dashboard',
+            'icon'        => 'far fa-fw fa-file',
+            'label_color' => 'success',
         ],
+        ['header' => 'Course'],
         [
-            'text' => 'จัดการรายวิชา',
-            'url'  => 'admin/settings',
+            'text' => 'Manage courses',
+            'url'  => 'instructor-ViewCourseAll',
             'icon' => 'fas fa-fw fa-user',
+            'label_color' => 'success',
         ],
-        ['header' => 'การสอบ'],
+        ['header' => 'Exam'],
         [
-            'text' => 'ข้อสอบ',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-user',
+            'text'    => 'Examination',
+            'icon'    => 'fas fa-fw fa-share',
+            'submenu' => [
+                [
+                    'text' => 'Before',
+                    'url'  => 'Pretest',
+                ],
+                [
+                    'text' => 'After',
+                    'url'  => 'Posttest',
+                ],
+            ],
         ],
-        ['header' => 'การตั้งค่าบัญชี'],
+        ['header' => 'Account settings'],
         [
             'text' => 'profile',
-            'url'  => 'admin/settings',
+            'url'  => 'profile',
             'icon' => 'fas fa-fw fa-user',
         ],
         [
@@ -281,6 +292,7 @@ return [
             'url'  => 'admin/settings',
             'icon' => 'fas fa-fw fa-lock',
         ],
+
 //        [
 //            'text'        => 'pages',
 //            'url'         => 'admin/pages',

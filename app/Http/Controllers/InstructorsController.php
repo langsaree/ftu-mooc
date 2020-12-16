@@ -32,7 +32,7 @@ class InstructorsController extends Controller
         $countLecture = Lecture::where('user_id',Auth::id())->count();
 
         $courses = Course::where('user_id',Auth::id())->get();
-        return view('instructor.dashboard',compact(
+        return view('instructor.dashboard-refactoring',compact(
             'courses',
             'countStudent',
             'countCourse',
