@@ -137,7 +137,7 @@ class InstructorsController extends Controller
     public function ViewCourseAll()
     {
         $courses = Course::where('user_id', Auth::id())->get();
-        return view('instructor.view-course-all', compact('courses'));
+        return view('instructor.view-course-all-refactoring', compact('courses'));
     }
 
     public function viewcourse($code)

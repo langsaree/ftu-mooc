@@ -102,24 +102,31 @@
 
                         <div class="card-body">
                             <div class="chart">
-                                @foreach ($courses as $key)
-                                <div class="card" style="width: 18rem;">
-                                    <img src="{{ asset('upload/img/'.$key->course_pic)  }}" class="card-img-top" alt="...">
-                                    <i class="card-body">
-                                        <h5>{{ $key->course_name }}</h5>
-                                        <p class="card-text">{{ $key->user->instructor->instructor_name}} {{ $key->user->instructor->instructor_skill}}</p>
-                                        <a href="{{ url('viewcourse/'.$key->id) }}" type="button" class="btn btn-info">View</a>
-                                        <a href="javascript:void(0)" onclick="delcourse('{{ $key->id }}','{{ $key->course_name }}')"  type="button" class="btn btn-danger">Delete</a>
-                                    </div>
-                                @endforeach
-                            </div>
 
+                                <div class="row m-10">
+                                    @foreach ($courses as $key)
+                                        <div class="card" style="width: 18rem;">
+                                            <img src="{{ asset('upload/img/'.$key->course_pic) }}" class="card-img-top" alt="...">
+                                            <div class="card-body">
+                                                <h5 class="card-title">{{ $key->course_name }}</h5>
+                                                <p class="card-text">{{ $key->user->instructor->instructor_name}} {{ $key->user->instructor->instructor_skill}}</p>
+
+                                                <div class="clearfix"></div>
+
+                                                <a href="{{ url('viewcourse/'.$key->id) }}" type="button" class="btn btn-info">View</a>
+                                                <a href="javascript:void(0)" onclick="delcourse('{{ $key->id }}','{{ $key->course_name }}')"  type="button" class="btn btn-danger">Delete</a>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                </div>
+                            </div>
                         </div>
+                        <!-- /.card-body -->
                     </div>
+
+
                 </div>
             </div>
-
-        </div>
         <!-- /.card-body -->
     </section>
 @stop
