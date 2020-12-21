@@ -5,95 +5,122 @@
     <section id="content">
         <div class="container">
             <div class="row">
-
-
                 <div class="col-sm-12">
 
 
                     <!-- Site Visitors -->
 
                     <div class="row m-t-0 p-0 m-b-25">
-                        <div class="col-xs-3">
-                            <div class="bg-amber brd-2 p-15">
-                                <div class="c-white m-b-5 f-16">Student</div>
-                                <h2 class="m-0 c-white f-300 text-center m-b-5">{{ $countStudent }}</h2>
 
+                        <!-- ./col -->
+                        <div class="col-lg-3 col-6">
+                            <!-- small card -->
+                            <div class="small-box bg-info">
+                                <div class="inner">
+                                    <h3>{{ $countStudent }}</h3>
+
+                                    <p>Student</p>
+                                </div>
+                                <div class="icon">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <a href="#" class="small-box-footer">
+                                    More info <i class="fas fa-arrow-circle-right"></i>
+                                </a>
                             </div>
                         </div>
+                        <!-- ./col -->
+                        <!-- ./col -->
+                        <div class="col-lg-3 col-6">
+                            <!-- small card -->
+                            <div class="small-box bg-success">
+                                <div class="inner">
+                                    <h3>{{ $countLecture }}</h3>
 
-                        <div class="col-xs-3">
-                            <div class="bg-blue brd-2 p-15">
-                                <div class="c-white m-b-5 f-16">Courses</div>
-                                <h2 class="m-0 c-white f-300 text-center m-b-5">{{ $countCourse }}</h2>
+                                    <p>Lectures</p>
+                                </div>
+                                <div class="icon">
+                                    <i class="fas fa-user-tie"></i>
+                                </div>
+                                <a href="#" class="small-box-footer">
+                                    More info <i class="fas fa-arrow-circle-right"></i>
+                                </a>
                             </div>
                         </div>
+                        <!-- ./col -->
 
-                        <div class="col-xs-3">
-                            <div class="bg-green brd-2 p-15">
-                                <div class="c-white m-b-5 f-16">Lectures</div>
-                                <h2 class="m-0 c-white f-300 text-center m-b-5">{{ $countLecture }}</h2>
+                        <!-- ./col -->
+                        <div class="col-lg-3 col-6">
+                            <!-- small card -->
+                            <div class="small-box bg-warning">
+                                <div class="inner">
+                                    <h3>{{ $countCourse }}</h3>
+
+                                    <p>Courses</p>
+
+                                </div>
+                                <div class="icon">
+                                    <i class="fas fa-book"></i>
+                                </div>
+                                <a href="#" class="small-box-footer">
+                                    More info <i class="fas fa-arrow-circle-right"></i>
+                                </a>
                             </div>
                         </div>
+                        <!-- ./col -->
+                        <!-- ./col -->
+                        <div class="col-lg-3 col-6">
+                            <!-- small card -->
+                            <div class="small-box bg-danger">
+                                <div class="inner">
+                                    <h3>65</h3>
 
-                        <div class="col-xs-3">
-                            <div class="bg-red brd-2 p-15">
-                                <div class="c-white m-b-5 f-16">Reviews</div>
-                                <h2 class="m-0 c-white f-300 text-center m-b-5">0</h2>
+                                    <p>Reviews</p>
+                                </div>
+                                <div class="icon">
+                                    <i class="fas fa-chart-pie"></i>
+                                </div>
+                                <a href="#" class="small-box-footer">
+                                    More info <i class="fas fa-arrow-circle-right"></i>
+                                </a>
                             </div>
                         </div>
+                        <!-- ./col -->
                     </div>
 
+                    <!-- .card-body -->
+                    <div class="card card-success">
+                        <div class="card-header">
+                            <h3 class="card-title">Courses</h3>
 
-
-                    <!-- Recent Posts -->
-                    <div class="tile">
-                        <div class="t-header th-alt bg-lightblue m-b-15">
-                            <div class="th-title">My Courses</div>
-
-                            <div class="actions dropdown">
-                                <a href="" data-toggle="dropdown"><i class="zmdi zmdi-more"></i></a>
-
-                                <ul class="dropdown-menu pull-right">
-                                    <li><a href="">Refresh</a></li>
-                                </ul>
+                            <div class="card-tools">
+                                <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
+                                </button>
+                                <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i></button>
                             </div>
                         </div>
 
-                        <div class="t-body">
-                            <div class="row m-10">
+                        <div class="card-body">
+                            <div class="chart">
                                 @foreach ($courses as $key)
-                                    <div class="col-sm-6 col-md-3" style="height: 450px;" >
-                                        <div class="thumbnail">
-                                            <img src="{{ asset('upload/img/'.$key->course_pic)  }}" style="width: 100%;height: 190px;"  alt="" class="img-responsive">
-                                            <div class="caption">
-                                                <div style="height: 55px;">
-                                                    <h4>{{ $key->course_name }}</h4>
-                                                </div>
-                                                <div class="m-t-5" style="height: 55px;">
-                                                    <p>{{ $key->user->instructor->instructor_name}} {{ $key->user->instructor->instructor_skill}}</p>
-                                                </div>
-
-                                                <div class="clearfix"></div>
-
-                                                <div class="m-t-10">
-                                                    <a href="{{ url('viewcourse/'.$key->id) }}" class="btn bg-blue btn-icon-text"><i class="zmdi zmdi-view-list"></i>View</a>
-                                                    <a href="javascript:void(0)" onclick="delcourse('{{ $key->id }}','{{ $key->course_name }}')" class="btn bg-pink btn-icon-text"><i class="zmdi zmdi-close"></i>Delete</a>
-                                                </div>
-                                            </div>
-                                        </div>
+                                <div class="card" style="width: 18rem;">
+                                    <img src="{{ asset('upload/img/'.$key->course_pic)  }}" class="card-img-top" alt="...">
+                                    <i class="card-body">
+                                        <h5>{{ $key->course_name }}</h5>
+                                        <p class="card-text">{{ $key->user->instructor->instructor_name}} {{ $key->user->instructor->instructor_skill}}</p>
+                                        <a href="{{ url('viewcourse/'.$key->id) }}" type="button" class="btn btn-info">View</a>
+                                        <a href="javascript:void(0)" onclick="delcourse('{{ $key->id }}','{{ $key->course_name }}')"  type="button" class="btn btn-danger">Delete</a>
                                     </div>
                                 @endforeach
-
                             </div>
+
                         </div>
-                        <a class="view-more" href="{{ url('instructor-ViewCourseAll') }}"><i class="zmdi zmdi-refresh-sync zmdi-hc-fw"> </i>View more</a>
                     </div>
-
-
-
                 </div>
             </div>
+
         </div>
+        <!-- /.card-body -->
     </section>
 @stop
 

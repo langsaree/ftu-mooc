@@ -247,7 +247,7 @@ return [
             'can'  => 'manage-blog',
         ],
         [
-            'text'        => 'Manage User',
+            'text'        => 'Manage Users',
             'url'         => 'myadmin',
             'icon'        => 'far fa-fw fa-file',
             'label'       => 4,
