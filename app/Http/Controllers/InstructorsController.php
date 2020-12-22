@@ -516,12 +516,12 @@ class InstructorsController extends Controller
     //pretest
     public function Pretest(){
         $course = Course::where('user_id',Auth::id())->where('course_pretest',1)->get();
-        return view('instructor.pretest',compact('course'));
+        return view('instructor.pretest-refactoring',compact('course'));
     }
 
     //posttest
     public function Posttest(){
         $course = Course::where('user_id',Auth::id())->where('course_posttest',1)->get();
-        return view('instructor.posttest',compact('course'));
+        return view('instructor.posttest-refactoring',compact('course'));
     }
 }

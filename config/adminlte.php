@@ -250,7 +250,7 @@ return [
             'text'        => 'Manage Users',
             'url'         => 'myadmin',
             'icon'        => 'far fa-fw fa-file',
-            'label'       => 4,
+            //'label'       => 4,
             'label_color' => 'success',
         ],
         [
