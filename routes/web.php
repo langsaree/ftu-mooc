@@ -101,10 +101,4 @@ Route::get('Posttest','InstructorsController@Posttest');
 
 Route::get('Posttest','InstructorsController@Posttest');
 
-//test adminlte tempalte render
-Route::get('adminlte', function () {
-    return view('adminlte');
-});
 
-//Profile
-Route::get('profile','FrontendsController@profile');
