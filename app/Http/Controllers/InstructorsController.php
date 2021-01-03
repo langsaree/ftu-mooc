@@ -151,7 +151,7 @@ class InstructorsController extends Controller
         //รายชื่อนักเรียนที่ลงทะเบียน
         $students = Register::where('course_id',$code)->get();
 
-        return view('instructor.viewcoursebyID', compact(
+        return view('instructor.viewcoursebyID-refactoring', compact(
             'course',
             'groups',
             'faculties',

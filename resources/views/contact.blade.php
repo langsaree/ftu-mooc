@@ -5,7 +5,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="page-title">
-                        <h2>ติดต่อเรา</h2>
+                        <h2>Contact us</h2>
                         <small></small>
                     </div><!-- .page-title -->
                 </div><!-- .col-md-12 -->

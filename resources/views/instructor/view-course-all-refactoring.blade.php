@@ -23,28 +23,26 @@
                 <div class="col-lg-12">
 
                     <!-- Body Copy -->
-                    <div class="tile">
-                        <div class="t-header">
+
+
                             <div class="text-center">
                                 @if(Auth::user()->status == 1)
                                     <button type="button" class="btn btn-success"onclick="addcourses()">Add a course</button>
-
                                 @else
                                     <span>Can't add courses Because the user has not yet approved</span>
 
                                 @endif
                             </div>
-                        </div>
+
 
                         <!-- STACKED BAR CHART -->
                         <div class="card card-dark">
                             <div class="card-header">
-                                <h3 class="card-title">......</h3>
+                                <h3 class="card-title">courses</h3>
 
                                 <div class="card-tools">
                                     <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
                                     </button>
-                                    <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i></button>
                                 </div>
                             </div>
 

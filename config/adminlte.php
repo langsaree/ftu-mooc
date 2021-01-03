@@ -71,7 +71,7 @@ return [
 
     'usermenu_enabled' => true,
     'usermenu_header' => false,
-    'usermenu_header_class' => 'bg-primary',
+    'usermenu_header_class' => 'bg-success',
     'usermenu_image' => false,
     'usermenu_desc' => false,
     'usermenu_profile_url' => false,
@@ -106,12 +106,12 @@ return [
     |
     */
 
-    'classes_auth_card' => 'card-outline card-primary',
+    'classes_auth_card' => 'card-outline card-success',
     'classes_auth_header' => '',
     'classes_auth_body' => '',
     'classes_auth_footer' => '',
     'classes_auth_icon' => '',
-    'classes_auth_btn' => 'btn-flat btn-primary',
+    'classes_auth_btn' => 'btn-flat btn-success',
 
     /*
     |--------------------------------------------------------------------------
@@ -131,7 +131,7 @@ return [
     'classes_content_wrapper' => '',
     'classes_content_header' => '',
     'classes_content' => '',
-    'classes_sidebar' => 'sidebar-dark-primary elevation-4',
+    'classes_sidebar' => 'sidebar-dark-success elevation-4',
     'classes_sidebar_nav' => '',
     'classes_topnav' => 'navbar-white navbar-light',
     'classes_topnav_nav' => 'navbar-expand',
@@ -250,26 +250,26 @@ return [
             'text'        => 'Manage Users',
             'url'         => 'myadmin',
             'icon'        => 'far fa-fw fa-file',
-            //'label'       => 4,
-            'label_color' => 'success',
+            'label'       => 4,
+            'label_color' => 'warning',
         ],
         [
             'text'        => 'Dashboard',
             'url'         => 'instructor-dashboard',
-            'icon'        => 'far fa-fw fa-file',
-            'label_color' => 'success',
+            'icon' => 'fas fa-fw fa-tachometer-alt',
+
         ],
         ['header' => 'Course'],
         [
             'text' => 'Manage courses',
             'url'  => 'instructor-ViewCourseAll',
-            'icon' => 'fas fa-fw fa-user',
-            'label_color' => 'success',
+            'icon' => 'fas fa-fw fa-book',
+
         ],
         ['header' => 'Exam'],
         [
             'text'    => 'Examination',
-            'icon'    => 'fas fa-fw fa-share',
+            'icon'    => 'fas fa-fw fa-stream',
             'submenu' => [
                 [
                     'text' => 'Before',

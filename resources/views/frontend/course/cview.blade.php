@@ -14,7 +14,7 @@
                 <div class="carousel-caption">
                     <h3>{{ $course->course_name }}</h3>
                     <a href="javascript:void(0)" onclick="CheckRegister('{{ Auth::id() }}')"
-                       class="btn btn-block btn-lg btn-square btn-bordered btn-secondary">ลงทะเบียนเรียน</a>
+                       class="btn btn-block btn-lg btn-square btn-bordered btn-secondary">Enroll</a>
                 </div><!-- .carousel-caption -->
 
             </div><!-- .item -->
@@ -43,14 +43,14 @@
                     <article>
                         <div class="news-container">
 
-                            
+
 
                             <div class="news-image">
 
                             </div><!-- .news-image -->
                             <div class="news-entry">
 
-                                <h3>เกี่ยวกับหลักสูตร</h3>
+                                <h3>About the course</h3>
                                 <small><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
                                     Published {{ $course->course_published }}
                                     <span class="glyphicon glyphicon-globe"
@@ -58,7 +58,7 @@
                                 </small>
                                 <p>{{ $course->course_about }}</p>
 
-                                <h3>เป้าหมายของหลักสูตร</h3>
+                                <h3>Course goals</h3>
                                 <p>{!! $course->course_description !!}</p>
 
                             </div><!-- .news-entry -->
@@ -66,7 +66,7 @@
 
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <div><h3>โปรแกรมการเรียนรู้</h3></div>
+                                        <div><h3>Learning program</h3></div>
 
                                         <div class="panel-group" id="accordion" role="tablist"
                                              aria-multiselectable="true">
@@ -98,7 +98,7 @@
                                                                     @foreach ($lecture as $lec)
                                                                         @guest
                                                                         <li>{{ $lec->lecture_name }}</li>
-                                                                        <li>ดูวีดีโอ</li>
+                                                                        <li>Watch video</li>
                                                                         @else
                                                                             <li>
                                                                                 <a href="#{{ $lec->id }}" id="various1">{{ $lec->lecture_name }}</a>
@@ -111,12 +111,12 @@
                                                                             </li>
 
                                                                             <li><a class="fancyboxYoutube"
-                                                                                   href="{{ $lec->youtube }}">ดูวีดีโอ</a>
+                                                                                   href="{{ $lec->youtube }}">Watch video</a>
                                                                             </li>
 
-                                                                            
 
-                                                                            
+
+
                                                                             @endguest
                                                                             @endforeach
 
@@ -146,15 +146,15 @@
                                  alt="{{ $course->course_name }}">
                         </div><!-- .about-photo -->
                         <div class="about-author">
-                            <h3>ผู้สร้าง : {{ $course->user->instructor->instructor_name }}</h3>
+                            <h3>The creator : {{ $course->user->instructor->instructor_name }}</h3>
                             <small>{{ $course->user->instructor->instructor_skill }}</small>
                         </div><!-- .about-author -->
                         <div class="about-bio">
                             <table class="table">
-                                
+
 
                                 <tr>
-                                    <td><i class="glyphicon glyphicon-xbt"></i> ราคา</td>
+                                    <td><i class="glyphicon glyphicon-xbt"></i>price</td>
                                     <td>
                                         @if ($course->course_price != 0)
                                             B.{{ $course->course_price }}
@@ -168,15 +168,15 @@
                                 {{--<td></td>--}}
                                 {{--</tr>--}}
                                 <tr>
-                                    <td><i class="glyphicon glyphicon-globe"></i> ภาษา</td>
+                                    <td><i class="glyphicon glyphicon-globe"></i>language</td>
                                     <td>{{ $course->course_languages }}</td>
                                 </tr>
                                 <tr>
-                                    <td><i class="fa fa-calendar"></i> เริ่ม</td>
+                                    <td><i class="fa fa-calendar"></i>begin</td>
                                     <td>{{ $course->course_start }}</td>
                                 </tr>
                                 <tr>
-                                    <td><i class="fa fa-calendar"></i> สิ้นสุด</td>
+                                    <td><i class="fa fa-calendar"></i>End</td>
                                     <td>{{ $course->course_end }}</td>
                                 </tr>
                             </table>

@@ -13,7 +13,7 @@
             <div class="item active" style="background-image: url('{{ asset('style/img/bg.jpeg') }}')">
                 <a href="">
                     <div class="carousel-caption">
-                        <h3>ยินดีต้อนรับสุ่ FTUMOOC</h3>
+                        <h3>Welcome to FTUMOOC</h3>
                         <p>รวบรวมผู้เชี่ยวชาญในแต่ละสาขามาสอนที่ทำให้ทุกคนสามารถเรียนรู้และพัฒนาทักษะได้อย่างสะดวก ไม่ว่าที่ไหนและเมื่อไร</p>
                     </div><!-- .carousel-caption -->
                 </a>
@@ -45,7 +45,7 @@
                                 <h4>{{ $c->course_name }}</h4>
                                 <small>{{ $c->faculty->faculty_name }}</small>
 
-                                
+
                             </div><!-- .team-title -->
                             <div class="team-info" style="height:50px;">
 
@@ -54,7 +54,7 @@
                             </div><!-- .team-info -->
                             <hr/>
                             <div class="team-footer">
-                                <small>เริ่ม: {{ $c->course_start }}   ถึง: {{ $c->course_end }}  </small>
+                                <small>begin: {{ $c->course_start }}   To: {{ $c->course_end }}  </small>
                             </div>
 
                         </div><!-- .team-container -->

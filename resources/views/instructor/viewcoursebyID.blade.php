@@ -4,6 +4,8 @@
     <section id="content">
         <div class="container">
 
+
+
             <div class="tile" id="profile-main">
                 <div class="pm-overview c-overflow-dark">
                     <div class="pmo-pic">
@@ -25,22 +27,22 @@
                             </div>
 
                             <a href="javascript:void(0)" onclick="UploadPic()" class="pmop-edit">
-                                <i class="zmdi zmdi-camera"></i> <span class="hidden-xs">อัพเดทรูปภาพ</span>
+                                <i class="zmdi zmdi-camera"></i> <span class="hidden-xs">Update pictures</span>
                             </a>
                         </div>
 
 
                         <div class="pmo-stat">
                             <h2 class="m-0 c-white">{{ $students->count() }}</h2>
-                            ผู้เรียนสมัครสมาชิก
+                            Students apply for membership
                         </div>
                     </div>
 
                     <div class="pmo-block pmo-contact hidden-xs">
-                        <h2>รายละเอียดหลักสูตร</h2>
+                        <h2>Course details</h2>
 
                         <ul>
-                           
+
                             <li><i class="zmdi zmdi-flag zmdi-hc-fw"></i> {{ $course->course_name }}
                             </li>
                             <li><i class="zmdi zmdi-label zmdi-hc-fw"></i> {{ $course->faculty->faculty_name }}</li>
@@ -56,17 +58,18 @@
                 <div class="pm-body clearfix">
                     <ul class="tab-nav tn-justified">
                         <li class="active"><a href="#Information" aria-controls="Information" role="tab"
-                                              data-toggle="tab" aria-expanded="true">ข้อมูลทั่วไป</a></li>
-                        <li><a href="#Curriculum" aria-controls="Curriculum" role="tab" data-toggle="tab">โปรแกรมเรียน</a>
+                                              data-toggle="tab" aria-expanded="true">General information</a></li>
+                        <li><a href="#Curriculum" aria-controls="Curriculum" role="tab" data-toggle="tab">Study program</a>
                         </li>
-                        <li><a href="#Student" aria-controls="Student" role="tab" data-toggle="tab">ผู้เรียน</a></li>
+                        <li><a href="#Student" aria-controls="Student" role="tab" data-toggle="tab">Learner</a></li>
                     </ul>
+
                     <div class="tab-content">
                         <!--start Tab Information-->
                         <div id="Information" role="tabpanel" class="tab-pane active">
                             <div class="pmb-block">
                                 <div class="pmbb-header">
-                                    <h2><i class="zmdi zmdi-comment-more zmdi-hc-fw m-r-5"></i> เกี่ยวกับหลักสูตร</h2>
+                                    <h2><i class="zmdi zmdi-comment-more zmdi-hc-fw m-r-5"></i>About the course</h2>
 
                                     <ul class="actions">
                                         <li class="dropdown">
@@ -76,12 +79,13 @@
 
                                             <ul class="dropdown-menu pull-right">
                                                 <li>
-                                                    <a data-pmb-action="edit" href="">แก้ไข</a>
+                                                    <a data-pmb-action="edit" href="">modify</a>
                                                 </li>
                                             </ul>
                                         </li>
                                     </ul>
                                 </div>
+
                                 <div class="pmbb-body p-l-30">
                                     <div class="pmbb-view">
                                         {!! $course->course_about !!}
@@ -97,9 +101,9 @@
                                         </div>
                                         <div class="m-t-10">
                                             <button class="btn btn-primary btn-sm" type="submit"
-                                                    onclick="UpdateAbout()">บันทึก
+                                                    onclick="UpdateAbout()">record
                                             </button>
-                                            <button data-pmb-action="reset" class="btn btn-link btn-sm">ยกเลิก</button>
+                                            <button data-pmb-action="reset" class="btn btn-link btn-sm">cancel</button>
                                         </div>
 
                                     </div>
@@ -108,7 +112,7 @@
 
                             <div class="pmb-block">
                                 <div class="pmbb-header">
-                                    <h2><i class="zmdi zmdi-assignment zmdi-hc-fw m-r-5"></i>เป้าหมายหลักสูตร</h2>
+                                    <h2><i class="zmdi zmdi-assignment zmdi-hc-fw m-r-5"></i>Course goals</h2>
 
                                     <ul class="actions">
                                         <li class="dropdown">
@@ -118,7 +122,7 @@
 
                                             <ul class="dropdown-menu pull-right">
                                                 <li>
-                                                    <a data-pmb-action="edit" href="">แก้ไข</a>
+                                                    <a data-pmb-action="edit" href="">modify</a>
                                                 </li>
                                             </ul>
                                         </li>
@@ -139,9 +143,9 @@
                                                       required="required">{!! $course->course_description !!}</textarea>
                                         </div>
                                         <div class="m-t-10">
-                                            <button class="btn btn-primary btn-sm" onclick="UpdateDescriptions()">บันทึก
+                                            <button class="btn btn-primary btn-sm" onclick="UpdateDescriptions()">save
                                             </button>
-                                            <button data-pmb-action="reset" class="btn btn-link btn-sm">ยกเลิก</button>
+                                            <button data-pmb-action="reset" class="btn btn-link btn-sm">cancel</button>
                                         </div>
 
                                     </div>
@@ -150,7 +154,7 @@
 
                             <div class="pmb-block">
                                 <div class="pmbb-header">
-                                    <h2><i class="zmdi zmdi-account m-r-5"></i> ข้อมูลทั่วไป</h2>
+                                    <h2><i class="zmdi zmdi-account m-r-5"></i> General information</h2>
 
                                     <ul class="actions">
                                         <li class="dropdown">
@@ -160,7 +164,7 @@
 
                                             <ul class="dropdown-menu pull-right">
                                                 <li>
-                                                    <a data-pmb-action="edit" href="">แก้ไข</a>
+                                                    <a data-pmb-action="edit" href="">modify</a>
                                                 </li>
                                             </ul>
                                         </li>
@@ -169,26 +173,26 @@
                                 <div class="pmbb-body p-l-30">
                                     <div class="pmbb-view">
                                         <dl class="dl-horizontal">
-                                            <dt>ชื่อหลักสูตร</dt>
+                                            <dt>Course name</dt>
                                             <dd>{{ $course->course_name }}
                                             </dd>
                                         </dl>
                                         <dl class="dl-horizontal">
-                                            <dt>ภาษา</dt>
+                                            <dt>language</dt>
                                             <dd>
                                                 {{ $course->course_languages }}
                                             </dd>
                                         </dl>
                                         <dl class="dl-horizontal">
-                                            <dt>เริ่ม</dt>
+                                            <dt>Begin</dt>
                                             <dd>{{ $course->course_start }}</dd>
                                         </dl>
                                         <dl class="dl-horizontal">
-                                            <dt>สิ้นสุด</dt>
+                                            <dt>End</dt>
                                             <dd>{{ $course->course_end }}</dd>
                                         </dl>
                                         <dl class="dl-horizontal">
-                                            <dt>ราคา</dt>
+                                            <dt>price</dt>
                                             @if($course->course_price == 0)
                                                 <dd><span class='label label-success'>FREE</span></dd>
                                             @else
@@ -200,7 +204,7 @@
 
                                     <div class="pmbb-edit">
                                         <dl class="dl-horizontal">
-                                            <dt class="p-t-10">ชื่อหลักสูตร</dt>
+                                            <dt class="p-t-10">Course name</dt>
                                             <dd>
                                                 <div class="fg-line">
                                                     <input type="text" class="form-control"
@@ -212,7 +216,7 @@
                                             </dd>
                                         </dl>
                                         <dl class="dl-horizontal">
-                                            <dt class="p-t-10">ภาษา</dt>
+                                            <dt class="p-t-10">language</dt>
                                             <dd>
                                                 <div class="fg-line">
                                                     <select class="form-control" name="course_languages"
@@ -230,7 +234,7 @@
                                             </dd>
                                         </dl>
                                         <dl class="dl-horizontal">
-                                            <dt class="p-t-10">เริ่ม</dt>
+                                            <dt class="p-t-10">begin</dt>
                                             <dd>
                                                 <div class="dtp-container dropdown fg-line">
                                                     <input type='text' class="form-control date-picker"
@@ -241,7 +245,7 @@
                                             </dd>
                                         </dl>
                                         <dl class="dl-horizontal">
-                                            <dt class="p-t-10">สิ้นสุด</dt>
+                                            <dt class="p-t-10">End</dt>
                                             <dd>
                                                 <div class="dtp-container dropdown fg-line">
                                                     <input type='text' class="form-control date-picker"
@@ -252,7 +256,7 @@
                                             </dd>
                                         </dl>
                                         <dl class="dl-horizontal">
-                                            <dt class="p-t-10">ราคา</dt>
+                                            <dt class="p-t-10">price</dt>
                                             <dd>
                                                 <div class="dtp-container dropdown fg-line">
                                                     <input type="hidden" id="course_id" value="{{ $course->id }}">
@@ -264,9 +268,9 @@
                                         </dl>
 
                                         <div class="m-t-30">
-                                            <button class="btn btn-primary btn-sm" onclick="UpdateInformation()">บันทึก
+                                            <button class="btn btn-primary btn-sm" onclick="UpdateInformation()">save
                                             </button>
-                                            <button data-pmb-action="reset" class="btn btn-link btn-sm">ยกเลิก</button>
+                                            <button data-pmb-action="reset" class="btn btn-link btn-sm">cancel</button>
                                         </div>
                                     </div>
                                 </div>
@@ -285,7 +289,7 @@
 
                                             <ul class="dropdown-menu pull-right">
                                                 <li>
-                                                    <a data-pmb-action="edit" href="">แก้ไข</a>
+                                                    <a data-pmb-action="edit" href="">modify</a>
                                                 </li>
                                             </ul>
                                         </li>
@@ -294,12 +298,12 @@
                                 <div class="pmbb-body p-l-30">
                                     <div class="pmbb-view">
                                         <dl class="dl-horizontal">
-                                            <dt>หมวดหมู่</dt>
+                                            <dt>Category</dt>
                                             <dd>{{ $course->faculty->faculty_name }}</dd>
                                         </dl>
 
                                         <dl class="dl-horizontal">
-                                            <dt>ประเภท</dt>
+                                            <dt>category</dt>
                                             <dd>{{ $course->group->group_nameen }}</dd>
                                         </dl>
 
@@ -308,7 +312,7 @@
 
                                     <div class="pmbb-edit">
                                         <dl class="dl-horizontal">
-                                            <dt class="p-t-10">หมวดหมู่</dt>
+                                            <dt class="p-t-10">Category</dt>
                                             <dd>
                                                 <div class="fg-line">
                                                     <select class="form-control" name="faculty_id"
@@ -317,7 +321,7 @@
                                                             <option value="{{ $fac->id }}"
                                                                     @if($fac->id == $course->faculty_id)
                                                                     selected
-                                                                    @endif
+                                                                @endif
                                                             >{{ $fac->faculty_name }}</option>
                                                         @endforeach
                                                     </select>
@@ -326,7 +330,7 @@
                                         </dl>
 
                                         <dl class="dl-horizontal">
-                                            <dt class="p-t-10">ประเภท</dt>
+                                            <dt class="p-t-10">category</dt>
                                             <dd>
                                                 <div class="fg-line">
                                                     <input type = "hidden" id = "course_id" value="{{ $course->id }}">
@@ -335,7 +339,7 @@
                                                             <option value="{{ $group->id }}"
                                                                     @if($group->id == $course->group_id)
                                                                     selected
-                                                                    @endif
+                                                                @endif
                                                             >{{ $group->group_nameen }}</option>
                                                         @endforeach
                                                     </select>
@@ -346,9 +350,9 @@
 
                                         <div class="m-t-30">
                                             <button class="btn btn-primary btn-sm" onclick="SaveGroupInformation()">
-                                                บักทึก
+                                                save
                                             </button>
-                                            <button data-pmb-action="reset" class="btn btn-link btn-sm">ยกเลิก</button>
+                                            <button data-pmb-action="reset" class="btn btn-link btn-sm">cancel</button>
                                         </div>
                                     </div>
                                 </div>
@@ -357,7 +361,7 @@
 
                             <div class="pmb-block">
                                 <div class="pmbb-header">
-                                    <h2><i class="zmdi zmdi-chart zmdi-hc-fw m-r-5"></i> ข้อทดสอบ</h2>
+                                    <h2><i class="zmdi zmdi-chart zmdi-hc-fw m-r-5"></i>Test</h2>
 
                                     <ul class="actions">
                                         <li class="dropdown">
@@ -367,7 +371,7 @@
 
                                             <ul class="dropdown-menu pull-right">
                                                 <li>
-                                                    <a data-pmb-action="edit" href="">แก้ไข</a>
+                                                    <a data-pmb-action="edit" href="">modify</a>
                                                 </li>
                                             </ul>
                                         </li>
@@ -376,24 +380,24 @@
                                 <div class="pmbb-body p-l-30">
                                     <div class="pmbb-view">
                                         <dl class="dl-horizontal">
-                                            <dt>ทดสอบก่อนเรียน</dt>
+                                            <dt>Test before study</dt>
 
-                                                <dd>
-                                                    @if($course->course_pretest == 0)
-                                                    <span class='c-red'>ไม่มีการทดสอบก่อนเรียน</span>
-                                                    @else
-                                                        <span class='c-green'>มีการทดสอบก่อนเรียน</span>
-                                                    @endif
-                                                </dd>
+                                            <dd>
+                                                @if($course->course_pretest == 0)
+                                                    <span class='c-red'>There is no test before study</span>
+                                                @else
+                                                    <span class='c-green'>There is a test before study</span>
+                                                @endif
+                                            </dd>
                                         </dl>
                                         <dl class="dl-horizontal">
-                                            <dt>ทดสอบหลังเรียน</dt>
+                                            <dt>Test after class</dt>
                                             <dd>
                                             <dd>
                                                 @if($course->course_posttest == 0)
-                                                    <span class='c-red'>ไม่มีการทดสอบหลังเรียน</span>
+                                                    <span class='c-red'>No test after study</span>
                                                 @else
-                                                    <span class='c-green'>มีการทดสอบหลังเรียน</span>
+                                                    <span class='c-green'>There is a test after study</span>
                                                 @endif
                                             </dd>
                                             </dd>
@@ -405,7 +409,7 @@
 
                                     <div class="pmbb-edit">
                                         <dl class="dl-horizontal">
-                                            <dt class="p-t-10">ทดสอบก่อนเรียน</dt>
+                                            <dt class="p-t-10">Test before study</dt>
                                             <dd>
                                                 <div class="fg-line">
                                                     <input type = "hidden" id = "course_id" value="{{ $course->id }}">
@@ -421,7 +425,7 @@
                                             </dd>
                                         </dl>
                                         <dl class="dl-horizontal">
-                                            <dt class="p-t-10">ทดสอบหลังเรียน</dt>
+                                            <dt class="p-t-10">Test after study</dt>
                                             <dd>
                                                 <div class="fg-line" id="course_programs_g">
                                                     <select class="form-control" name="course_posttest"
@@ -440,26 +444,27 @@
                                         <div class="m-t-30">
                                             <button class="btn btn-primary btn-sm"
                                                     onclick="SaveCourseQuiz()">
-                                                บันทึก
+                                                save
                                             </button>
-                                            <button data-pmb-action="reset" class="btn btn-link btn-sm">ยกเลิก</button>
+                                            <button data-pmb-action="reset" class="btn btn-link btn-sm">cancel</button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
 
-                    
+
 
                         </div>
                         <!--End Tab Information-->
 
                         <!--start Tab curriculum-->
                         <div role="tabpanel" class="tab-pane" id="Curriculum">
-                            <h2 class="text-center">โปรแกรมเรียน</h2>
-                        @include('instructor.curriculum')
+                            <h2 class="text-center">Study program</h2>
+                            @include('instructor.curriculum')
 
                         </div>
+
                         <!--end Tab curriculum-->
 
                         <!--start Tab student-->
@@ -469,42 +474,42 @@
                                        width="100%">
                                     <thead>
                                     <tr>
-                                        <th>ลำดับ</th>
-                                        <th>ชื่อ-สกุล</th>
+                                        <th>order</th>
+                                        <th>Name-Surname</th>
                                         <th>email</th>
-                                        <th>เปอร์เซ็น</th>
-                                        <th>สถานะการเรียน</th>
+                                        <th>Percentage</th>
+                                        <th>Study status</th>
                                         {{--<th>ตัวเลือก</th>--}}
                                     </tr>
                                     </thead>
 
 
                                     <tbody>
-                                   @php
+                                    @php
 
-                                   $i = 1;
+                                        $i = 1;
 
-                                   @endphp
-                                   @foreach ($students as $stu)
-                                    <tr>
-                                        <td>{{ $i++ }}</td>
-                                        <td>{{ $stu->user->student->student_fullname  }}</td>
-                                        <td>{{ $stu->user->email }}</td>
-                                        <td></td>
-                                        <td><span class="label label-success">อยู่ระหว่างการศึกษา</span>
+                                    @endphp
+                                    @foreach ($students as $stu)
+                                        <tr>
+                                            <td>{{ $i++ }}</td>
+                                            <td>{{ $stu->user->student->student_fullname  }}</td>
+                                            <td>{{ $stu->user->email }}</td>
+                                            <td></td>
+                                            <td><span class="label label-success">Under study</span>
                                             </td>
-                                        {{--<td>--}}
+                                            {{--<td>--}}
                                             {{--<div class="dropdown">--}}
-                                                {{--<a href="#" class="dropdown-toggle btn btn-info" data-toggle="dropdown">ตัวเลือก</a>--}}
-                                                {{--<ul class="dropdown-menu pull-left">--}}
-                                                    {{--<li role="presentation"><a role="menuitem" tabindex="-1" href="#">ดูข้อมูลนักเรียน</a></li>--}}
-                                                    {{--<li role="presentation"><a role="menuitem" tabindex="-1" href="#">ดูข้อมูลการสอบ</a></li>--}}
-                                                {{--</ul>--}}
+                                            {{--<a href="#" class="dropdown-toggle btn btn-info" data-toggle="dropdown">ตัวเลือก</a>--}}
+                                            {{--<ul class="dropdown-menu pull-left">--}}
+                                            {{--<li role="presentation"><a role="menuitem" tabindex="-1" href="#">ดูข้อมูลนักเรียน</a></li>--}}
+                                            {{--<li role="presentation"><a role="menuitem" tabindex="-1" href="#">ดูข้อมูลการสอบ</a></li>--}}
+                                            {{--</ul>--}}
                                             {{--</div>--}}
-                                        {{--</td>--}}
-                                    </tr>
+                                            {{--</td>--}}
+                                        </tr>
 
-                                     @endforeach
+                                    @endforeach
                                     </tbody>
                                 </table>
                             </div>
@@ -552,7 +557,7 @@
                             {{ csrf_field() }}
                             {{ method_field('PATCH') }}
                             <div class="modal-header">
-                                <h4 class="modal-title">รูปภาพ</h4>
+                                <h4 class="modal-title">image</h4>
                             </div>
                             <div class="modal-body">
                                 <div class="row">
@@ -572,25 +577,25 @@
                                     <input type="hidden" name="id_s" id="id_s" value="{{ $course->id }}">
                                     <input type="hidden" name="id" id="id" value="{{ $course->id }}">
                                     <input type="hidden" name="id_pic" id="id_code" value="{{ $course->course_pic }}">
-                                    <p class=" c-black m-b-20">แสดงรูปภาพ</p>
+                                    <p class=" c-black m-b-20">Picture show</p>
 
                                     <div class="fileinput fileinput-new" data-provides="fileinput">
                                         <div class="fileinput-preview thumbnail" data-trigger="fileinput"></div>
                                         <div>
                                             <span class="btn btn-info btn-file">
-                                                <span class="fileinput-new">เลือกรูปภาพ</span>
-                                                <span class="fileinput-exists">เปลี่ยน</span>
+                                                <span class="fileinput-new">Select picture</span>
+                                                <span class="fileinput-exists">Change</span>
                                                 <input type="file" name="pic" id="pic">
                                             </span>
                                             <a href="#" class="btn btn-danger fileinput-exists"
-                                               data-dismiss="fileinput">ย้าย</a>
+                                               data-dismiss="fileinput">move</a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <button type="submit" class="btn btn-sm btn-primary" id="subpic">บักทึกการเปลี่ยนแปลง</button>
-                                <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">ปิด</button>
+                                <button type="submit" class="btn btn-sm btn-primary" id="subpic">Save changes</button>
+                                <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">close</button>
                             </div>
                         </form>
                     </div>
@@ -637,16 +642,16 @@
                     "sInfoFiltered": " จากข้อมูลทั้หมด _MAX_ แถว",
                     "sInfoPostFix": "",
                     "sInfoThousands": "'",
-                    "sLengthMenu": 'แสดง <select>' +
-                    '<option value="10">๑๐</option>' +
-                    '<option value="20">๒๐</option>' +
-                    '<option value="30">๓๐</option>' +
-                    '<option value="40">๔๐</option>' +
-                    '<option value="50">๕๐</option>' +
-                    '<option value="80">๘๐</option>' +
-                    '<option value="100">๑๐๐</option>' +
-                    '<option value="-1">ทั้งหมด</option>' +
-                    '</select> แถว',
+                    "sLengthMenu": 'show <select>' +
+                        '<option value="10">10</option>' +
+                        '<option value="20">20</option>' +
+                        '<option value="30">30</option>' +
+                        '<option value="40">40</option>' +
+                        '<option value="50">50</option>' +
+                        '<option value="80">80</option>' +
+                        '<option value="100">100</option>' +
+                        '<option value="-1">all</option>' +
+                        '</select> row',
                     "sLoadingRecords": "กำลังดาวน์โหลดข้อมูล...",
                     "sProcessing": "กำลังทำงาน...",
                     "sSearch": "ค้นหา:",
