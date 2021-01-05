@@ -101,3 +101,10 @@ Route::get('Posttest','InstructorsController@Posttest');
 Route::get('adminlte', function () {
     return view('adminlte');
 });
+
+Route::get('study', function () {
+    return view('study');
+});
+
+Route::get('/about','HomeController@about');
+

@@ -76,25 +76,25 @@
                 <div class="col-sm-6">
                     @guest
                     <ul class="topbar-menu">
-                        <li><a href="{{ url('instructor-register') }}">สำหรับผู้สอน</a></li>
-                        <li><a href="{{ url('signup') }}">สมัครสมาชิก</a></li>
-                        <li><a href="{{ url('signin') }}">ลงชื่อเข้าใช้</a></li>
+                        <li><a href="{{ url('instructor-register') }}">For teachers</a></li>
+                        <li><a href="{{ url('signup') }}">signup</a></li>
+                        <li><a href="{{ url('signin') }}">Sign in</a></li>
 
-                        <li><a href="{{ url('/contact') }}">ติดต่อเรา</a></li>
+                        <li><a href="{{ url('/contact') }}">Contact</a></li>
                     </ul><!-- .topbar-menu -->
                     @else
                         <ul class="topbar-menu">
-                            <li><a href="javascript:void(0)">สวัสดีคุณ {{ Auth::user()->name }}</a></li>
+                            <li><a href="javascript:void(0)">Hello {{ Auth::user()->name }}</a></li>
                             @if(Auth::user()->role_id == 1)
                                 <li><a href="{{ url('myadmin') }}">Dashboard</a></li>
                             @elseif(Auth::user()->role_id == 2)
                                 <li><a href="{{ url('instructor-dashboard') }}">Dashboard</a></li>
                             @elseif(Auth::user()->role_id == 3)
-                                <li><a href="{{ url('Mycourse') }}">หลักสูตรของฉัน</a></li>
+                                <li><a href="{{ url('Mycourse') }}">My course</a></li>
                             @endif
                             <li>
                                 <a href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">ออกจากระบบ</a>
+                                                     document.getElementById('logout-form').submit();">Log out</a>
 
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST"
                                       style="display: none;">
@@ -126,7 +126,7 @@
 
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                               aria-haspopup="true" aria-expanded="false">หมวดหมู่การเรียน <span
+                               aria-haspopup="true" aria-expanded="false">Study category <span
                                         class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 @php

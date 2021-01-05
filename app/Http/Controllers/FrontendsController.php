@@ -58,7 +58,7 @@ class FrontendsController extends Controller
     public function RegisterCourse(Request $r)
     {
         $register = Register::where('course_id',$r->course_id)->where('user_id',$r->user_id)->get();
-        
+
         if($register->count() == 1){
             return response()->json(['success' => 2]);
         }else{
