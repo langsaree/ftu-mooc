@@ -76,7 +76,6 @@
                                         <i class="fas fa-envelope bg-success"></i>
 
                                         <div class="timeline-item">
-                                            <span class="time"><i class="far fa-clock"></i> 12:05</span>
 
                                             <h3 class="timeline-header"><a href="#">About the course</a> </h3>
 
@@ -115,7 +114,6 @@
                                         <i class="fas fa-user bg-info"></i>
 
                                         <div class="timeline-item">
-                                            <span class="time"><i class="far fa-clock"></i> 5 mins ago</span>
 
                                             <h3 class="timeline-header border-0"><a href="#">Course goals</a>
                                             </h3>
@@ -131,7 +129,6 @@
                                         <i class="fas fa-comments bg-warning"></i>
 
                                         <div class="timeline-item">
-                                            <span class="time"><i class="far fa-clock"></i> 27 mins ago</span>
 
                                             <h3 class="timeline-header"><a href="#">General </a> information</h3>
 
@@ -140,14 +137,11 @@
                                                 <div class="pmbb-view">
                                                     <dl class="dl-horizontal">
                                                         <dt>Course name</dt>
-                                                        <dd>{{ $course->course_name }}
-                                                        </dd>
+                                                        <dd>{{ $course->course_name }}</dd>
                                                     </dl>
                                                     <dl class="dl-horizontal">
                                                         <dt>language</dt>
-                                                        <dd>
-                                                            {{ $course->course_languages }}
-                                                        </dd>
+                                                        <dd>{{ $course->course_languages }}</dd>
                                                     </dl>
                                                     <dl class="dl-horizontal">
                                                         <dt>Begin</dt>
@@ -199,11 +193,7 @@
 
                                         </div>
                                     </div>
-                                    <!-- END timeline item -->
-                                    <!-- timeline time label -->
 
-                                    <!-- /.timeline-label -->
-                                    <!-- timeline item -->
                                     <div>
                                         <i class="fas fa-camera bg-purple"></i>
 

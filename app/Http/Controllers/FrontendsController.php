@@ -71,4 +71,20 @@ class FrontendsController extends Controller
             return response()->json(['success' => 1]);
         }
     }
+
+    public function about($id)
+    {
+
+        $focusSection = Section::where('id', $id)->firstOrFail();
+        $sections = Section::where('course_id', $focusSection->course_id)->get();
+        $course = Course::where('id',$focusSection->course_id)->firstOrFail();
+
+        $lecture = Lecture::where('section_id',$focusSection->id)->firstOrFail();
+        //dd($lecture);
+
+        return view('frontend.course.about',compact('course','sections',
+            'focusSection','lecture'));
+    }
+
+
 }

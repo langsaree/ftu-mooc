@@ -8,6 +8,7 @@ Route::get('/signin','FrontendsController@signin');
 Route::get('/signup','FrontendsController@signup');
 
 Route::get('course-view/{id}','FrontendsController@cview');
+Route::get('about/{id}','FrontendsController@about');
 Route::get('get-faculties/{id}','FrontendsController@getfaculty');
 //บันทึกการลงทะเบียน
 
@@ -106,5 +107,5 @@ Route::get('study', function () {
     return view('study');
 });
 
-Route::get('/about','HomeController@about');
+
 

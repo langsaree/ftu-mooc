@@ -13,7 +13,6 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-12 col-md-12 col-lg-8 order-2 order-md-1">
-
                         <div class="row">
                             <div class="col-12">
                                 <h4>About the course</h4>
@@ -98,81 +97,6 @@
                         <div class="news-container">
 
 
-
-
-                            <div class="news-entry">
-
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div><h3>Learning program</h3></div>
-
-                                        <div class="panel-group" id="accordion" role="tablist"
-                                             aria-multiselectable="true">
-                                            @foreach ($sections as $key)
-                                                <div class="panel panel-default">
-                                                    <div class="panel-heading" role="tab" id="headingOne">
-                                                        <h4 class="panel-title">
-                                                            <a role="button" class="collapsed" data-toggle="collapse"
-                                                               data-parent="#accordion" href="#{{ $key->id }}"
-                                                               aria-expanded="true" aria-controls="collapseOne">
-                                                                {{ $key->section_name }}
-                                                                <span class="panel-nav fa fa-times-circle"></span>
-                                                            </a>
-                                                        </h4>
-                                                    </div>
-
-                                                    <div id="{{ $key->id }}" class="panel-collapse collapse"
-                                                         role="tabpanel" aria-labelledby="headingOne">
-                                                        <div class="panel-body">
-                                                            {{ $key->section_title }}
-
-                                                            <section class="widget widget_recent_entries">
-                                                                <ul>
-
-                                                                    @php
-                                                                        //loop lecture
-
-                                                                        $lecture = \App\Lecture::where('section_id',$key->id)->get();
-                                                                    @endphp
-                                                                    @foreach ($lecture as $lec)
-                                                                        @guest
-                                                                            <li>{{ $lec->lecture_name }}</li>
-                                                                            <li>Watch video</li>
-                                                                        @else
-                                                                            <li>
-                                                                                <a href="#{{ $lec->id }}" id="various1">{{ $lec->lecture_name }}</a>
-                                                                                <div style="display: none;">
-                                                                                    <div id="{{ $lec->id }}"
-                                                                                         style="width:900px;height:550px;overflow:auto;">
-                                                                                        {!! $lec->lecture_article  !!}
-                                                                                    </div>
-                                                                                </div>
-                                                                            </li>
-
-                                                                            <li><a class="fancyboxYoutube"
-                                                                                   href="{{ $lec->youtube }}">Watch video</a>
-                                                                            </li>
-
-
-
-
-                                                                        @endguest
-                                                                    @endforeach
-
-                                                                </ul>
-                                                            </section><!-- .widget_recent_entries -->
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                            @endforeach
-                                        </div>
-
-                                    </div><!-- .col-md-6 -->
-
-                                </div><!-- .row -->
-
-                            </div><!-- .news-footer -->
 
                         </div><!-- .news-container -->
                     </article>

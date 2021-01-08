@@ -1,6 +1,8 @@
 <!doctype html>
 <html lang="en">
 <head>
+
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
@@ -55,26 +57,46 @@
             <div class="sidebar-sticky pt-3">
                 <ul class="nav flex-column">
                     <li class="nav-item">
-                        <a class="nav-link  " href="/">
+
+                        <a class="nav-link"
+                           href="{{ url('course-view/'.$course->id)}}">
                             <span data-feather="file"></span>
                             About Course <span class="sr-only"></span>
+
                         </a>
 
                     </li>
+
+                    <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                        <span>Test Befor Study</span>
+                        <a class="d-flex align-items-center text-muted" href="#" aria-label="Add a new report">
+                            <span data-feather="plus-circle"></span>
+                        </a>
+                    </h6>
+
+
                     <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
                         <span>Lessons</span>
                         <a class="d-flex align-items-center text-muted" href="#" aria-label="Add a new report">
                             <span data-feather="plus-circle"></span>
                         </a>
                     </h6>
+
                     <li class="nav-item" >
                         @foreach ($sections as $key)
-                        <a class="nav-link" href="{{ $key->id }}">
+                        <a class="nav-link" href="{{ url('about/'.$key->id)}}">
                             <span data-feather="file"></span>
                             {{ $key->section_name }}
                         </a>
                         @endforeach
                     </li>
+
+                    <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                        <span>Test After Study</span>
+                        <a class="d-flex align-items-center text-muted" href="#" aria-label="Add a new report">
+                            <span data-feather="plus-circle"></span>
+                        </a>
+                    </h6>
 
 
                 </ul>
@@ -104,6 +126,7 @@
 
         </nav>
     </div>
+
         @yield('content')
 
 
