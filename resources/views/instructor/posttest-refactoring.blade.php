@@ -45,7 +45,7 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <?php foreach ($course as $key){?>
+                                <?php foreach ($course as $key)?>
                                 <tr>
                                     <td>{{ $key->id }}</td>
                                     <td>{{ $key->course_name }}</td>

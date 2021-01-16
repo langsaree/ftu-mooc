@@ -4,7 +4,7 @@
 </div>
 <div class="modal-body">
     <input type="hidden" name="section_id" id="section_id" value="{{ $section->id }}">
-    <p class="">เพิ่มเนื้อหา</p>
+    <p class="">Add content</p>
     <div class="input-group">
         <input type="text" class="form-control" name="lecture_title" id="lecture_title" placeholder="เพิ่มหัวข้อเนื้อหาในบทเรียน"
                maxlength="79" onkeyup="count_title_lecture()">
@@ -12,6 +12,6 @@
     </div>
 </div>
 <div class="modal-footer">
-    <button type="button" class="btn btn-sm btn-primary" onclick="SaveLecture()">บันทึกการเปลี่ยนแปลง</button>
-    <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">ปิดหน้าต่าง</button>
+    <button type="button" class="btn btn-sm btn-primary" onclick="SaveLecture()">Save changes</button>
+    <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Close the window</button>
 </div>

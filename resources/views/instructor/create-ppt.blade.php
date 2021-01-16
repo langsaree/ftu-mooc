@@ -7,7 +7,7 @@
 
             <div class="tile">
                 <div class="t-header">
-                    <div class="th-title">อัพโหลดไฟล์ PPT <small></small></div>
+                    <div class="th-title">Upload files PPT <small></small></div>
                 </div>
 
                 <div class="t-body tb-padding">
@@ -21,12 +21,12 @@
                             <br/>
                             <input type="hidden" name="lecture_id" id="lecture_id" value="{{ $lecture_id }}">
                             <input type="hidden" name="course_id" id="course_id" value="{{ $course_id }}">
-                            <p class=" c-black m-b-20">ไฟล์ PPT </p>
+                            <p class=" c-black m-b-20">file PPT </p>
 
                             <div class="fileinput fileinput-new" data-provides="fileinput">
                                     <span class="btn btn-primary btn-file m-r-10">
-                                        <span class="fileinput-new">เลือกไฟล์</span>
-                                        <span class="fileinput-exists">เปลี่ยน</span>
+                                        <span class="fileinput-new">Select a file</span>
+                                        <span class="fileinput-exists">Change</span>
                                         <input type="file" name="ppt" name="ppt">
                                     </span>
                                 <span class="fileinput-filename"></span>
@@ -38,8 +38,8 @@
                         <br>
 
                         <div class="row text-right m-10">
-                            <button type="submit" class="btn btn-sm btn-primary" id="subpic">อัพโหลด</button>
-                            <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">ปิด</button>
+                            <button type="submit" class="btn btn-sm btn-primary" id="subpic">Upload</button>
+                            <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">close</button>
                         </div>
                     </form>
                 </div>

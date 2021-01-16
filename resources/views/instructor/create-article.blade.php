@@ -7,7 +7,7 @@
 
             <div class="tile">
                 <div class="t-header">
-                    <div class="th-title">อัพโหลดบทความ <small></small></div>
+                    <div class="th-title">Upload articles <small></small></div>
                 </div>
 
                 <div class="t-body tb-padding">
@@ -21,7 +21,7 @@
                             <br/>
                             <input type="hidden" name="lecture_id" id="lecture_id" value="{{ $lecture_id }}">
                             <input type="hidden" name="course_id" id="course_id" value="{{ $course_id }}">
-                            <p class=" c-black m-b-20">เนื้อหา </p>
+                            <p class=" c-black m-b-20">material </p>
 
                             <textarea class="html-editor" name="article" required="required"></textarea>
                         </div>

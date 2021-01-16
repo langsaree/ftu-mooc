@@ -162,51 +162,36 @@
                                                     </dl>
                                                 </div>
                                             </div>
-
                                         </div>
                                     </div>
 
                                     <div>
                                         <i class="fas fa-comments bg-warning"></i>
-
                                         <div class="timeline-item">
-                                            <span class="time"><i class="far fa-clock"></i> 27 mins ago</span>
-
                                             <h3 class="timeline-header"><a href="#">Group Information</a> </h3>
-
                                             <div class="timeline-body">
-
                                                 <div class="pmbb-view">
                                                     <dl class="dl-horizontal">
                                                         <dt>Category</dt>
                                                         <dd>{{ $course->faculty->faculty_name }}</dd>
                                                     </dl>
-
                                                     <dl class="dl-horizontal">
                                                         <dt>category</dt>
                                                         <dd>{{ $course->group->group_nameen }}</dd>
                                                     </dl>
-
                                                 </div>
-
                                             </div>
-
                                         </div>
                                     </div>
 
                                     <div>
                                         <i class="fas fa-camera bg-purple"></i>
-
                                         <div class="timeline-item">
-                                            <span class="time"><i class="far fa-clock"></i> 2 days ago</span>
-
                                             <h3 class="timeline-header"><a href="#">Test</a> .</h3>
-
                                             <div class="timeline-body">
                                                 <div class="pmbb-view">
                                                     <dl class="dl-horizontal">
                                                         <dt>Test before study</dt>
-
                                                         <dd>
                                                             @if($course->course_pretest == 0)
                                                                 <span class='c-red'>There is no test before study</span>
@@ -217,7 +202,6 @@
                                                     </dl>
                                                     <dl class="dl-horizontal">
                                                         <dt>Test after class</dt>
-
                                                         <dd>
                                                             @if($course->course_posttest == 0)
                                                                 <span class='c-red'>No test after study</span>
@@ -225,10 +209,7 @@
                                                                 <span class='c-green'>There is a test after study</span>
                                                             @endif
                                                         </dd>
-
                                                     </dl>
-
-
                                                 </div>
                                             </div>
                                         </div>
@@ -241,21 +222,12 @@
                             </div>
                         </div>
 
-
-
-                        <!-- /.tab-pane -->
+                        <!-- study program -->
                         <div class="tab-pane" id="Study">
-                            <!-- The timeline -->
-                            <div class="timeline timeline-inverse">
-                                <h2 class="text-center">Study program</h2>
-                                @include('instructor.curriculum')
 
+                                @include('instructor.curriculum-refactoring')
 
-                            </div>
                         </div>
-                        <!-- /.tab-pane -->
-
-
 
 
                         <div class="tab-pane" id="settings">
@@ -296,3 +268,500 @@
                                 </div>
 
 @stop
+
+                                @section('js')
+                                    <script>
+                                        $(document).on('ready', function () {
+                                            //document.getElementById("Dashboard").className = "active";
+
+                                            $("#curriculum").addClass('active');
+                                            $('.rating-loading').rating({
+                                                displayOnly: true,
+                                                step: 0.1
+
+                                            });
+                                            $('body').on('hidden.bs.modal', '.modal', function () {
+                                                $(this).removeData('bs.modal');
+                                            });
+                                            $("#course_start").on("dp.change", function (e) {
+                                                $('#course_end').data("DateTimePicker").minDate(e.date);
+                                            });
+                                            $("#course_end").on("dp.change", function (e) {
+                                                $('#course_start').data("DateTimePicker").maxDate(e.date);
+                                            });
+                                            $('.html-editor').summernote({
+                                                height: 250
+                                            });
+
+
+                                            $('#example').dataTable({
+                                                "sPaginationType": "full_numbers",
+                                                "oLanguage": {
+                                                    "sEmptyTable": "ไม่มีข้อมูลค่ะ",
+                                                    "sInfo": "ข้อมูลทั้งหมด _TOTAL_ รายการที่จะแสดง [_START_ ถึง _END_]",
+                                                    "sInfoEmpty": "ไม่มีรายการที่จะแสดง",
+                                                    "sInfoFiltered": " จากข้อมูลทั้หมด _MAX_ แถว",
+                                                    "sInfoPostFix": "",
+                                                    "sInfoThousands": "'",
+                                                    "sLengthMenu": 'show <select>' +
+                                                        '<option value="10">10</option>' +
+                                                        '<option value="20">20</option>' +
+                                                        '<option value="30">30</option>' +
+                                                        '<option value="40">40</option>' +
+                                                        '<option value="50">50</option>' +
+                                                        '<option value="80">80</option>' +
+                                                        '<option value="100">100</option>' +
+                                                        '<option value="-1">all</option>' +
+                                                        '</select> row',
+                                                    "sLoadingRecords": "กำลังดาวน์โหลดข้อมูล...",
+                                                    "sProcessing": "กำลังทำงาน...",
+                                                    "sSearch": "ค้นหา:",
+                                                    "sZeroRecords": "ไม่พบข้อมูลที่ค้นหาในตารางค่ะ",
+                                                    "oPaginate": {
+                                                        "sFirst": "<i class='zmdi zmdi-arrow-left zmdi-hc-fw'></i>",
+                                                        "sLast": "<i class='zmdi zmdi-arrow-right zmdi-hc-fw'></i>",
+                                                        "sNext": "<i class='zmdi zmdi-caret-right-circle zmdi-hc-fw'></i>",
+                                                        "sPrevious": "<i class='zmdi zmdi-caret-left-circle zmdi-hc-fw'></i>"
+                                                    }
+                                                }
+
+                                            });
+
+
+                                        });
+
+                                        function delcourse(id, name) {
+                                            swal({
+                                                title: "ยืนยันการลบข้อมูล?",
+                                                text: "คุณต้องการลบ หลักสูตร" + name + " หรือไม่",
+                                                type: "warning",
+                                                showCancelButton: true,
+                                                confirmButtonClass: 'btn bg-pink',
+                                                cancelButtonClass: 'btn bg-gray',
+                                                confirmButtonText: "Yes, delete it!",
+                                                closeOnConfirm: false
+                                            }, function () {
+                                                $.ajax({
+                                                    url: '{{ url('DeleteCourse') }}',
+                                                    type: "post",
+                                                    data: {
+                                                        '_token': $('input[name=_token]').val(),
+                                                        'id': id,
+                                                    },
+                                                });
+                                                swal("ลบ หลักสูตร" + name + " เรียบร้อยแล้ว", "success");
+                                                $('.btn-primary').on('click', function () {
+                                                    location.reload();
+                                                });
+                                            });
+                                        }
+                                        function UpdateAbout() {
+                                            var course_id = $("#course_id").val();
+
+                                            console.log(course_id);
+                                            var course_about = $("#course_about").val();
+                                            $.ajax({
+                                                url: "{{ url('InstructorUpdateAbout') }}",
+                                                type: "post",
+                                                data: {
+                                                    '_token': $('input[name=_token]').val(),
+                                                    'id': course_id,
+                                                    'course_about': course_about
+                                                },
+                                                success: function (data) {
+
+                                                    swal("success", data.success, "success");
+                                                    $('.btn-primary').on('click', function () {
+                                                        location.reload();
+                                                    });
+
+                                                },
+                                                error: function (error) {
+                                                    swal(({
+                                                        title: "เกิดข้อผิดพลาด",
+                                                        text: "ไม่สามารถแก้ไขรายการได้",
+                                                        icon: "error",
+                                                        button: "Dismiss",
+                                                    }));
+                                                }
+                                            });
+
+                                        }
+                                        function UpdateInformation() {
+                                            var course_id = $("#course_id").val();
+                                            $.ajax({
+                                                url: "{{ url('InstructorUpdateInformation') }}",
+                                                type: "post",
+                                                data: {
+                                                    '_token': $('input[name=_token]').val(),
+                                                    'id': course_id,
+                                                    'course_name': $("#course_name").val(),
+                                                    'course_languages': $("#course_languages").val(),
+                                                    'course_start': $("#course_start").val(),
+                                                    'course_end': $("#course_end").val(),
+                                                    'course_price': $("#course_price").val()
+                                                },
+                                                success: function (data) {
+
+                                                    swal("success", data.success, "success");
+                                                    $('.btn-primary').on('click', function () {
+                                                        location.reload();
+                                                    });
+
+                                                },
+                                                error: function (error) {
+                                                    swal(({
+                                                        title: "เกิดข้อผิดพลาด",
+                                                        text: "ไม่สามารถแก้ไขรายการได้",
+                                                        icon: "error",
+                                                        button: "Dismiss",
+                                                    }));
+                                                }
+                                            });
+                                        }
+                                        function GetProgram(id) {
+                                            if (id != "") {
+                                                $.ajax({
+                                                    url: 'Instructor/GetProgram',
+                                                    type: "post",
+                                                    data: ({
+                                                        id: id
+                                                    }),
+                                                    success: function (re) {
+                                                        $("#course_programs_g").html(re);
+                                                    }
+                                                })
+                                            } else {
+                                                swal("กรุณาเลือก", "กรุณาเลือกสังกัดคณะ", "error");
+                                            }
+                                        }
+
+                                        function SaveCourseQuiz() {
+                                            var course_id = $("#course_id").val();
+                                            $.ajax({
+                                                url: "{{ url('InstructorUpdateCourseQuiz') }}",
+                                                type: "post",
+                                                data: {
+                                                    '_token': $('input[name=_token]').val(),
+                                                    'id': course_id,
+                                                    'pretest': $("#course_pretest").val(),
+                                                    'posttest': $("#course_posttest").val()
+                                                },
+                                                success: function (data) {
+
+                                                    swal("success", data.success, "success");
+                                                    $('.btn-primary').on('click', function () {
+                                                        location.reload();
+                                                    });
+
+                                                },
+                                                error: function (error) {
+                                                    swal(({
+                                                        title: "เกิดข้อผิดพลาด",
+                                                        text: "ไม่สามารถแก้ไขรายการได้",
+                                                        icon: "error",
+                                                        button: "Dismiss",
+                                                    }));
+                                                }
+                                            });
+                                        }
+
+                                        function SaveGroupInformation() {
+                                            var course_id = $("#course_id").val();
+                                            $.ajax({
+                                                url: "{{ url('InstructorUpdateGroupInformation') }}",
+                                                type: "post",
+                                                data: {
+                                                    '_token': $('input[name=_token]').val(),
+                                                    'id': course_id,
+                                                    'faculty_id': $("#faculty_id").val(),
+                                                    'group_id': $("#group_id").val()
+                                                },
+                                                success: function (data) {
+
+                                                    swal("success", data.success, "success");
+                                                    $('.btn-success').on('click', function () {
+                                                        location.reload();
+                                                    });
+
+                                                },
+                                                error: function (error) {
+                                                    swal(({
+                                                        title: "เกิดข้อผิดพลาด",
+                                                        text: "ไม่สามารถแก้ไขรายการได้",
+                                                        icon: "error",
+                                                        button: "Dismiss",
+                                                    }));
+                                                }
+                                            });
+                                        }
+                                        function UpdateDescriptions() {
+                                            var course_id = $("#course_id").val();
+                                            $.ajax({
+                                                url: "{{ url('InstructorUpdateDescription') }}",
+                                                type: "post",
+                                                data: {
+                                                    '_token': $('input[name=_token]').val(),
+                                                    'id': course_id,
+                                                    'course_description': $("#course_description").val()
+                                                },
+                                                success: function (data) {
+
+                                                    swal("success", data.success, "success");
+                                                    $('.btn-success').on('click', function () {
+                                                        location.reload();
+                                                    });
+
+                                                },
+                                                error: function (error) {
+                                                    swal(({
+                                                        title: "เกิดข้อผิดพลาด",
+                                                        text: "ไม่สามารถแก้ไขรายการได้",
+                                                        icon: "error",
+                                                        button: "Dismiss",
+                                                    }));
+                                                }
+                                            });
+                                        }
+                                        function InsertSection() {
+                                            var course_id = $("#course_id").val();
+                                            if ($("#section_name").val() != "") {
+                                                $.ajax({
+                                                    url: "{{ url('InsertSection') }}",
+                                                    type: "post",
+                                                    data: {
+                                                        '_token': $('input[name=_token]').val(),
+                                                        'course_id': course_id,
+                                                        'section_name': $("#section_name").val(),
+                                                        'section_title': $("#section_title").val(),
+                                                        'section_number': 1
+                                                    },
+                                                    success: function (data) {
+
+                                                        swal("success", data.success, "success");
+                                                        $('.btn-primary').on('click', function () {
+                                                            location.reload();
+                                                        });
+
+                                                    },
+                                                    error: function (error) {
+                                                        swal(({
+                                                            title: "เกิดข้อผิดพลาด",
+                                                            text: "ไม่สามารถแก้ไขรายการได้",
+                                                            icon: "error",
+                                                            button: "Dismiss",
+                                                        }));
+                                                    }
+                                                });
+                                            } else {
+                                                swal("Errors", "Enter a title...", "error");
+                                                $("#section_name").focus();
+                                            }
+                                        }
+                                        function count_name() {
+
+                                            var l = jQuery("#section_name").val().length;
+                                            l = 100 - l;
+                                            $("#dd").html(l);
+                                        }
+
+                                        function count_title() {
+                                            var l = jQuery("#section_title").val().length;
+                                            l = 250 - l;
+                                            $("#tt").html(l);
+                                        }
+                                        function count_name1() {
+
+                                            var l = jQuery("#section_name1").val().length;
+                                            l = 100 - l;
+                                            $("#dd1").html(l);
+                                        }
+
+                                        function count_title1() {
+                                            var l = jQuery("#section_title1").val().length;
+                                            l = 250 - l;
+                                            $("#tt1").html(l);
+                                        }
+                                        function addlecture(id) {
+
+                                            $("#addlecture").modal({
+                                                show: true,
+                                                remote: '{{ url('addlecture') }}' + '/'+ id
+                                            });
+
+                                        }
+                                        function count_title_lecture() {
+                                            var l = jQuery("#lecture_title").val().length;
+                                            l = 80 - l;
+                                            $("#tecture").html(l);
+                                        }
+                                        //Save Lecture
+                                        function SaveLecture() {
+                                            console.log('OK');
+                                            if ($("#lecture_title").val() != "") {
+                                                $.ajax({
+                                                    url: "{{ url('saveLecture') }}",
+                                                    type: "POST",
+                                                    data: {
+                                                        '_token': $('input[name=_token]').val(),
+                                                        'section_id': $("#section_id").val(),
+                                                        'lecture_title': $("#lecture_title").val()
+                                                    },
+                                                    success: function (data) {
+
+                                                        swal("success", data.success, "success");
+                                                        $('.btn-primary').on('click', function () {
+                                                            location.reload();
+                                                        });
+
+                                                    },
+                                                    error: function (error) {
+                                                        swal(({
+                                                            title: "เกิดข้อผิดพลาด",
+                                                            text: "ไม่สามารถแก้ไขรายการได้",
+                                                            icon: "error",
+                                                            button: "Dismiss",
+                                                        }));
+
+                                                    }
+                                                });
+                                            } else {
+                                                swal("Errors", "Enter a title...", "error");
+                                            }
+                                        }
+                                        //delete section
+                                        function DeleteSection(id) {
+                                            swal({
+                                                title: "ยืนยันการลบข้อมูล?",
+                                                text: "คุณต้องการลบหรือไม่",
+                                                type: "warning",
+                                                showCancelButton: true,
+                                                confirmButtonClass: 'btn bg-pink',
+                                                cancelButtonClass: 'btn bg-gray',
+                                                confirmButtonText: "Yes, delete it!",
+                                                closeOnConfirm: false
+                                            }, function () {
+                                                $.ajax({
+                                                    url: '{{ url('DeleteSection') }}',
+                                                    type: "post",
+                                                    data: {
+                                                        '_token': $('input[name=_token]').val(),
+                                                        'id': id
+                                                    }
+                                                });
+                                                swal("ลบข้อมูล ", "เรียบร้อยแล้ว", "success");
+                                                $('.btn-primary').on('click', function () {
+                                                    location.reload();
+                                                });
+                                            });
+                                        }
+
+                                        //Delete Lecture
+                                        function DeleteLecture(id) {
+                                            swal({
+                                                title: "ยืนยันการลบข้อมูล?",
+                                                text: "คุณต้องการลบหรือไม่",
+                                                type: "warning",
+                                                showCancelButton: true,
+                                                confirmButtonClass: 'btn bg-pink',
+                                                cancelButtonClass: 'btn bg-gray',
+                                                confirmButtonText: "Yes, delete it!",
+                                                closeOnConfirm: false
+                                            }, function () {
+                                                $.ajax({
+                                                    url: '{{ url('DeleteLecture') }}',
+                                                    type: "post",
+                                                    data: {
+                                                        '_token': $('input[name=_token]').val(),
+                                                        'id': id
+                                                    }
+                                                });
+                                                swal("ลบข้อมูล ", "เรียบร้อยแล้ว", "success");
+                                                $('.btn-primary').on('click', function () {
+                                                    location.reload();
+                                                });
+                                            });
+                                        }
+
+                                        //Edit Section
+                                        function EditSection(id) {
+                                            $("#EditSection").modal({
+                                                show: true,
+                                                remote: '{{ url('EditSection') }}' + '/'+ id
+
+                                            });
+                                        }
+
+                                        //update section
+
+                                        function InsertUpdateSection() {
+                                            if ($("#section_name1").val() != "") {
+                                                $.ajax({
+                                                    url: "{{ url('InsertUpdateSection') }}",
+                                                    type: "post",
+                                                    data: {
+                                                        '_token': $('input[name=_token]').val(),
+                                                        'id': $("#section_id1").val(),
+                                                        'section_name': $("#section_name1").val(),
+                                                        'section_title': $("#section_title1").val()
+                                                    },
+                                                    success: function (data) {
+
+                                                        swal("success", data.success, "success");
+                                                        $('.btn-primary').on('click', function () {
+                                                            location.reload();
+                                                        });
+
+                                                    },
+                                                    error: function (error) {
+                                                        swal(({
+                                                            title: "เกิดข้อผิดพลาด",
+                                                            text: "ไม่สามารถแก้ไขรายการได้",
+                                                            icon: "error",
+                                                            button: "Dismiss",
+                                                        }));
+
+                                                    }
+                                                });
+                                            } else {
+                                                swal("Errors", "Enter a title...", "error");
+                                                $("#section_name").focus();
+                                            }
+                                        }
+
+                                        //Upload Pic
+                                        function UploadPic() {
+                                            $("#UploadPic").modal({
+                                                show: true
+                                            });
+                                        }
+                                        function ViewLecture(id, code) {
+                                            $("#ViewLecture").modal({
+                                                show: true,
+                                                remote: '?id=' + id + '&code=' + code
+                                            });
+                                        }
+
+                                        function PublicCheck(id) {
+                                            var l = id.split("#");
+                                            console.log(l[0]);
+                                            $.ajax({
+                                                url: "{{ url('PublicCheck') }}",
+                                                type: "post",
+                                                data: {
+                                                    '_token': $('input[name=_token]').val(),
+                                                    'id': l[0]
+                                                }
+                                            });
+                                        }
+                                        function ViewArticle(id) {
+                                            $("#ViewLecture").modal({
+                                                show: true,
+                                                remote: 'Instructor/ViewArticle?id=' + id
+                                            });
+                                        }
+                                    </script>
+
+
+@stop
+

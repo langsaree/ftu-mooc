@@ -1,46 +1,49 @@
 <div class="col-sm-10 col-sm-offset-1 m-b-25 m-t-25">
-    <div class="panel-group" data-collapse-color="green" id="accordionGreen" role="tablist"
-         aria-multiselectable="true">
+    <div class="panel-group" data-collapse-color="green" id="accordionGreen" role="tablist" aria-multiselectable="true">
+
         @php
             $i = 0;
         @endphp
+
         @foreach ($sections as $section)
+
 
             <div class="panel panel-collapse">
                 <div class="panel-heading" role="tab">
                     <h4 class="panel-title">
 
-
                         <a data-toggle="collapse" data-parent="#accordionGreen" href="#{{ $section->id }}"
                            aria-expanded="false" class="collapsed">
                             {{ $section->section_name }}
-
                         </a>
-
                     </h4>
                 </div>
+
                 <div id="{{ $section->id }}" class="collapse" role="tabpanel" aria-expanded="false"
                      style="height: 0px;">
+
                     <div class="panel-body">
 
                         <div class="col-sm-12 m-t-5 m-b-20">
                             <button class="btn btn-primary btn bg-lightblue"
                                     onclick="addlecture('{{ $section->id }}')"><i
-                                        class="zmdi zmdi-collection-plus zmdi-hc-fw"></i> เพิ่มเนื้อหา
+                                        class="zmdi zmdi-collection-plus zmdi-hc-fw"></i> Add content
                             </button>
                             <button class="btn btn-primary btn bg-amber"
                                     onclick="EditSection({{ $section->id }})"><i
-                                        class="zmdi zmdi-comment-edit zmdi-hc-fw"></i> แก้ไขบทเรียน
+                                        class="zmdi zmdi-comment-edit zmdi-hc-fw"></i> Edit lesson
                             </button>
-                            <button class="btn btn-primary btn bg-pink"
-                                    onclick="DeleteSection({{ $section->id }})"><i
-                                        class="zmdi zmdi-delete zmdi-hc-fw"></i> ลบบทเรียน
+                            <button class="btn btn-primary btn bg-pink" onclick="DeleteSection({{ $section->id }})"><i class="zmdi zmdi-delete zmdi-hc-fw"></i> Delete lesson
+
+
                             </button>
                         </div>
+
 
                         <div class="c-gray m-l-5">
                             {{ $section->section_title }}
                         </div>
+
                         @php
                             //loop lecture
                             $lectures =  DB::table('lectures')->where('section_id',$section->id)->get();
@@ -59,18 +62,20 @@
 
                                                 &nbsp;&nbsp;
                                                 <span class="text-danger">
-                                                                                                            <div class="toggle-switch">
-                                                                                                                <label for="ts1"
-                                                                                                                       class="ts-label">เปิดสาธารณะ </label>
-                                                                                                                <input id="{{ $lecture->id }}"
-                                                                                                                       type="checkbox"
-                                                                                                                       @if ($lecture->lecture_preview == '1')  checked
-                                                                                                                       @endif
-                                                                                                                       onclick="PublicCheck('{{ $lecture->id }}#{{ $lecture->lecture_preview }}')">
-                                                                                                                <label for="ts1"
-                                                                                                                       class="ts-helper"></label>
-                                                                                                            </div>
-                                                                            </span>
+
+                                                    <div class="toggle-switch">
+                                                        <label for="ts1" class="ts-label">Open to public </label>
+
+                                                        <input id="{{ $lecture->id }}"
+                                                               type="checkbox"
+                                                               @if ($lecture->lecture_preview == '1')  checked
+                                                               @endif
+                                                               onclick="PublicCheck('{{ $lecture->id }}#{{ $lecture->lecture_preview }}')">
+
+                                                        <label for="ts1" class="ts-helper"></label>
+
+                                                    </div>
+                                                </span>
                                             </div>
 
                                             <div class="actions dropdown">
@@ -80,10 +85,11 @@
                                                 <ul class="dropdown-menu pull-right">
 
                                                     <li><a href="javascript:void(0)"
-                                                           onclick="DeleteLecture('{{ $lecture->id }}')">ลบ</a>
+                                                           onclick="DeleteLecture('{{ $lecture->id }}')">delete</a>
                                                     </li>
                                                 </ul>
                                             </div>
+
                                         </div>
 
 
@@ -94,42 +100,40 @@
                                                 <div class="col-sm-12">
                                                     <div role="tabpanel" class="tab">
                                                         <ul class="tab-nav" role="tablist">
-                                                            
+
                                                             {{--<li role="presentation" class=""><a--}}
                                                                         {{--href="#ppt{{ $lecture->id }}"--}}
                                                                         {{--aria-controls="ppt{{ $lecture->id }}"--}}
                                                                         {{--role="tab" data-toggle="tab"--}}
                                                                         {{--aria-expanded="false">Power--}}
                                                                     {{--Point</a></li>--}}
-                                                            
+
                                                             <li role="presentation" class=""><a
                                                                         href="#youtube{{ $lecture->id }}"
                                                                         aria-controls="youtube{{ $lecture->id }}"
                                                                         role="tab" data-toggle="tab"
                                                                         aria-expanded="false">youtube</a>
                                                             </li>
+
                                                             <li role="presentation" class=""><a
                                                                         href="#article{{ $lecture->id }}"
                                                                         aria-controls="article{{ $lecture->id }}"
                                                                         role="tab" data-toggle="tab"
-                                                                        aria-expanded="false">บทความ</a>
+                                                                        aria-expanded="false">article</a>
                                                             </li>
                                                         </ul>
+
                                                         <div class="row">
 
-
                                                         </div>
+
                                                         <div class="tab-content">
-                                                                                                                      
-                                                            
-                                                                                                                                                                                
-                                                            
-                                                            
+
                                                             <div role="tabpanel" class="tab-pane animated fadeIn"
                                                                  id="youtube{{ $lecture->id }}">
                                                                 @if($lecture->youtube)
                                                                     <div class="col-sm-12 m-b-20">
-                                                                        <p>ดูเนื้อหาจาก Youtube <a
+                                                                        <p>See content from Youtube <a
                                                                                     href="{{ $lecture->youtube }}"
                                                                                     target="_blank">{{ $lecture->lecture_name }}</a>
                                                                         </p>
@@ -150,9 +154,7 @@
 
                                                                 @endif
                                                             </div>
-                                                            
-                                                            
-                                                            
+
                                                             <div role="tabpanel" class="tab-pane animated fadeIn"
                                                                  id="article{{ $lecture->id }}">
                                                                 @if($lecture->lecture_article)
@@ -184,8 +186,6 @@
                                         </div>
                                     </div>
                                 </div>
-
-
                             @endforeach
                         </div>
 
@@ -196,10 +196,10 @@
             $i++;
         @endphp
         @endforeach
-
-
     </div>
 </div>
+
+
 <div class="col-sm-12">
 
     <div class="col-sm-12 col-sm-offset-0 m-b-25 m-t-30">
@@ -213,24 +213,25 @@
 
                         <a data-toggle="collapse" data-parent="#accordionGreen" href="#add_section"
                            aria-expanded="false" class="collapsed">
-                            <i class="zmdi zmdi-file-plus zmdi-hc-fw"></i>เพิ่มบทเรียน
+                            <i class="zmdi zmdi-file-plus zmdi-hc-fw"></i>Add a lesson
 
                         </a>
 
                     </h2>
                 </div>
+
                 <div id="add_section" class="collapse" role="tabpanel" aria-expanded="false" style="height: 0px;">
                     <div class="panel-body">
 
                         <div class="tile bg-gray">
                             <div class="t-header th-alt">
-                                <div class="th-title">เพิ่มบทเรียน</div>
+                                <div class="th-title">Add a lesson</div>
 
                             </div>
                             <div class="t-body tb-padding">
                                 <div class="row">
                                     <div class="col-sm-10">
-                                        <p class="">หัวข้อบทเรียน</p>
+                                        <p class="">Lesson topic</p>
                                         <div class="input-group">
                                             <input type="text" class="form-control" name="section_name"
                                                    id="section_name" placeholder="Enter a Title.." maxlength="100"
@@ -241,14 +242,14 @@
                                         </div>
                                     </div>
                                 </div>
-                                
+
                                 <div class="row">
                                     <div class="col-sm-12 m-t-20">
-                                        <button class="btn btn-primary btn-sm" onclick="InsertSection()">บันทึก
+                                        <button class="btn btn-primary btn-sm" onclick="InsertSection()">save
                                         </button>
                                         <button class="btn btn-link btn-sm collapsed" data-toggle="collapse"
                                                 data-parent="#accordionGreen" href="#add_section"
-                                                aria-expanded="false">ยกเลิก
+                                                aria-expanded="false">cancel
                                         </button>
                                     </div>
                                 </div>
@@ -260,3 +261,8 @@
         </div>
     </div>
 </div>
+
+
+
+
+

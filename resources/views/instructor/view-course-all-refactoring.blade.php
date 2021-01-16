@@ -21,23 +21,21 @@
 
             <div class="row">
                 <div class="col-lg-12">
-
-                    <!-- Body Copy -->
-
-
+                    <div class="row mb-2">
                             <div class="text-center">
                                 @if(Auth::user()->status == 1)
                                     <button type="button" class="btn btn-success"onclick="addcourses()">Add a course</button>
                                 @else
                                     <span>Can't add courses Because the user has not yet approved</span>
-
                                 @endif
                             </div>
+                    </div>
 
 
                         <!-- STACKED BAR CHART -->
                         <div class="card card-dark">
                             <div class="card-header">
+
                                 <h3 class="card-title">courses</h3>
 
                                 <div class="card-tools">
@@ -69,9 +67,8 @@
                             </div>
                             <!-- /.card-body -->
                         </div>
-
-
                     </div>
+
                 </div>
 
                 <!-- Modal Large -->
@@ -79,7 +76,7 @@
                     <div class="modal-dialog modal-lg">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h4 class="modal-title">เพิ่มหลักสูตร</h4>
+                                <h4 class="modal-title">Add a course</h4>
                             </div>
                             <form name="f" action="{{ url('insert-course') }}" method="post">
                                 @csrf
@@ -89,7 +86,7 @@
                                     <div class="row">
                                         <div class="col-sm-12 m-b-20">
                                             <div class="form-group">
-                                                <p class="c-black">ชื่อหลักสูตร</p>
+                                                <p class="c-black">Course name</p>
                                                 <input type="text" class="form-control" name="course_name"
                                                        maxlength="200"
                                                        placeholder="eg: Hacking Academy: Monitoring Transmitted Data"
@@ -100,7 +97,7 @@
                                     <div class="row">
                                         <div class="col-sm-12 m-b-20">
                                             <div class="form-group">
-                                                <p class="c-black">คำอธิบาย</p>
+                                                <p class="c-black">Description</p>
                                                 <textarea class="form-control" name="course_about" maxlength="250"
                                                           placeholder="eg: Learn how to intercept data in your network. Monitor transmitted data and detect intrusion. Free hacking lesson."
                                                           required="required"></textarea>
@@ -110,7 +107,7 @@
                                     <hr>
                                     <div class="row">
                                         <div class="col-sm-3 m-b-20">
-                                            <p class="c-black">ภาษาที่ใช้</p>
+                                            <p class="c-black">Language used</p>
 
                                             <select class="selectpicker" name="course_languages">
                                                 <option value="Thai">Thai</option>
@@ -118,7 +115,7 @@
                                             </select>
                                         </div>
                                         <div class="col-sm-3 m-b-20">
-                                            <p class="c-black">วิชานี้สังกัดคณะ</p>
+                                            <p class="c-black">This course is affiliated with the faculties.</p>
 
                                             <select class="selectpicker" name="faculty_id" required="required"
                                             >
@@ -139,12 +136,12 @@
                                         {{--</div>--}}
                                         {{--</div>--}}
                                         <div class="col-sm-3 m-b-20">
-                                            <p class="c-black">ประเภทวิชา</p>
+                                            <p class="c-black">Subject type</p>
 
                                             <select class="selectpicker" name="group_id" required="required">
-                                                <option value="">กรุณาเลือกประเภทวิชา</option>
-                                                <option value="1">พัฒนาระบบ( Development )</option>
-                                                <option value="2">ธุระกิจ( Business )</option>
+                                                <option value="">Please select a course type</option>
+                                                <option value="1">System development( Development )</option>
+                                                <option value="2">Business( Business )</option>
                                                 <option value="6">( Graphic Design )</option>
                                                 <option value="13">( Islamic )</option>
                                                 <option value="14">( Language )</option>
@@ -155,7 +152,7 @@
                                     <hr>
                                     <div class="row">
                                         <div class="col-sm-4 m-b-20">
-                                            <p class="c-black">สอบก่อนเรียน</p>
+                                            <p class="c-black">Exam before study</p>
 
                                             <select class="selectpicker" name="course_pretest">
                                                 <option value="0">ไม่มีการสอบก่อนเรียน</option>
@@ -163,7 +160,7 @@
                                             </select>
                                         </div>
                                         <div class="col-sm-4 m-b-20">
-                                            <p class="c-black">สอบหลังเรียน</p>
+                                            <p class="c-black">Exam after study</p>
 
                                             <select class="selectpicker" name="course_posttest">
                                                 <option value="0">ไม่มีการสอบหลังเรียน</option>
@@ -176,7 +173,7 @@
                                     <div class="row">
 
                                         <div class="col-sm-4 m-b-20">
-                                            <p class="c-black">วันที่เริ่มหลักสูตร</p>
+                                            <p class="c-black">วCourse start date</p>
 
                                             <div class="input-group form-group ">
                                                 <span class="input-group-addon"><i
@@ -189,7 +186,7 @@
                                             </div>
                                         </div>
                                         <div class="col-sm-4 m-b-20">
-                                            <p class="c-black">วันที่ปิดหลักสูตร</p>
+                                            <p class="c-black">Course closing date</p>
 
                                             <div class="input-group form-group ">
                                                 <span class="input-group-addon"><i
@@ -206,8 +203,8 @@
 
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="submit" class="btn btn-sm btn-primary">บันทึกข้อมูล</button>
-                                    <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">ยกเลิก
+                                    <button type="submit" class="btn btn-sm btn-primary">Save data</button>
+                                    <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">cancel
                                     </button>
                                 </div>
                             </form>
@@ -216,7 +213,6 @@
                 </div>
 
             </div>
-        </div>
     </section>
 
 
@@ -244,8 +240,8 @@
         });
         function delcourse(id, name) {
             swal({
-                title: "ยืนยันการลบข้อมูล?",
-                text: "คุณต้องการลบ หลักสูตร" + name + " หรือไม่",
+                title: "Confirm data deletion?",
+                text: "You want to delete the course." + name + "Or not",
                 type: "warning",
                 showCancelButton: true,
                 confirmButtonClass: 'btn bg-pink',
@@ -261,7 +257,7 @@
                         'id': id,
                     },
                 });
-                swal("ลบ หลักสูตร" + name + " เรียบร้อยแล้ว", "success");
+                swal("Delete a course" + name + " Already", "success");
                 $('.btn-primary').on('click', function () {
                     location.reload();
                 });
@@ -287,7 +283,7 @@
                     }
                 })
             } else {
-                swal("กรุณาเลือก", "กรุณาเลือกสังกัดคณะ", "error");
+                swal("Please select", "Please select faculty", "error");
             }
         }
     </script>

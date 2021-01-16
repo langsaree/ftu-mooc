@@ -10,21 +10,23 @@ Route::get('/signup','FrontendsController@signup');
 Route::get('course-view/{id}','FrontendsController@cview');
 Route::get('about/{id}','FrontendsController@about');
 Route::get('get-faculties/{id}','FrontendsController@getfaculty');
+
+Route::get('posttest','FrontendsController@posttest');
 //บันทึกการลงทะเบียน
 
 //Product
 Route::resource('/students','StudentsController');
 
-//ลงทะเบียนสำหรับผู้สอน
+//Register for teachers
 Route::get('instructor-register','FrontendsController@InstructorRegister');
-//บันทึกการลงทะเบียนผู้สอน
+//Teacher registration Save
 Route::resource('/instructors','InstructorsController');
 
 
 // Login
 Auth::routes();
 
-//ลงทะเบียนเรียนตามหลักสูตรที่เลือก
+//ลงทะเบียนเรียนตามหลักสูตรที่เลือก Enroll in the chosen course
 Route::post('RegisterCourse','FrontendsController@RegisterCourse');
 
 Route::get('myadmin','MyAdminsController@index');
@@ -57,6 +59,7 @@ Route::post('InstructorUpdateDescription','InstructorsController@InstructorUpdat
 //insert section
 Route::post('InsertSection','InstructorsController@InsertSection');
 Route::get('addlecture/{id}','InstructorsController@addlecture');
+
 //save
 
 Route::post('saveLecture','InstructorsController@saveLecture');

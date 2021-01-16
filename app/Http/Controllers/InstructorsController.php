@@ -189,7 +189,7 @@ class InstructorsController extends Controller
         $section->section_date = $last->course_start;
         $section->save();
 
-        return redirect('instructor-ViewCourseAll');
+        return redirect('instructor.view-course-all-refactoring');
 
 
     }

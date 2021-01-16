@@ -50,7 +50,7 @@ class FrontendsController extends Controller
         return view('frontend.course.getfaculty',compact('course','fac'));
     }
 
-    //ลงทะเบียนผู้สอน
+    //ลงทะเบียนผู้สอน Register tutor
     public function InstructorRegister(){
         return view('admin.signin');
     }
@@ -78,13 +78,20 @@ class FrontendsController extends Controller
         $focusSection = Section::where('id', $id)->firstOrFail();
         $sections = Section::where('course_id', $focusSection->course_id)->get();
         $course = Course::where('id',$focusSection->course_id)->firstOrFail();
-
         $lecture = Lecture::where('section_id',$focusSection->id)->firstOrFail();
         //dd($lecture);
 
         return view('frontend.course.about',compact('course','sections',
             'focusSection','lecture'));
     }
+
+    public function posttest()
+    {
+
+
+        return view('frontend.course.posttest');
+    }
+
 
 
 }

@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="page-title">
-                <h2>หลักสูตรของฉัน</h2>
+                <h2>My course</h2>
             </div><!-- .page-title -->
         </div><!-- .col-md-12 -->
     </div>
@@ -32,8 +32,8 @@
                                 </div><!-- .team-info -->
                                 <hr/>
                                 <div class="team-footer">
-                                    <small>เริ่ม: {{ $key->course->course_start }}
-                                        ถึง: {{ $key->course->course_end }}
+                                    <small>begin: {{ $key->course->course_start }}
+                                        To: {{ $key->course->course_end }}
                                     </small>
                                 </div>
 

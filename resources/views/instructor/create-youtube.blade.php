@@ -7,7 +7,7 @@
 
             <div class="tile">
                 <div class="t-header">
-                    <div class="th-title">อัพโหลดลิงค์ Youbube <small></small></div>
+                    <div class="th-title">Upload files Youtube <small></small></div>
                 </div>
 
                 <div class="t-body tb-padding">
@@ -21,7 +21,7 @@
                             <br/>
                             <input type="hidden" name="lecture_id" id="lecture_id" value="{{ $lecture_id }}">
                             <input type="hidden" name="course_id" id="course_id" value="{{ $course_id }}">
-                            <p class=" c-black m-b-20">ลิงค์ Youtube </p>
+                            <p class=" c-black m-b-20">file Youtube </p>
 
                             <input type="text" name="youtube" class="form-control" required="required"/>
                         </div>
@@ -30,8 +30,8 @@
                         <br>
 
                         <div class="row text-right m-10">
-                            <button type="submit" class="btn btn-sm btn-primary" id="subpic">บันทึก</button>
-                            <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">ปิด</button>
+                            <button type="submit" class="btn btn-sm btn-primary" id="subpic">save</button>
+                            <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">close</button>
                         </div>
                     </form>
                 </div>
