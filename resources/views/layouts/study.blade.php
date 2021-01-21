@@ -14,7 +14,7 @@
 
     <!-- Bootstrap core CSS -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
+    <script src="https://www.youtube.com/player_api"></script>
     <link href="{{ asset('css/study.css') }}" rel="stylesheet">
 
     <style>
@@ -34,7 +34,7 @@
         }
     </style>
     <!-- Custom styles for this template -->
-    <link href="../../../public/css/study.css" rel="stylesheet">
+    <link href="{{ asset('css/study.css') }}" rel="stylesheet">
 </head>
 <body>
 <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">

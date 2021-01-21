@@ -1,4 +1,4 @@
-@extends('layouts.frontend')
+@extends('layouts.menu')
 
 @section('content')
     <!-- slider -->
@@ -22,6 +22,7 @@
                                     <img src="{{ asset('upload/img/'.$key->course->course_pic)  }}"
                                          alt="{{ $key->course->course_name }}" style="height:197px;">
                                 </div><!-- .team-photo -->
+
                                 <div class="team-title">
                                     <h4>{{ $key->course->course_name }}</h4>
                                     <small>{{ $key->course->faculty->faculty_name }}</small>

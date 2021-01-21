@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <!-- Created By CodingNepal -->
-<html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personal Portfolio Website</title>
+    <title>FTUMooc</title>
     <link href="{{ asset('css/home.css') }}" rel="stylesheet">
     <script src="https://kit.fontawesome.com/e3b0f576bf.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
@@ -20,7 +20,7 @@
 </div>
 <nav class="navbar">
     <div class="max-width">
-        <div class="logo"><a href="#">FTU<span>Mooc</span></a></div>
+        <div class="logo"><a href="/">FTU<span>Mooc</span></a></div>
         @guest
         <ul class="menu">
             <li><a href="#home" class="menu-btn">Home</a></li>
@@ -41,6 +41,9 @@
                 @elseif(Auth::user()->role_id == 3)
                     <li><a href="{{ url('Mycourse') }}">My course</a></li>
                 @endif
+                <li><a href="#about" class="menu-btn">About</a></li>
+                <li><a href="#courses" class="menu-btn">Courses</a></li>
+                <li><a href="#contact" class="menu-btn">Contact</a></li>
                 <li>
                     <a href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">Log out</a>
@@ -92,8 +95,9 @@
             <img src="{{asset('svg/think.svg')}}" alt="..." class="move-me2" />
 
             <div class="column right">
-                <div class="text">..... <span class="typing-2"></span></div>
-                <p>.......</p>
+                <div class="text">FTUMooc <span class="typing-2"></span></div>
+                <p>Online learning courses on the site as it focuses on the teaching and learning of large groups of people in a free choice of courses.
+                    Which accommodates a large number of learners, the content is open content that anyone can access.</p>
                 <a href="#">.....</a>
             </div>
 
@@ -102,31 +106,22 @@
 </section>
 
 <!-- courses section start -->
-<section class="services" id="courses">
+<section class="teams2" id="courses">
     <div class="max-width">
-
-        <h2 class="title">Courses</h2>
-        @foreach($courses as $c)
-            <div class="serv-content">
+        <div class="carousel owl-carousel">
+            @foreach($courses as $c)
                 <div class="card">
-                    <a href ="{{ url('course-view/'.$c->id) }}" >
-                        <div class="box">
-                            <i class="fas fa-paint-brush"></i>
+                    <div class="box">
+                        <a href ="{{ url('course-view/'.$c->id) }}" >
+                            <img src="{{ asset('upload/img/'.$c->course_pic) }}" alt="{{ $c->course_name }}">
                             <div class="text">{{ $c->course_name }}</div>
-                            <small>{{ $c->faculty->faculty_name }}</small>
-                        </div>
-
-                        <div class="team-footer">
-                            <small>begin: {{ $c->course_start }}   To: {{ $c->course_end }}  </small>
-                        </div>
-                    </a>
-                </div>
-
-            </div> @endforeach
-    </div>
-
-
-
+                            <div class="text">{{ $c->faculty->faculty_name }}</div>
+                            <div class="team-footer">
+                                <small>begin: {{ $c->course_start }}   To: {{ $c->course_end }}  </small>
+                            </div>
+                        </a>
+                    </div>
+                </div>@endforeach
 </section>
 
 <!-- skills section start
@@ -206,20 +201,6 @@
                     <p>3.</p>
                 </div>
             </div>
-            <div class="card">
-                <div class="box">
-                    <img src="" alt="">
-                    <div class="text">Someone name</div>
-                    <p>4</p>
-                </div>
-            </div>
-            <div class="card">
-                <div class="box">
-                    <img src="" alt="">
-                    <div class="text">Someone name</div>
-                    <p>5</p>
-                </div>
-            </div>
         </div>
     </div>
 </section>
@@ -227,31 +208,31 @@
 <!-- contact section start -->
 <section class="contact" id="contact">
     <div class="max-width">
-        <h2 class="title">Contact me</h2>
+        <h2 class="title">Contact us</h2>
         <div class="contact-content">
             <div class="column left">
                 <div class="text">Get in Touch</div>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dignissimos harum corporis fuga corrupti. Doloribus quis soluta nesciunt veritatis vitae nobis?</p>
+                <p>If you are unable to access your account contact us via email</p>
                 <div class="icons">
                     <div class="row">
                         <i class="fas fa-user"></i>
                         <div class="info">
                             <div class="head">Name</div>
-                            <div class="sub-title">Prakash Shahi</div>
+                            <div class="sub-title">Kholed Langsari</div>
                         </div>
                     </div>
                     <div class="row">
                         <i class="fas fa-map-marker-alt"></i>
                         <div class="info">
                             <div class="head">Address</div>
-                            <div class="sub-title">Surkhet, Nepal</div>
+                            <div class="sub-title">......</div>
                         </div>
                     </div>
                     <div class="row">
                         <i class="fas fa-envelope"></i>
                         <div class="info">
                             <div class="head">Email</div>
-                            <div class="sub-title">abc@gmail.com</div>
+                            <div class="sub-title">Kholed Langsari@gmail.com</div>
                         </div>
                     </div>
                 </div>
@@ -268,7 +249,7 @@
                         </div>
                     </div>
                     <div class="field">
-                        <input type="text" placeholder="Subject" required>
+                        <input type="text" placeholder="Topic" required>
                     </div>
                     <div class="field textarea">
                         <textarea cols="30" rows="10" placeholder="Message.." required></textarea>

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <!-- Created By CodingNepal -->
-<html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personal Portfolio Website</title>
+    <title>FTUMooc</title>
     <link href="{{ asset('css/home.css') }}" rel="stylesheet">
     <script src="https://kit.fontawesome.com/e3b0f576bf.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
@@ -21,18 +21,40 @@
 <nav class="navbar">
     <div class="max-width">
         <div class="logo"><a href="#">FTU<span>Mooc</span></a></div>
-        <ul class="menu">
-            <li><a href="#home" class="menu-btn">Home</a></li>
-            <li><a href="#about" class="menu-btn">About</a></li>
-            <li><a href="#courses" class="menu-btn">Courses</a></li>
-            <li><a href="#teams" class="menu-btn">Teams</a></li>
-            <li><a href="{{ url('signin') }}" class="menu-btn">Sign in & Sign up</a></li>
-            <li><a href="#contact" class="menu-btn">Contact</a></li>
-            <li><a href="{{ url('instructor-register') }}" class="menu-btn">For Teachers</a></li>
-        </ul>
-        <div class="menu-btn">
-            <i class="fas fa-bars"></i>
-        </div>
+        @guest
+            <ul class="menu">
+                <li><a href="#home" class="menu-btn">Home</a></li>
+                <li><a href="#about" class="menu-btn">About</a></li>
+                <li><a href="#courses" class="menu-btn">Courses</a></li>
+                <li><a href="#teams" class="menu-btn">Teams</a></li>
+                <li><a href="{{ url('signin') }}" class="menu-btn">Sign in & Sign up</a></li>
+                <li><a href="#contact" class="menu-btn">Contact</a></li>
+                <li><a href="{{ url('instructor-register') }}" class="menu-btn">For Teachers</a></li>
+            </ul>
+        @else
+            <ul class="menu">
+                <li><a href="javascript:void(0)">Hello {{ Auth::user()->name }}</a></li>
+                @if(Auth::user()->role_id == 1)
+                    <li><a href="{{ url('myadmin') }}">Dashboard</a></li>
+                @elseif(Auth::user()->role_id == 2)
+                    <li><a href="{{ url('instructor-dashboard') }}">Dashboard</a></li>
+                @elseif(Auth::user()->role_id == 3)
+                    <li><a href="{{ url('Mycourse') }}">My course</a></li>
+                @endif
+                <li><a href="#about" class="menu-btn">About</a></li>
+                <li><a href="#courses" class="menu-btn">Courses</a></li>
+                <li><a href="#contact" class="menu-btn">Contact</a></li>
+                <li>
+                    <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">Log out</a>
+
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                          style="display: none;">
+                        @csrf
+                    </form>
+                </li>
+            </ul><!-- .topbar-menu -->
+        @endif
     </div>
 </nav>
 
@@ -40,27 +62,42 @@
 <section class="home" id="home">
     <div class="max-width">
         <div class="home-content">
-            <div class="text-1"><img src="{{asset('svg/ftu.png')}}" width="200" /></div>
-            <div class="text-2">Prakash Shahi</div>
+            <div class="text-1"><img src="{{asset('svg/ftu.png')}}" width="250" /></div>
+            <div class="text-2" >Lifelong learning space for everyone</div>
             <div class="text-3">Welcome to <span class="typing"></span></div>
-            <a href="#about">more</a>
+            <div class="dropdown">
+                <button class="dropbtn">Study category<i class="fas fa-caret-down"></i></button>
+                <div class="dropdown-content a">
+                    @php
+                        $faculties = DB::table('faculties')->get();
+
+                    @endphp
+                    @foreach($faculties as $f)
+                        <a href="{{ url('get-faculties/'.$f->id) }}">{{ $f->faculty_name }}</a>
+
+                    @endforeach
+
+                </div>
+            </div>
+            <img src="{{asset('svg/book.svg')}}" alt="..." class="move-me" >
         </div>
-        <img src="{{asset('svg/book.svg')}}" alt="..." class="move-me" >
     </div>
+
+
 </section>
 
 <!-- about section start -->
 <section class="about" id="about">
     <div class="max-width">
-        <h2 class="title">About me</h2>
+        <h2 class="title">About</h2>
         <div class="about-content">
 
             <img src="{{asset('svg/think.svg')}}" alt="..." class="move-me2" />
 
             <div class="column right">
-                <div class="text">I'm Prakash and I'm a <span class="typing-2"></span></div>
-                <p>Lom possimus veritatis, placeat, ab molestiae velit inventore exercitationem consequuntur blanditiis omnis beatae. Dolor iste excepturi ratione soluta quas culpa voluptatum repudiandae harum non.</p>
-                <a href="#">Download CV</a>
+                <div class="text">..... <span class="typing-2"></span></div>
+                <p>.......</p>
+                <a href="#">.....</a>
             </div>
 
         </div>
@@ -153,35 +190,35 @@
         <div class="carousel owl-carousel">
             <div class="card">
                 <div class="box">
-                    <img src="images/profile-1.jpeg" alt="">
+                    <img src="" alt="">
                     <div class="text">Someone name</div>
                     <p>1</p>
                 </div>
             </div>
             <div class="card">
                 <div class="box">
-                    <img src="images/profile-2.jpeg" alt="">
+                    <img src="" alt="">
                     <div class="text">Someone name</div>
                     <p>2</p>
                 </div>
             </div>
             <div class="card">
                 <div class="box">
-                    <img src="images/profile-3.jpeg" alt="">
+                    <img src="" alt="">
                     <div class="text">Someone name</div>
                     <p>3.</p>
                 </div>
             </div>
             <div class="card">
                 <div class="box">
-                    <img src="images/profile-4.jpeg" alt="">
+                    <img src="" alt="">
                     <div class="text">Someone name</div>
                     <p>4</p>
                 </div>
             </div>
             <div class="card">
                 <div class="box">
-                    <img src="images/profile-5.jpeg" alt="">
+                    <img src="" alt="">
                     <div class="text">Someone name</div>
                     <p>5</p>
                 </div>

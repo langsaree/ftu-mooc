@@ -4,6 +4,7 @@
 Route::get('/','FrontendsController@index');
 Route::get('/contact','FrontendsController@contact');
 
+
 Route::get('/signin','FrontendsController@signin');
 Route::get('/signup','FrontendsController@signup');
 
@@ -109,6 +110,12 @@ Route::get('adminlte', function () {
 Route::get('study', function () {
     return view('study');
 });
+Route::get('menu', function () {
+    return view('menu');
+});
+
+
+
 
 
 

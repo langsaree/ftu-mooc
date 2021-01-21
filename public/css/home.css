@@ -457,7 +457,18 @@ position: absolute;
     overflow: hidden;
     transition: all 0.3s ease;
 }
+.teams2 .carousel .card{
+    background: #009432;
+    border-radius: 6px;
+    padding: 25px 35px;
+    text-align: center;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
 .teams .carousel .card:hover{
+    background: #009432;
+}
+.teams2 .carousel .card:hover{
     background: #009432;
 }
 .teams .carousel .card .box{
@@ -467,13 +478,29 @@ position: absolute;
     justify-content: center;
     transition: all 0.3s ease;
 }
+.teams2 .carousel .card .box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
 .teams .carousel .card:hover .box{
+    transform: scale(1.05);
+}
+.teams2 .carousel .card:hover .box{
     transform: scale(1.05);
 }
 .teams .carousel .card .text{
     font-size: 25px;
     font-weight: 500;
     margin: 10px 0 7px 0;
+}
+.teams2 .carousel .card .text{
+    font-size: 25px;
+    font-weight: 500;
+    margin: 10px 0 7px 0;
+    color:#111;
 }
 .teams .carousel .card img{
     height: 150px;
@@ -483,7 +510,18 @@ position: absolute;
     border: 5px solid #009432;
     transition: all 0.3s ease;
 }
+.teams2 .carousel .card img{
+    height: 150px;
+    width: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid #fff;
+    transition: all 0.3s ease;
+}
 .teams .carousel .card:hover img{
+    border-color: #fff;
+}
+.teams2 .carousel .card:hover img{
     border-color: #fff;
 }
 .owl-dots{
