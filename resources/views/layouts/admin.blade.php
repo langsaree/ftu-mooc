@@ -74,13 +74,13 @@
         <li>
             <a href ="{{ url('/') }}">
                 <i class="zmdi zmdi-home"></i>
-                <span>หน้าแรก</span>
+                <span>Home page</span>
             </a>
         </li>
         <li class="active">
             <a href="">
                 <i class="zmdi zmdi-account-add"></i>
-                <span>ลงทะเบียนผู้สอน<span class="label label-danger">New</span></span>
+                <span>Register tutor<span class="label label-danger">New</span></span>
             </a>
         </li>
 
@@ -114,7 +114,7 @@
             <li id="curriculum">
                 <a href="{{ url('instructor-ViewCourseAll') }}">
                     <i class="zmdi zmdi-format-underlined"></i>
-                    <span>จัดการหลักสูตร<span class="label label-danger">New</span></span>
+                    <span>Manage courses<span class="label label-danger">New</span></span>
                 </a>
             </li>
 
@@ -122,11 +122,11 @@
             <li class="sm-sub" id="MN">
                 <a href="">
                     <i class="zmdi zmdi-folder zmdi-hc-fw"></i>
-                    <span>จัดการข้อสอบ <span class="label label-warning">New</span></span>
+                    <span>Manage the exam <span class="label label-warning">New</span></span>
                 </a>
                 <ul>
-                    <li><a href="{{ url('/Pretest') }}">ข้อสอบก่อนเรียน</a></li>
-                    <li><a href="{{ url('/Posttest') }}">ข้อสอบหลังเรียน</a></li>
+                    <li><a href="{{ url('/Pretest') }}">Exam before study</a></li>
+                    <li><a href="{{ url('/Posttest') }}">Exam After study</a></li>
                 </ul>
             </li>
             {{--<li id="MNstudent">--}}
@@ -152,7 +152,7 @@
                 <a href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                     <i class="zmdi zmdi-power-setting zmdi-hc-fw"></i>
-                    <span>ออกจากระบบ</span>
+                    <span>Log out</span>
                 </a>
 
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
