@@ -10,7 +10,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>สมัครสมาชิก</title>
+    <title>Register</title>
     <!-- Bootstrap -->
     <link href="{{ asset('style/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,600' rel='stylesheet' type='text/css'>
@@ -38,8 +38,8 @@
             <div class="sign-container">
 
                 <ul id="myTabs" class="nav nav-tabs" role="tablist">
-                    <li role="presentation" class="active"><a href="#signup" id="signin-tab" role="tab" data-toggle="tab" aria-controls="signin" aria-expanded="true">สมัครสมาชิก</a></li>
-                    <li><a href="{{ url('/') }}" >กลับหน้าแรก</a></li>
+                    <li role="presentation" class="active"><a href="#signup" id="signin-tab" role="tab" data-toggle="tab" aria-controls="signin" aria-expanded="true">Register</a></li>
+                    <li><a href="{{ url('/') }}" >home page</a></li>
                 </ul><!-- #myTabs -->
 
                 <div id="myTabContent" class="tab-content">
@@ -48,10 +48,10 @@
                         <div class="sign-content">
                             <div class="sign-description" style="background-image: url({{ asset('style/img/amalia-image-slider-02.jpg') }})">
                                 <div class="description-text">
-                                    <h3>สมัครสมาชิก</h3>
+                                    <h3>Register</h3>
 
-                                    <p>เป็นสมาชิกแล้วใช่ไหม?</p>
-                                    <a href="{{ url('signin') }}"class="btn btn-block btn-square btn-lg btn-success">เข้าระบบ</a>
+                                    <p>You are a member, right?</p>
+                                    <a href="{{ url('signin') }}"class="btn btn-block btn-square btn-lg btn-success">Login</a>
                                 </div><!-- .description-text -->
                             </div><!-- .sign-description -->
 
@@ -59,32 +59,32 @@
                                 <form role="form" class="pretty-form" action="{{ route('students.store') }}" method="post" >
                                     @csrf
                                     <div class="form-group">
-                                        <label for="">อีเมลล์ <span class="required">*</span></label>
+                                        <label for="">Email <span class="required">*</span></label>
                                         <input type="email" class="form-control" name="username" id="username" placeholder="xxx@gmail.com" required="required" >
                                         <span class="fa fa-user"></span>
                                     </div>
                                     <div class="form-group">
-                                        <label for="">รหัส <span class="required">*</span></label>
+                                        <label for="">password <span class="required">*</span></label>
                                         <input type="password" class="form-control" name="password" id="password" placeholder="ต้องใส่6ตัวขึ้นไป มีตัวพิมพ์เล็กใหญ่" required="required">
                                         <span class="fa fa-lock"></span>
                                     </div>
                                     <div class="form-group">
-                                        <label for="">ชื่อเต็ม <span class="required">*</span></label>
+                                        <label for="">Full name <span class="required">*</span></label>
                                         <input type="text" class="form-control" name="fullname" id="fullname" placeholder="ชื่อเต็มของคุณ" required="required">
 
                                     </div>
                                     <div class="form-group">
-                                        <label for="">ชื่อเล่น <span class="required">*</span></label>
+                                        <label for="">nickname<span class="required">*</span></label>
                                         <input type="text" class="form-control" name="nickname" id="nickname" placeholder="" required="required" >
 
                                     </div>
                                     <div class="form-group">
-                                        <label for="">เพศ <span class="required">*</span></label>
+                                        <label for="">sex <span class="required">*</span></label>
                                         <input type="text" class="form-control" name="sex" id="sex" placeholder="" required="required">
 
                                     </div>
                                     <div class="form-group">
-                                        <label for="">ปีเกิด <span class="required">*</span></label>
+                                        <label for="">Year of birth <span class="required">*</span></label>
                                         <input type="text" class="form-control" name="year" id="year" placeholder="" >
 
                                     </div>
@@ -104,7 +104,7 @@
                                         <textarea class="form-control" rows="5" placeholder="เหตุผลที่สนใจเรียนใน MOOC: " name="reason" id="reason"></textarea>
 
                                     </div>
-                                    <button type="submit" class="btn btn-success btn-square btn-block btn-lg">สมัครสมาชิก</button>
+                                    <button type="submit" class="btn btn-success btn-square btn-block btn-lg">Register</button>
                                 </form><!-- .pretty-form -->
                             </div><!-- .sign-form -->
 

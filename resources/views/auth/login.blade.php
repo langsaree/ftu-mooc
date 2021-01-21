@@ -39,8 +39,8 @@
             <div class="sign-container">
 
                 <ul id="myTabs" class="nav nav-tabs" role="tablist">
-                    <li role="presentation" class="active"><a href="#signin" id="signin-tab" role="tab" data-toggle="tab" aria-controls="signin" aria-expanded="true">เข้าสู่ระบบ</a></li>
-                    <li><a href="{{ url('/') }}" >กลับหน้าแรก</a></li>
+                    <li role="presentation" class="active"><a href="#signin" id="signin-tab" role="tab" data-toggle="tab" aria-controls="signin" aria-expanded="true">Login</a></li>
+                    <li><a href="{{ url('/') }}" >Back to homepage</a></li>
                 </ul><!-- #myTabs -->
 
                 <div id="myTabContent" class="tab-content">
@@ -49,13 +49,13 @@
                         <div class="sign-content">
                             <div class="sign-description" style="background-image: url('{{ asset('style/img/amalia-image-slider-02.jpg') }}');">
                                 <div class="description-text">
-                                    <h3>เข้าสู่ระบบ FTUMOOC</h3>
+                                    <h3>Login FTUMOOC</h3>
                                     <p>หากพบปัญหาในการเข้าระบบ ให้ติดต่อผู้ดูแลระบบ</p>
                                     <p>ยังไม่มี Username &  Password</p>
-                                    <a href="{{ url('signup') }}"class="btn btn-block btn-square btn-lg btn-success">สมัครสมาชิก</a>
+                                    <a href="{{ url('signup') }}"class="btn btn-block btn-square btn-lg btn-success">Register</a>
 
                                     <p></p>
-                                    <a href="#signup"class="btn btn-sm btn-square btn-lg btn-danger">ลืมรหัสใช่ไหม?</a>
+                                    <a href="#signup"class="btn btn-sm btn-square btn-lg btn-danger">Forgot the password, right?</a>
                                 </div><!-- .description-text -->
                             </div><!-- .sign-description -->
 
@@ -63,7 +63,7 @@
                                 <form role="form" id="login" name="loginSubmit" action="{{ route('login') }}" method="post" class="pretty-form">
                                     @csrf
                                     <div class="form-group">
-                                        <label for="exampleInputEmail1">อีเมลล์</label>
+                                        <label for="exampleInputEmail1">Email</label>
                                         <input type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" id="email"  placeholder="xxx@gmail.com" >
                                         <span class="fa fa-user"></span>
                                         @if ($errors->has('email'))
@@ -74,7 +74,7 @@
 
                                     </div>
                                     <div class="form-group">
-                                        <label for="exampleInputPassword1">รหัส</label>
+                                        <label for="exampleInputPassword1">password</label>
                                         <input type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" id="password" placeholder="ต้องใส่6ตัวขึ้นไป มีตัวพิมพ์เล็กใหญ่">
                                         <span class="fa fa-lock"></span>
                                         @if ($errors->has('password'))
@@ -84,13 +84,13 @@
                                         @endif
                                     </div>
 
-                                    <button type="submit" id="loginSubmit" class="btn btn-success btn-square btn-block btn-lg">เข้าสู่ระบบ</button>
+                                    <button type="submit" id="loginSubmit" class="btn btn-success btn-square btn-block btn-lg">Login</button>
                                     <br>
                                     <p>Student=fadeelah@gmail.com /123456</p>
                                     <p>lecturer=abdul_latif@gmail.com /Abdul12345</p>
                                     <p>admin=myadmin@gmail.com /adminadmin</p>
-                               
-                               
+
+
                                 </form><!-- .pretty-form -->
                             </div><!-- .sign-form -->
 
