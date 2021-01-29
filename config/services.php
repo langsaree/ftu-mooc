@@ -34,5 +34,28 @@ return [
         'key' => env('STRIPE_KEY'),
         'secret' => env('STRIPE_SECRET'),
     ],
+    //'google' => [
+        //'client_id' => '527601204610-ov9g5sfqaonnt7tad2amiimi35jjsaf4.apps.googleusercontent.com',
+        //'client_secret' => 'qdvwd5IxLuYxxLRLt2KChOtx',
+       // 'redirect' => 'http://127.0.0.1:8000/callback/google',
+   // ],
+    'google' => [
+        'client_id' => env('GOOGLE_CLIENT_ID'),
+        'client_secret' => env('GOOGLE_CLIENT_SECRET'),
+        'redirect' => 'http://localhost/laravel-socialite/public/login/google/callback',
+    ],
+
+    'facebook' => [
+        'client_id' => env('FACEBOOK_CLIENT_ID'),
+        'client_secret' => env('FACEBOOK_CLIENT_SECRET'),
+        'redirect' => 'http://localhost/laravel-socialite/public/login/facebook/callback',
+    ],
+
+    'github' => [
+        'client_id' => env('GITHUB_CLIENT_ID'),
+        'client_secret' => env('GITHUB_CLIENT_SECRET'),
+        'redirect' => 'http://localhost/laravel-socialite/public/login/github/callback',
+    ],
+
 
 ];

@@ -611,6 +611,8 @@ CREATE TABLE `users` (
  `role_id` INT(11) NOT NULL,
  `name` VARCHAR(191) COLLATE utf8mb4_unicode_ci NOT NULL,
  `email` VARCHAR(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `google_id` VARCHAR(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+   `facebook_id` VARCHAR(191) COLLATE utf8mb4_unicode_ci NOT NULL,
  `email_verified_at` TIMESTAMP NULL DEFAULT NULL,
  `password` VARCHAR(191) COLLATE utf8mb4_unicode_ci NOT NULL,
  `remember_token` VARCHAR(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -635,7 +637,7 @@ INSERT INTO `users` (`id`, `role_id`, `name`, `email`, `email_verified_at`, `pas
 (15, 3, 'ta', 'ta@gmail.com', NULL, '$2y$10$NH4LW0pmbeoMmXifPprgSuhuzHdv6pM3gRXmToq0NjfmqXIQHeom.', NULL, 0, '2018-12-13 17:17:48', '2018-12-13 17:17:48');
 
 --
--- Indexes for dumped tables
+-- Indexes for dumped tables`ftu-mooc`ftu_moocftu_mooc
 --
 
 --
@@ -896,3 +898,4 @@ UPDATE CASCADE; COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+phpmyadmincee_dbcee_dbcee_dbcee_dbcee_db

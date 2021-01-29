@@ -20,7 +20,7 @@ class FrontendsController extends Controller
 
     //signin
     public  function signin(){
-        return view('auth.login');
+        return view('auth.login-refactoring');
     }
 
     //signup
@@ -30,6 +30,10 @@ class FrontendsController extends Controller
 
     public function contact(){
         return view('contact');
+    }
+
+    public function menu(){
+        return view('layout.manu');
     }
 
     public function cview($id){
@@ -47,7 +51,7 @@ class FrontendsController extends Controller
         $fac = Faculty::where('id',$id)->first();
 
         $course = Course::where('faculty_id',$fac->id)->get();
-        return view('frontend.course.getfaculty',compact('course','fac'));
+        return view('frontend.course.getfaculty-refactoring',compact('course','fac'));
     }
 
     //ลงทะเบียนผู้สอน Register tutor

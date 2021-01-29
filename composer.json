@@ -12,6 +12,7 @@
         "jeroennoten/laravel-adminlte": "^3.5",
         "laravel/framework": "^6.0",
         "laravel/helpers": "^1.2",
+        "laravel/socialite": "^5.1",
         "laravel/tinker": "^1.0",
         "twbs/bootstrap": "4.5.2",
         "twitter/bootstrap": "^4.5"
