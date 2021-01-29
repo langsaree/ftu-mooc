@@ -7,7 +7,9 @@
         <div class="col-sm-10">
             <p class="">Lesson topic</p>
             <div class="input-group">
-                <input type="text" class="form-control" name="section_name1" id="section_name1" placeholder="Enter a Title.." maxlength="100" value="{{ $section->section_name }}" onkeyup="count_name1()">
+                <input type="text" class="form-control" name="section_name1" id="section_name1"
+                       placeholder="Enter a Title.." maxlength="100" value="{{ $section->section_name }}"
+                       onkeyup="count_name1()">
 
                 <span class="input-group-addon last"><span id="dd1">100</span></span>
 

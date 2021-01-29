@@ -33,7 +33,8 @@
         </ul>
         @else
             <ul class="menu">
-                <li><a href="javascript:void(0)">Hello {{ Auth::user()->name }}</a></li>
+                <li> <img src="{{ Auth::user()->avatar }}" alt="{{ Auth::user()->name }}" style="border: 1px solid #cccccc; border-radius: 5px; width: 39px; height: auto;float:left; margin-right: 7px;">
+                    <a href="javascript:void(0)">Hello {{ Auth::user()->name }}</a></li>
                 @if(Auth::user()->role_id == 1)
                     <li><a href="{{ url('myadmin') }}">Dashboard</a></li>
                 @elseif(Auth::user()->role_id == 2)
@@ -182,23 +183,23 @@
         <div class="carousel owl-carousel">
             <div class="card">
                 <div class="box">
-                    <img src="" alt="">
-                    <div class="text">Someone name</div>
-                    <p>1</p>
+                    <img src="{{asset('svg/h.jpg')}}" alt="">
+                    <div class="text">Hiyam Sasu</div>
+                    <p>Developer</p>
                 </div>
             </div>
             <div class="card">
                 <div class="box">
-                    <img src="" alt="">
-                    <div class="text">Someone name</div>
-                    <p>2</p>
+                    <img src="{{asset('svg/k.jpg')}}" alt="">
+                    <div class="text">Kholed Langsari</div>
+                    <p>Developer</p>
                 </div>
             </div>
             <div class="card">
                 <div class="box">
-                    <img src="" alt="">
-                    <div class="text">Someone name</div>
-                    <p>3.</p>
+                    <img src="{{asset('svg/e.jpg')}}" alt="">
+                    <div class="text">E-badiyah Jehsani</div>
+                    <p>Developer</p>
                 </div>
             </div>
         </div>

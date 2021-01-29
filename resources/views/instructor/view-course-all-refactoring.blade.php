@@ -24,7 +24,7 @@
                     <div class="row mb-2">
                             <div class="text-center">
                                 @if(Auth::user()->status == 1)
-                                    <button type="button" class="btn btn-success"onclick="addcourses()">Add a course</button>
+                                    <button type="button" class="btn btn-success" onclick="addcourses()">Add a course</button>
                                 @else
                                     <span>Can't add courses Because the user has not yet approved</span>
                                 @endif
@@ -119,11 +119,11 @@
 
                                             <select class="selectpicker" name="faculty_id" required="required"
                                             >
-                                                <option value="">กรุณาเลือกสังกัดคณะ</option>
-                                                <option value="20">วิทยาศาสตร์และเทคโนโลยี</option>
-                                                <option value="60">อิสลามศึกษา</option>
-                                                <option value="61">ศึกษาศาสตร์</option>
-                                                <option value="70">ศิลปศาสตร์และสังคมศาสตร์</option>
+                                                <option value="">Please select faculty</option>
+                                                <option value="20">Science and technology</option>
+                                                <option value="60">Islamic Studies</option>
+                                                <option value="61">Education</option>
+                                                <option value="70">Arts and Social Sciences</option>
                                             </select>
                                         </div>
                                         {{--<div class="col-sm-3 m-b-20">--}}
@@ -155,16 +155,16 @@
                                             <p class="c-black">Exam before study</p>
 
                                             <select class="selectpicker" name="course_pretest">
-                                                <option value="0">ไม่มีการสอบก่อนเรียน</option>
-                                                <option value="1">มีการสอบก่อนเรียน</option>
+                                                <option value="0">no exam before studying</option>
+                                                <option value="1">Have exam before studying</option>
                                             </select>
                                         </div>
                                         <div class="col-sm-4 m-b-20">
                                             <p class="c-black">Exam after study</p>
 
                                             <select class="selectpicker" name="course_posttest">
-                                                <option value="0">ไม่มีการสอบหลังเรียน</option>
-                                                <option value="1">มีการสอบหลังเรียน</option>
+                                                <option value="0">no exam after studying</option>
+                                                <option value="1">Have exam after studying</option>
                                             </select>
                                         </div>
 
@@ -173,7 +173,7 @@
                                     <div class="row">
 
                                         <div class="col-sm-4 m-b-20">
-                                            <p class="c-black">วCourse start date</p>
+                                            <p class="c-black">Course start date</p>
 
                                             <div class="input-group form-group ">
                                                 <span class="input-group-addon"><i

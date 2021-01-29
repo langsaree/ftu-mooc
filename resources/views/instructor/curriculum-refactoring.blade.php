@@ -25,25 +25,37 @@
 
                                 <div class="col-sm-12 m-t-5 m-b-20">
                                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Addcontent">Add content</button>
-                                <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#Editlesson">Edit lesson</button>
-                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#Deletelesson">Delete lesson</button>
+                                <button type="button" class="btn btn-warning" data-toggle="modal" onclick="addlecture('{{ $section->id }}')" data-target="#Editlesson">Edit lesson</button>
+                                <button type="button" class="btn btn-danger"  href="/DeleteSection/({{ $section->id }})" >Delete lesson</button>
 
                                 <!-- Modal -->
                                 <div class="modal fade" id="Addcontent" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog modal-lg">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                                <h5 class="modal-title" id="exampleModalLabel">{{ $section->section_name }} : id : {{ $section->id }}</h5>
                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                     <span aria-hidden="true">&times;</span>
                                                 </button>
                                             </div>
                                             <div class="modal-body">
-                                                add
+
+                                                <div class="row mt-4">
+                                                    <input type="hidden" name="section_id" id="section_id" value="{{ $section->id }}">
+                                                    <label for="basic-url">Add content</label>
+                                                    <div class="input-group">
+
+                                                        <input type="text" class="form-control"  name="lecture_title"  id="lecture_title" placeholder="Enter a Title.." maxlength="70"
+                                                               onkeyup="count_title_lecture()">
+                                                        <span class="input-group-text "><span id="dd">80</span></span>
+
+                                                    </div>
+                                                </div>
+
                                             </div>
                                             <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                <button type="button" class="btn btn-primary">Save changes</button>
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal" >Close</button>
+                                                <button type="button" class="btn btn-primary" onclick="SaveLecture()">Save changes</button>
                                             </div>
                                         </div>
                                     </div>
@@ -54,17 +66,27 @@
                                         <div class="modal-dialog modal-lg">
                                             <div class="modal-content">
                                                 <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                                    <h5 class="modal-title" id="exampleModalLabel">Edit => {{ $section->section_name }}</h5>
                                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                         <span aria-hidden="true">&times;</span>
                                                     </button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    edit
+                                                    <div class="row mt-4">
+                                                        <input type="hidden" name="section_id1" id="section_id1" value="{{ $section->id }}">
+                                                        <label for="basic-url">Lesson topic</label>
+                                                        <div class="input-group">
+
+                                                            <input type="text" class="form-control" value="{{ $section->section_name }}" name="lecture_title"  id="lecture_title" placeholder="Enter a Title.." maxlength="100"
+                                                                   onkeyup="count_name1()">
+                                                            <span class="input-group-text "><span id="dd1">100</span></span>
+
+                                                        </div>
+                                                    </div>
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                                    <button type="button" class="btn btn-primary" onclick="InsertUpdateSection()">Save changes</button>
                                                 </div>
                                             </div>
                                         </div>

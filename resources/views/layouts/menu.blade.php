@@ -56,33 +56,31 @@
         <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
             <div class="sidebar-sticky pt-3">
                 <ul class="nav flex-column">
-                    <li class="nav-item">
-
-                        <a class="nav-link"
-                           href=" ">
-                            <span data-feather="file"></span>
-                            My courses <span class="sr-only"></span>
-                        </a>
-                    </li>
-
                     <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-                        <span>Lessons</span>
+                        <span>Study category</span>
                         <a class="d-flex align-items-center text-muted" href="#" aria-label="Add a new report">
                             <span data-feather="plus-circle"></span>
                         </a>
                     </h6>
-                </ul>
-                <ul class="nav flex-column mb-2">
-                    <li class="nav-item">
-                        <a class="nav-link" href="">
-                            <span data-feather="file-text"></span>
-                            ........
-                        </a>
+
+                    <li class="nav-item" >
+                        @php
+                            $faculties = DB::table('faculties')->get();
+
+                        @endphp
+                        @foreach($faculties as $f)
+                            <a class="nav-link" href="{{ url('get-faculties/'.$f->id) }}">{{ $f->faculty_name }}
+                            <span data-feather="file"></span>
+                            </a>
+                        @endforeach
                     </li>
+
+
+
+
+
                 </ul>
-
             </div>
-
         </nav>
     </div>
 

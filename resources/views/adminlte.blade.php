@@ -12,8 +12,14 @@
 
 @section('css')
     <link rel="stylesheet" href="/css/admin_custom.css">
+    <link href="{{ asset('pg/superflat/vendors/bower_components/bootstrap-sweetalert/lib/sweet-alert.css') }}"
+          rel="stylesheet">
 @stop
 
 @section('js')
     <script> console.log('Hi!'); </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+    <script src="sweetalert2.min.js"></script>
+    <link rel="stylesheet" href="sweetalert2.min.css">
+
 @stop

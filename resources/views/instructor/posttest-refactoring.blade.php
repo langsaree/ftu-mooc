@@ -21,7 +21,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Manage the exam after studying</h3>
+                            <h3 class="card-title">Manage the exam before studying</h3>
 
                             <div class="card-tools">
                                 <div class="input-group input-group-sm" style="width: 150px;">
@@ -45,7 +45,7 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <?php foreach ($course as $key)?>
+                                <?php foreach ($course as $key){?>
                                 <tr>
                                     <td>{{ $key->id }}</td>
                                     <td>{{ $key->course_name }}</td>
