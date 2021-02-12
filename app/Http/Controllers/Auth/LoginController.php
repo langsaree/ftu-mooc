@@ -3,12 +3,11 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Foundation\Auth\AuthenticatesUsers;
-use Laravel\Socialite\Facades\Socialite;
-//use Socialite;
-use Auth;
-use Exception;
 use App\User;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use App\Providers\RouteServiceProvider;
+use Socialite;
+use Auth;
 
 class LoginController extends Controller
 {
@@ -41,73 +40,30 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
-
-    // Google login
-    public function redirectToGoogle()
+    public function redirectToProvider()
     {
         return Socialite::driver('google')->redirect();
     }
 
-    // Google callback
-    public function handleGoogleCallback()
+    /**
+     * Obtain the user information from GitHub.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function handleProviderCallback()
     {
-        $user = Socialite::driver('google')->user();
+        // UserSocialite::driver('google')->user();
+        $user =  Socialite::driver('google')->stateless()->user();
 
-        $this->_registerOrLoginUser($user);
 
-        // Return home after login
-        return redirect()->route('/home');
-    }
-
-    // Facebook login
-    public function redirectToFacebook()
-    {
-        return Socialite::driver('facebook')->redirect();
-    }
-
-    // Facebook callback
-    public function handleFacebookCallback()
-    {
-        $user = Socialite::driver('facebook')->user();
-
-        $this->_registerOrLoginUser($user);
-
-        // Return home after login
-        return redirect()->route('/home');
-    }
-
-    // Github login
-    public function redirectToGithub()
-    {
-        return Socialite::driver('github')->redirect();
-    }
-
-    // Github callback
-    public function handleGithubCallback()
-    {
-        $user = Socialite::driver('github')->user();
-
-        $this->_registerOrLoginUser($user);
-
-        // Return home after login
-        return redirect()->route('/home');
-    }
-
-    protected function _registerOrLoginUser($data)
-    {
-        $user = User::where('email', '=', $data->email)->first();
-        if (!$user) {
-            $user = new User();
-            $user->name = $data->name;
-            $user->email = $data->email;
-            $user->provider_id = $data->id;
-            $user->avatar = $data->avatar;
-            $user->save();
-        }
-
-        Auth::login($user);
+        //dd($user);
+        // $user->token;
+        $user=User::firstOrCreate([
+            'name'=>$user->getName(),
+            'email'=>$user->getEmail(),
+            'provider_id'=>$user->getId(),
+        ]);
+        Auth::Login($user,true);
+        return redirect('/home');
     }
 }
-
-
-

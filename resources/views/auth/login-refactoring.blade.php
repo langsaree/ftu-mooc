@@ -46,14 +46,14 @@
 
                 <p class="social-text">Or Sign in with social platforms</p>
                 <div class="social-media">
-                    <a href="{{ route('login.facebook') }}" class="social-icon">
+                    <a href="" class="social-icon">
                         <i class="fab fa-facebook-f"></i>
                     </a>
-                    <a href="{{ route('login.github') }}" class="social-icon">
+                    <a href="" class="social-icon">
                         <i class="fab fa-github"></i>
                     </a>
 
-                    <a href="{{ route('login.google') }}" class="social-icon">
+                    <a href="login/google" class="social-icon">
                         <i class="fab fa-google"></i>
                     </a>
 
@@ -65,38 +65,65 @@
             <form action="#" class="sign-up-form">
                 <form role="form" class="pretty-form" action="{{ route('students.store') }}" method="post" >
                     @csrf
-                <img  src="{{asset('svg/ftu.png')}}"  alt="" href="{{ url('/') }}" />
+                    <a href="{{ url('/') }}">
+                        <img  src="{{asset('svg/ftu.png')}}"  alt=""  />
+                    </a>
                 <h2 class="title">Sign up</h2>
-                <div class="input-field">
-                    <i class="fas fa-user"></i>
-                    <input type="text" placeholder="Username" />
-                </div>
+
                 <div class="input-field">
                     <i class="fas fa-envelope"></i>
-                    <input type="email" placeholder="xxx@gmail.com" />
+                    <input type="email" class="form-control" name="username" id="username" placeholder="xxx@gmail.com" required="required" />
                 </div>
                 <div class="input-field">
                     <i class="fas fa-lock"></i>
-                    <input type="password" placeholder="Password" />
+                    <input type="password" class="form-control" name="password" id="password" placeholder="ต้องใส่6ตัวขึ้นไป มีตัวพิมพ์เล็กใหญ่" required="required" />
                 </div>
+                    <div class="input-field">
+                        <i class="fas fa-user"></i>
+                        <input type="text" class="form-control" name="fullname" id="fullname" placeholder="ชื่อเต็มของคุณ" required="required" />
+                    </div>
 
-                <input type="submit" class="btn" value="Sign up" />
+                    <div class="input-field">
+                        <i class="fas fa-user"></i>
+                        <input type="text" class="form-control" name="nickname" id="nickname" placeholder="" required="required" />
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-user"></i>
+                        <input type="text" class="form-control" name="sex" id="sex" placeholder="" required="required" />
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-user"></i>
+                        <input type="text" class="form-control" name="year" id="year" placeholder="" />
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-user"></i>
+                        <input type="text" class="form-control" name="edu" id="edu" placeholder="" />
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-user"></i>
+                        <input class="form-control"  placeholder="ที่อยู่: " name="address" id="address" required="required" />
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-user"></i>
+                        <input class="form-control"  placeholder="เหตุผลที่สนใจเรียนใน MOOC: " name="reason" id="reason" />
+                    </div>
+
+                <input type="submit" class="btn solid" value="Sign up" />
 
                 <p class="social-text">Or Sign up with social platforms</p>
-                <div class="social-media">
-                    <a href="#" class="social-icon">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a href="#" class="social-icon">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                    <a href="#" class="social-icon">
-                        <i class="fab fa-google"></i>
-                    </a>
-                    <a href="#" class="social-icon">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
-                </div>
+                    <div class="social-media">
+                        <a href="" class="social-icon">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="" class="social-icon">
+                            <i class="fab fa-github"></i>
+                        </a>
+
+                        <a href="" class="social-icon">
+                            <i class="fab fa-google"></i>
+                        </a>
+
+                    </div>
             </form>
             </form>
         </div>
@@ -120,7 +147,7 @@
             <div class="content">
                 <h3>Register to FTUMooc</h3>
                 <p>
-                    If you are a member sign in here ^^
+                    If you are a member sign in here
                 </p>
                 <button class="btn transparent" id="sign-in-btn">
                     Sign in

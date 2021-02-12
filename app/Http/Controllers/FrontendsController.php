@@ -25,7 +25,7 @@ class FrontendsController extends Controller
 
     //signup
     public  function signup(){
-        return view('auth.signup');
+        return view('auth.login-refactoring');
     }
 
     public function contact(){
