@@ -24,7 +24,7 @@
                         <div class="row">
 
                                 <div class="col-sm-12 m-t-5 m-b-20">
-                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Addcontent">Add content</button>
+                                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#Addcontent">Add content</button>
                                 <button type="button" class="btn btn-warning" data-toggle="modal" onclick="addlecture('{{ $section->id }}')" data-target="#Editlesson">Edit lesson</button>
                                 <button type="button" class="btn btn-danger"  href="/DeleteSection/({{ $section->id }})" >Delete lesson</button>
 
@@ -212,7 +212,7 @@ $i++;
 <div class="panel-group" data-collapse-color="green" id="accordionGreen" role="tablist"
 aria-multiselectable="true">
 <p>
-<a class="btn btn-warning" data-toggle="collapse" href="#collapse" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fas fa-plus" ></i>
+<a class="btn btn-success" data-toggle="collapse" href="#collapse" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fas fa-plus" ></i>
 Add a lesson
 </a>
 

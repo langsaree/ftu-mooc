@@ -13,7 +13,7 @@
             <div class="card card-success card-outline">
                 <div class="card-body box-profile">
                     <div class="text-center">
-                        <img class="profile-user-img img-fluid img-circle"
+                        <img class="img-thumbnail"
                              src="{{ asset('upload/img/'.$course->course_pic) }}"
                              alt="User profile picture">
 

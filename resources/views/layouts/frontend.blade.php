@@ -33,8 +33,9 @@
         </ul>
         @else
             <ul class="menu">
-                <li> <img src="{{ Auth::user()->avatar }}" alt="{{ Auth::user()->name }}" style="border: 1px solid #cccccc; border-radius: 5px; width: 39px; height: auto;float:left; margin-right: 7px;">
-                    <a href="javascript:void(0)">Hello {{ Auth::user()->name }}</a></li>
+                <img src="{{ Auth::User()->avatar }}" alt="pic" style="border: 1px solid #cccccc; border-radius: 5px; width: 39px; height: auto;float:left; margin-right: 7px;">
+                <li>
+                    <a href="javascript:void(0)">Hello {{ Auth::User()->name }}</a></li>
                 @if(Auth::user()->role_id == 1)
                     <li><a href="{{ url('myadmin') }}">Dashboard</a></li>
                 @elseif(Auth::user()->role_id == 2)
