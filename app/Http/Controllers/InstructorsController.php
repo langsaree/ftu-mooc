@@ -524,4 +524,22 @@ class InstructorsController extends Controller
         $course = Course::where('user_id',Auth::id())->where('course_posttest',1)->get();
         return view('instructor.posttest-refactoring',compact('course'));
     }
+
+    public function AddPretest(){
+
+        return view('instructor.add-pretest');
+    }
+
+    public function Choices(){
+
+        return view('instructor.choices');
+    }
+
+    public function Results(){
+
+        return view('instructor.results');
+    }
+
+
+
 }

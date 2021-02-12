@@ -281,6 +281,13 @@ return [
                 ],
             ],
         ],
+        ['header' => 'Results'],
+        [
+            'text' => 'Manage results',
+            'url'  => 'Results',
+            'icon' => 'fas fa-fw fa-book',
+
+        ],
         ['header' => 'Account settings'],
         [
             'text' => 'profile',

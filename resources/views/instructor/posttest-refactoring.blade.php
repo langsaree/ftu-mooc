@@ -51,7 +51,7 @@
                                     <td>{{ $key->course_name }}</td>
                                     <td>{{ $key->group->group_nameen }}</td>
                                     <td><a href="instructor/AddPosttest" class="btn btn-info btn-icon-text"><i class="zmdi zmdi-apps"></i>Add test</a></td>
-                                </tr>
+
                                 <td>
                                     @if($key->status == 1)
                                         <a href="{{ url('status0/'.$key->id) }}" class="btn btn-sm btn-danger btn-icon-text">Cancel</a>
