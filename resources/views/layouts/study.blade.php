@@ -17,6 +17,14 @@
     <script src="https://www.youtube.com/player_api"></script>
     <link href="{{ asset('css/study.css') }}" rel="stylesheet">
 
+    <script src="https://kit.fontawesome.com/e3b0f576bf.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.11/typed.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"/>
+
+
     <style>
         .bd-placeholder-img {
             font-size: 1.125rem;
@@ -32,9 +40,23 @@
                 font-size: 3.5rem;
             }
         }
+
+        /* Style the buttons */
+        .btn {
+            border: none;
+            outline: none;
+            padding: 10px 16px;
+            background-color: #f1f1f1;
+
+        }
+
+        /* Style the active class, and buttons on mouse-over */
+        .active, .btn:hover {
+            background-color: yellow;
+            color: white;
+        }
     </style>
-    <!-- Custom styles for this template -->
-    <link href="{{ asset('css/study.css') }}" rel="stylesheet">
+
 </head>
 <body>
 <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
@@ -50,10 +72,10 @@
     </ul>
 </nav>
 
-<div class="container-fluid">
+<div class="container-fluid" >
     <div class="row">
 
-        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse" >
             <div class="sidebar-sticky pt-3">
                 <ul class="nav flex-column">
                     <li class="nav-item">
@@ -67,7 +89,7 @@
 
                     </li>
 
-                    <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+              {{--      <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
                         <span>Test Befor Study</span>
                         <a class="d-flex align-items-center text-muted" href="#" aria-label="Add a new report">
                             <span data-feather="plus-circle"></span>
@@ -81,7 +103,7 @@
                                 ........
                             </a>
                         </li>
-                    </ul>
+                    </ul>--}}
 
 
                     <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
@@ -100,7 +122,7 @@
                         @endforeach
                     </li>
 
-                    <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                    {{--<h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
                         <span>Test After Study</span>
                         <a class="d-flex align-items-center text-muted" href="#" aria-label="Add a new report">
                             <span data-feather="plus-circle"></span>
@@ -114,7 +136,7 @@
                             ........
                         </a>
                     </li>
-                </ul>
+                </ul>--}}
 
                 <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
                     <span>Results</span>
@@ -131,13 +153,15 @@
                         </a>
                     </li>
                 </ul>
+
+                </ul>
             </div>
+
 
         </nav>
     </div>
 
         @yield('content')
-
 
 </div>
 
