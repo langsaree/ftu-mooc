@@ -85,6 +85,11 @@ class InstructorsController extends Controller
         $ins->save();
 
         return redirect()->route('login');
+
+
+
+
+
     }
 
     /**
