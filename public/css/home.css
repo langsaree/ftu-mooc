@@ -168,10 +168,10 @@ section .title::after{
 /*image of logo study*/
 .move-me{
 position: absolute;
-    top: 200px;
-    right: 0;
-    width: 50%;
-    height: 50%;
+    top: 90px;
+    right: 20px;
+    width: 40%;
+    height: 80%;
 }
 .move-me2{
     position: relative;
@@ -196,8 +196,9 @@ position: absolute;
     margin: auto 0 auto 30px;
 }
 .home .home-content .text-1{
-    font-size: 27px;
-    color: #111111;
+    font-size: 50px;
+    color: #009432;
+    /*font-family: Monospace;*/
 }
 .home .home-content .text-2{
     font-size: 35px;
