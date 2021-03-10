@@ -1,7 +1,9 @@
-@extends('layouts.admin')
+@extends('adminlte::page')
 
 @section('content')
     <section id="content">
+        <div class="card" style="width: 60rem;">
+            <div class="card-body">
         <div class="container">
 
 
@@ -44,6 +46,8 @@
 
             <!--ent modal-->
 
+        </div>
+            </div>
         </div>
     </section>
 

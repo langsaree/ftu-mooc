@@ -268,7 +268,7 @@ return [
         ],
         ['header' => 'Exam'],
         [
-            'text'    => 'Examination',
+            'text'    => 'Quiz',
             'icon'    => 'fas fa-fw fa-stream',
             'submenu' => [
                 [

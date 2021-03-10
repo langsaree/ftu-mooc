@@ -26,25 +26,29 @@
                     @guest
 
                     @else
-        <section class="content">
+
+        <section class="content text-left">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-12">
-                        <h2 class="card-title text-success">{{ $lecture->lecture_name }}</h2>
+                         <h2 class="card-title text-dark "><i class="fas fa-book"></i><b> {{ $lecture->lecture_name }}</b></h2>
 
-                                <i class="fas fa-book-open"></i>
-                                    <div class="body text-dark" id="{{ $lecture->id }}">
+
+                                    <div class=" text-dark" id="{{ $lecture->id }}">
                                         {!! $lecture->lecture_article  !!}
                                     </div>
 
 
-                                    <i class="fas fa-video bg-maroon"></i>
-                                    <h3 class="header">video</h3>
+
+                          <h3 class="header text-dark"><i class="fab fa-youtube"></i> video</h3>
                                         <div class="embed-responsive embed-responsive-16by9">
                                             <iframe width="560" height="315" src="{{$lecture->youtube}}"
                                                     frameborder="0" allow="accelerometer; autoplay; clipboard-write;
                                                     encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                         </div>
+
+                        <h3 class="header text-dark"><i class="fas fa-file-pdf"></i> References</h3>
+                        <h1>-----------------------------------------------------------------------------</h1>
 
                         @endguest
                         @endforeach

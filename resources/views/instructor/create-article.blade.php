@@ -1,7 +1,10 @@
-@extends('layouts.admin')
+@extends('adminlte::page')
 
 @section('content')
+
     <section id="content">
+        <div class="card" style="width: 60rem;">
+            <div class="card-body">
         <div class="container">
 
 
@@ -22,10 +25,17 @@
                             <input type="hidden" name="lecture_id" id="lecture_id" value="{{ $lecture_id }}">
                             <input type="hidden" name="course_id" id="course_id" value="{{ $course_id }}">
                             <p class=" c-black m-b-20">material </p>
+                            <br>
 
-                            <textarea class="html-editor" name="article" required="required"></textarea>
+
+
                         </div>
+                        <textarea class="form-control" id="summary-ckeditor" name="article"></textarea>
 
+                        <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
+                        <script>
+                            CKEDITOR.replace( 'summary-ckeditor' );
+                        </script>
 
                         <br>
 
@@ -44,6 +54,8 @@
 
             <!--ent modal-->
 
+        </div>
+            </div>
         </div>
     </section>
 

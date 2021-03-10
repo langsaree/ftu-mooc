@@ -210,6 +210,7 @@
 
 </script>
 <script src="{{ asset('pg/register_ajax.js') }}"></script>
+@include('sweetalert::alert')
 
 @yield('js')
 </body>
