@@ -14,6 +14,7 @@
         "laravel/helpers": "^1.2",
         "laravel/socialite": "^5.1",
         "laravel/tinker": "^1.0",
+        "realrashid/sweet-alert": "^3.2",
         "twbs/bootstrap": "4.5.2",
         "twitter/bootstrap": "^4.5"
     },

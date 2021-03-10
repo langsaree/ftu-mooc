@@ -13,12 +13,16 @@
 @section('css')
     <link rel="stylesheet" href="/css/admin_custom.css">
     <link rel="stylesheet" href="sweetalert2.min.css">
+
 @stop
+@include('sweetalert::alert')
 
 @section('js')
     <script> console.log('Hi!'); </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
-    <script src="sweetalert2.min.js"></script>
+    <script src="{{ asset('pg/superflat/vendors/bootstrap-growl/bootstrap-growl.min.js') }}"></script>
+    <script src="{{ asset('pg/superflat/vendors/bower_components/bootstrap-sweetalert/lib/sweet-alert.min.js') }}"></script>
+
+
 
 
 @stop
