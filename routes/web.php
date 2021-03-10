@@ -121,7 +121,13 @@ Route::get('menu', function () {
     return view('menu');
 });
 
-Route::resource('editor','CKEditorController');
+Route::get('profile', function () {
+    return view('instructor-profile');
+});
+
+Route::get('profile','FrontendsController@profile');
+
+//Route::resource('editor','CKEditorController');
 
 
 // Google login
