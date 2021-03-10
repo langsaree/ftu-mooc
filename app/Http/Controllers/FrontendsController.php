@@ -20,12 +20,12 @@ class FrontendsController extends Controller
 
     //signin
     public  function signin(){
-        return view('auth.login-refactoring');
+        return view('auth.login');
     }
 
     //signup
     public  function signup(){
-        return view('auth.login-refactoring');
+        return view('auth.signup');
     }
 
     public function contact(){
@@ -34,6 +34,10 @@ class FrontendsController extends Controller
 
     public function menu(){
         return view('layout.manu');
+    }
+
+    public  function profile(){
+        return view('instructor.profile');
     }
 
     public function cview($id){

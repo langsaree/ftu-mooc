@@ -9,6 +9,7 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-md-3">
+
             <!-- Profile Image -->
             <div class="card card-success card-outline">
                 <div class="card-body box-profile">
@@ -40,14 +41,7 @@
                 </div>
                 <!-- /.card-body -->
             </div>
-            <!-- /.card -->
 
-            <!-- About Me Box -->
-            <div class="card card-success">
-
-                <!-- /.card-body -->
-            </div>
-            <!-- /.card -->
         </div>
         <!-- /.col -->
         <div class="col-md-9">
@@ -55,10 +49,12 @@
                 <div class="card-header p-2">
                     <ul class="nav nav-pills">
                         <li class="nav-item"><a class="nav-link active  " href="#Information" data-toggle="tab">General information</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#Study" data-toggle="tab">Study program</a></li>
+                        <li class="nav-item"><a class="nav-link" aria-controls="Curriculum" href="#Curriculum" data-toggle="tab">Study program</a></li>
                         <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">Learner</a></li>
                     </ul>
-                </div><!-- /.card-header -->
+                </div>
+
+                <!-- /.card-header -->
                 <div class="card-body">
                     <div class="tab-content">
                         <div class="active tab-pane" id="Information">
@@ -66,12 +62,10 @@
                             <div class="tab-pane" id="timeline">
                                 <!-- The timeline -->
                                 <div class="timeline timeline-inverse">
-                                    <!-- timeline time label -->
 
-                                    <!-- /.timeline-label -->
-                                    <!-- timeline item -->
+
                                     <div>
-                                        <i class="fas fa-envelope bg-success"></i>
+                                        <i class="fab fa-discourse bg-secondary"></i>
 
                                         <div class="timeline-item">
 
@@ -80,36 +74,51 @@
 
                                             <div class="timeline-body">
                                                 {!! $course->course_about !!}
+
+                                                <button data-pmb-action="edit" href="#"
+                                                        data-toggle="modal" data-target="#About"
+                                                        class="btn btn-info btn-sm  float-right"><i class="far fa-edit"></i></button>
                                             </div>
 
-                                            <div class="timeline-footer">
-                                                <a data-pmb-action="edit" href="#" class="btn btn-success btn-sm">modify</a>
 
-                                            </div>
 
-                                            <div class="pmbb-edit">
+                                            <!-- Modal -->
+                                            <div class="modal fade" id="About" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabel">About the course</h5>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <div class="pmbb-edit">
 
-                                                <div class="fg-line">
-                                                    <input type="hidden" id="course_id" value="{{ $course->id }}">
-                                                    <textarea class="form-control" name="course_about" id="course_about"
-                                                              rows="5" placeholder="About This Course..."
-                                                              required="required"> {!! $course->course_about !!} </textarea>
+                                                                <div class="fg-line">
+                                                                    <input type="hidden" id="course_id" value="{{ $course->id }}">
+                                                                    <textarea class="form-control" name="course_about" id="course_about"
+                                                                              rows="5" placeholder="About This Course..."
+                                                                              required="required"> {!! $course->course_about !!} </textarea>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                                    <button type="button" class="btn btn-primary" type="submit" onclick="UpdateAbout()">Save changes</button>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
                                                 </div>
-                                                <div class="m-t-10">
-                                                    <button class="btn btn-primary btn-sm" type="submit"
-                                                            onclick="UpdateAbout()">record
-                                                    </button>
-                                                    <button data-pmb-action="reset" class="btn btn-link btn-sm">cancel</button>
-                                                </div>
-
                                             </div>
 
                                         </div>
                                     </div>
-                                    <!-- END timeline item -->
-                                    <!-- timeline item -->
+
+
                                     <div>
-                                        <i class="fas fa-user bg-info"></i>
+                                        <i class="fas fa-bullseye bg-info"></i>
 
                                         <div class="timeline-item">
 
@@ -118,13 +127,52 @@
 
                                             <div class="timeline-body">
                                                 {!! $course->course_description !!}
+                                                <button data-pmb-action="edit" href="#"
+                                                        data-toggle="modal" data-target="#goals"
+                                                        class="btn btn-info btn-sm  float-right"><i class="far fa-edit"></i></button>
+                                            </div>
+
+
+                                            <!-- Modal -->
+                                            <div class="modal fade" id="goals" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabel">About the course</h5>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <div class="pmbb-edit">
+                                                                <div class="pmbb-edit">
+                                                                    <div class="fg-line">
+                                                                        <input type="hidden" id ="course_id" value="{{ $course->id }}"/>
+                                                                        <textarea class="html-editor" name="course_description"
+                                                                                  id="course_description" rows="5"
+                                                                                  placeholder="Course Descriptions..."
+                                                                                  required="required">{!! $course->course_description !!}</textarea>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                                    <button type="button" class="btn btn-primary" type="submit" onclick="UpdateDescriptions()">Save changes</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- END timeline item -->
-                                    <!-- timeline item -->
+
+
+
+
+
+
                                     <div>
-                                        <i class="fas fa-comments bg-warning"></i>
+                                        <i class="fas fa-address-card bg-warning"></i>
 
                                         <div class="timeline-item">
 
@@ -151,6 +199,9 @@
                                                     </dl>
                                                     <dl class="dl-horizontal">
                                                         <dt>price</dt>
+                                                        <!--button Edite-->
+                                                        <button data-pmb-action="edit" href="#" data-toggle="modal" data-target="#General" class="btn btn-info btn-sm  float-right"><i class="far fa-edit"></i></button>
+                                                        <!--END button Edite-->
                                                         @if($course->course_price == 0)
                                                             <dd><span class='label label-success'>FREE</span></dd>
                                                         @else
@@ -158,13 +209,107 @@
                                                             </dd>
                                                         @endif
                                                     </dl>
+
+                                                </div>
+                                            </div>
+
+                                            <div class="modal fade" id="General" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabel">General Information</h5>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+
+                                                            <div class="pmbb-edit">
+                                                                <div class="pmbb-edit">
+                                                                    <dl class="dl-horizontal">
+                                                                        <dt class="p-t-10">Course name</dt>
+                                                                        <dd>
+                                                                            <div class="fg-line">
+                                                                                <input type="text" class="form-control"
+                                                                                       placeholder="ชื่อหลักสูตร" name="course_name"
+                                                                                       id="course_name"
+                                                                                       value="{{ $course->course_name }}">
+                                                                            </div>
+
+                                                                        </dd>
+                                                                    </dl>
+                                                                    <dl class="dl-horizontal">
+                                                                        <dt class="p-t-10">language</dt>
+                                                                        <dd>
+                                                                            <div class="fg-line">
+                                                                                <select class="form-control" name="course_languages"
+                                                                                        id="course_languages">
+                                                                                    <option value="Thai"
+                                                                                            @if($course->course_languages == "Thai") selected @endif>
+                                                                                        Thai
+                                                                                    </option>
+                                                                                    <option value="English"
+                                                                                            @if($course->course_languages == "English") selected @endif>
+                                                                                        English
+                                                                                    </option>
+                                                                                </select>
+                                                                            </div>
+                                                                        </dd>
+                                                                    </dl>
+                                                                    <dl class="dl-horizontal">
+                                                                        <dt class="p-t-10">begin</dt>
+                                                                        <dd>
+                                                                            <div class="dtp-container dropdown fg-line">
+                                                                                <input type='date' class="form-control date-picker"
+                                                                                       name="course_start" id="course_start" required="required"
+                                                                                       placeholder="Click here..."
+                                                                                       value="{{ $course->course_start }}">
+
+                                                                            </div>
+                                                                        </dd>
+                                                                    </dl>
+                                                                    <dl class="dl-horizontal">
+                                                                        <dt class="p-t-10">End</dt>
+                                                                        <dd>
+                                                                            <div class="dtp-container dropdown fg-line">
+                                                                                <input type='date' class="form-control date-picker"
+                                                                                       name="course_end" id="course_end" required="required"
+                                                                                       placeholder="Click here..."
+                                                                                       value="{{ $course->course_end }}">
+                                                                            </div>
+                                                                        </dd>
+                                                                    </dl>
+                                                                    <dl class="dl-horizontal">
+                                                                        <dt class="p-t-10">price</dt>
+                                                                        <dd>
+                                                                            <div class="dtp-container dropdown fg-line">
+                                                                                <input type="hidden" id="course_id" value="{{ $course->id }}">
+                                                                                <input type='number' class="form-control" min="0" max="99999"
+                                                                                       name="course_price" id="course_price" data-toggle="dropdown"
+                                                                                       placeholder="0" value="{{ $course->course_price }}">
+                                                                            </div>
+                                                                        </dd>
+                                                                    </dl>
+
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                                    <button type="button" class="btn btn-primary" type="submit" onclick="UpdateInformation()">Save changes</button>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
 
+
+
+
                                     <div>
-                                        <i class="fas fa-comments bg-warning"></i>
+                                        <i class="fas fa-layer-group bg-danger"></i>
                                         <div class="timeline-item">
                                             <h3 class="timeline-header"><a href="#">Group Information</a> </h3>
                                             <div class="timeline-body">
@@ -175,44 +320,167 @@
                                                     </dl>
                                                     <dl class="dl-horizontal">
                                                         <dt>category</dt>
+                                                        <!--button Edite-->
+                                                        <button data-pmb-action="edit" href="#" data-toggle="modal" data-target="#Group" class="btn btn-info btn-sm  float-right"><i class="far fa-edit"></i></button>
+                                                        <!--END button Edite-->
                                                         <dd>{{ $course->group->group_nameen }}</dd>
                                                     </dl>
+                                                </div>
+                                            </div>
+                                            <!-- Modal -->
+                                            <div class="modal fade" id="Group" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabel">Group Information</h5>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <div class="pmbb-edit">
+                                                                <div class="pmbb-edit">
+                                                                    <dl class="dl-horizontal">
+                                                                        <dt class="p-t-10">Category</dt>
+                                                                        <dd>
+                                                                            <div class="fg-line">
+                                                                                <select class="form-control" name="faculty_id"
+                                                                                        id="faculty_id">
+                                                                                    @foreach($faculties as $fac)
+                                                                                        <option value="{{ $fac->id }}"
+                                                                                                @if($fac->id == $course->faculty_id)
+                                                                                                selected
+                                                                                            @endif
+                                                                                        >{{ $fac->faculty_name }}</option>
+                                                                                    @endforeach
+                                                                                </select>
+                                                                            </div>
+                                                                        </dd>
+                                                                    </dl>
+
+                                                                    <dl class="dl-horizontal">
+                                                                        <dt class="p-t-10">category</dt>
+                                                                        <dd>
+                                                                            <div class="fg-line">
+                                                                                <input type = "hidden" id = "course_id" value="{{ $course->id }}">
+                                                                                <select class="form-control" name="group_id" id="group_id">
+                                                                                    @foreach($groups as $group)
+                                                                                        <option value="{{ $group->id }}"
+                                                                                                @if($group->id == $course->group_id)
+                                                                                                selected
+                                                                                            @endif
+                                                                                        >{{ $group->group_nameen }}</option>
+                                                                                    @endforeach
+                                                                                </select>
+                                                                            </div>
+                                                                        </dd>
+                                                                    </dl>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                                    <button type="button" class="btn btn-primary" type="submit" onclick="SaveGroupInformation()">Save changes</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
 
+
+
                                     <div>
-                                        <i class="fas fa-camera bg-purple"></i>
+                                        <i class="fas fa-feather-alt bg-purple"></i>
                                         <div class="timeline-item">
-                                            <h3 class="timeline-header"><a href="#">Test</a> .</h3>
+                                            <h3 class="timeline-header"><a href="#">Quiz</a></h3>
                                             <div class="timeline-body">
                                                 <div class="pmbb-view">
                                                     <dl class="dl-horizontal">
-                                                        <dt>Test before study</dt>
+                                                        <dt>Quiz before study</dt>
                                                         <dd>
                                                             @if($course->course_pretest == 0)
-                                                                <span class='c-red'>There is no test before study</span>
+                                                                <span class='c-red'>There is no quiz before study</span>
                                                             @else
-                                                                <span class='c-green'>There is a test before study</span>
+                                                                <span class='c-green'>There is a quiz before study</span>
                                                             @endif
                                                         </dd>
                                                     </dl>
                                                     <dl class="dl-horizontal">
-                                                        <dt>Test after class</dt>
+                                                        <dt>Quiz after class</dt>
+                                                        <!--button Edite Quiz-->
+                                                        <button data-pmb-action="edit" href="#" data-toggle="modal" data-target="#Quiz" class="btn btn-info btn-sm  float-right"><i class="far fa-edit"></i></button>
+                                                        <!--END button Edite Quiz-->
                                                         <dd>
                                                             @if($course->course_posttest == 0)
-                                                                <span class='c-red'>No test after study</span>
+                                                                <span class='c-red'>No quiz after study</span>
                                                             @else
-                                                                <span class='c-green'>There is a test after study</span>
+                                                                <span class='c-green'>There is a quiz after study</span>
                                                             @endif
                                                         </dd>
                                                     </dl>
                                                 </div>
                                             </div>
+
+                                            <!-- Modal -->
+                                            <div class="modal fade" id="Quiz" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabel">Quiz</h5>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <div class="pmbb-edit">
+                                                                <div class="pmbb-edit">
+                                                                    <div class="pmbb-edit">
+                                                                        <dl class="dl-horizontal">
+                                                                            <dt class="p-t-10">Test before study</dt>
+                                                                            <dd>
+                                                                                <div class="fg-line">
+                                                                                    <input type = "hidden" id = "course_id" value="{{ $course->id }}">
+                                                                                    <select class="form-control" name="course_pretest"
+                                                                                            id="course_pretest">
+
+                                                                                        <option value="0" @if($course->course_pretest == 0) selected @endif>ไม่มีการทอดสอบก่อนเรียน</option>
+                                                                                        <option value="1" @if($course->course_pretest == 1) selected @endif>มีการทอดสอบก่อนเรียน
+                                                                                        </option>
+
+                                                                                    </select>
+                                                                                </div>
+                                                                            </dd>
+                                                                        </dl>
+                                                                        <dl class="dl-horizontal">
+                                                                            <dt class="p-t-10">Test after study</dt>
+                                                                            <dd>
+                                                                                <div class="fg-line" id="course_programs_g">
+                                                                                    <select class="form-control" name="course_posttest"
+                                                                                            id="course_posttest">
+
+                                                                                        <option value="0" @if($course->course_posttest == 0) selected @endif>ไม่มีการทอดสอบหลังเรียน
+                                                                                        </option>
+                                                                                        <option value="1" @if($course->course_posttest == 1) selected @endif>มีการทอดสอบหลังเรียน</option>
+
+                                                                                    </select>
+                                                                                </div>
+                                                                            </dd>
+                                                                        </dl>
+
+                                                                    </div>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                                    <button type="button" class="btn btn-primary" type="submit" onclick="SaveCourseQuiz()">Save changes</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                    <!-- END timeline item -->
                                     <div>
                                         <i class="far fa-clock bg-gray"></i>
                                     </div>
@@ -221,12 +489,12 @@
                         </div>
 
                         <!-- study program -->
-                        <div class="tab-pane" id="Study">
 
-                                @include('instructor.curriculum-refactoring')
+                        <div role="tabpanel" class="tab-pane" id="Curriculum">
+                            <h2 class="text-center">Study program</h2>
+                            @include('instructor.curriculum-refactoring')
 
                         </div>
-
 
                         <div class="tab-pane" id="settings">
                             <form class="form-horizontal">
@@ -265,9 +533,22 @@
                                     </table>
                                 </div>
 
+
+
 @stop
 
                                 @section('js')
+
+                                    @include('sweetalert::alert')
+                                    <link href="{{ asset('pg/superflat/vendors/bower_components/bootstrap-sweetalert/lib/sweet-alert.css') }}"
+                                          rel="stylesheet">
+
+                                    <script src="{{ asset('pg/superflat/vendors/bootstrap-growl/bootstrap-growl.min.js') }}"></script>
+                                    <script src="{{ asset('pg/superflat/vendors/bower_components/bootstrap-sweetalert/lib/sweet-alert.min.js') }}"></script>
+
+
+
+
                                     <script>
                                         $(document).on('ready', function () {
                                             //document.getElementById("Dashboard").className = "active";
@@ -478,7 +759,7 @@
                                                 success: function (data) {
 
                                                     swal("success", data.success, "success");
-                                                    $('.btn-success').on('click', function () {
+                                                    $('.btn-primary').on('click', function () {
                                                         location.reload();
                                                     });
 
@@ -506,7 +787,7 @@
                                                 success: function (data) {
 
                                                     swal("success", data.success, "success");
-                                                    $('.btn-success').on('click', function () {
+                                                    $('.btn-primary').on('click', function () {
                                                         location.reload();
                                                     });
 
@@ -762,4 +1043,3 @@
 
 
 @stop
-

@@ -24,7 +24,7 @@
                     <div class="row mb-2">
                             <div class="text-center">
                                 @if(Auth::user()->status == 1)
-                                    <button type="button" class="btn btn-success" onclick="addcourses()">Add a course</button>
+                                    <button type="button" class="btn btn-primary" onclick="addcourses()">Add a course</button>
                                 @else
                                     <span>Can't add courses Because the user has not yet approved</span>
                                 @endif
@@ -58,7 +58,12 @@
                                             <div class="clearfix"></div>
 
                                             <a href="{{ url('viewcourse/'.$key->id) }}" type="button" class="btn btn-info">View</a>
-                                            <a href="javascript:void(0)" onclick="delcourse('{{ $key->id }}','{{ $key->course_name }}')"  type="button" class="btn btn-danger">Delete</a>
+                                            <a href="javascript:void(0)"
+                                               onclick="delcourse('{{ $key->id }}', '{{ $key->course_name }}')"
+                                               class="btn bg-danger  btn-icon-text"><i class="zmdi zmdi-close"></i>Delete</a>
+
+
+
                                         </div>
                                     </div>
                                         @endforeach
@@ -179,7 +184,7 @@
                                                 <span class="input-group-addon"><i
                                                         class="zmdi zmdi-calendar"></i></span>
                                                 <div class="dtp-container">
-                                                    <input type='text' class="form-control date-picker"
+                                                    <input type='date' class="form-control date-picker"
                                                            name="course_start" id="date_in" placeholder="Click here..."
                                                            required="required">
                                                 </div>
@@ -192,18 +197,20 @@
                                                 <span class="input-group-addon"><i
                                                         class="zmdi zmdi-calendar"></i></span>
                                                 <div class="dtp-container">
-                                                    <input type='text' class="form-control date-picker"
+                                                    <input type='date' class="form-control date-picker"
                                                            name="course_end" id="date_out" placeholder="Click here..."
                                                            required="required">
                                                 </div>
                                             </div>
                                         </div>
 
+
                                     </div>
 
                                 </div>
                                 <div class="modal-footer">
                                     <button type="submit" class="btn btn-sm btn-primary">Save data</button>
+
                                     <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">cancel
                                     </button>
                                 </div>
@@ -219,6 +226,16 @@
 @stop
 
 @section('js')
+    @include('sweetalert::alert')
+    <link href="{{ asset('pg/superflat/vendors/bower_components/bootstrap-sweetalert/lib/sweet-alert.css') }}"
+          rel="stylesheet">
+
+    <script src="{{ asset('pg/superflat/vendors/bootstrap-growl/bootstrap-growl.min.js') }}"></script>
+    <script src="{{ asset('pg/superflat/vendors/bower_components/bootstrap-sweetalert/lib/sweet-alert.min.js') }}"></script>
+
+
+
+
     <script>
         $(document).on('ready', function () {
             //document.getElementById("Dashboard").className = "active";
@@ -238,13 +255,41 @@
                 $('#date_in').data("DateTimePicker").maxDate(e.date);
             });
         });
+
+
+        $(document).on('click', '.button', function (e) {
+            e.preventDefault();
+            var id = $(this).data('id');
+            swal({
+                    title: "Are you sure!",
+                    type: "error",
+                    confirmButtonClass: "btn-danger",
+                    confirmButtonText: "Yes!",
+                    showCancelButton: true,
+                },
+                function() {
+                    $.ajax({
+                        type: "POST",
+                        url: "{{ url('DeleteCourse') }}",
+                        data: {id:id},
+                        success: function (data) {
+                            //
+                        }
+                    });
+                });
+        });
+
+
+
+
+
         function delcourse(id, name) {
             swal({
-                title: "Confirm data deletion?",
-                text: "You want to delete the course." + name + "Or not",
+                title: "ยืนยันการลบข้อมูล?",
+                text: "คุณต้องการลบ หลักสูตร" + name + " หรือไม่",
                 type: "warning",
                 showCancelButton: true,
-                confirmButtonClass: 'btn bg-pink',
+                confirmButtonClass: 'btn bg-green',
                 cancelButtonClass: 'btn bg-gray',
                 confirmButtonText: "Yes, delete it!",
                 closeOnConfirm: false
@@ -257,7 +302,7 @@
                         'id': id,
                     },
                 });
-                swal("Delete a course" + name + " Already", "success");
+                swal("ลบ หลักสูตร" + name + " เรียบร้อยแล้ว", "success");
                 $('.btn-primary').on('click', function () {
                     location.reload();
                 });
@@ -283,7 +328,7 @@
                     }
                 })
             } else {
-                swal("Please select", "Please select faculty", "error");
+                swal("กรุณาเลือก", "กรุณาเลือกสังกัดคณะ", "error");
             }
         }
     </script>

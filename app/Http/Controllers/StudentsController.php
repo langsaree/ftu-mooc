@@ -58,10 +58,11 @@ class StudentsController extends Controller
         //$students->student_year = $request->year;
         $students->student_edu = $request->edu;
         $students->student_address = $request->address ;
-        $students->student_reason = $request->reason;
+        //$students->student_reason = $request->reason;
         $students->student_status = 0;
 
         $students->save();
+
 
         return redirect()->route('login');
 

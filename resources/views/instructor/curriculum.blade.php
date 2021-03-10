@@ -7,7 +7,6 @@
 
         @foreach ($sections as $section)
 
-
             <div class="panel panel-collapse">
                 <div class="panel-heading" role="tab">
                     <h4 class="panel-title">
@@ -27,15 +26,15 @@
                         <div class="col-sm-12 m-t-5 m-b-20">
                             <button class="btn btn-primary btn bg-lightblue"
                                     onclick="addlecture('{{ $section->id }}')"><i
-                                        class="zmdi zmdi-collection-plus zmdi-hc-fw"></i> Add content
+                                    class="zmdi zmdi-collection-plus zmdi-hc-fw"></i> Add content
                             </button>
                             <button class="btn btn-primary btn bg-amber"
-                                    onclick="EditSection({{ $section->id }})"><i
-                                        class="zmdi zmdi-comment-edit zmdi-hc-fw"></i> Edit lesson
+                                    onclick="EditSection('{{ $section->id }}')"><i
+                                    class="zmdi zmdi-comment-edit zmdi-hc-fw"></i> Edit lesson
                             </button>
-                            <button class="btn btn-primary btn bg-pink" onclick="DeleteSection({{ $section->id }})"><i class="zmdi zmdi-delete zmdi-hc-fw"></i> Delete lesson
-
-
+                            <button class="btn btn-primary btn bg-pink"
+                                    onclick="DeleteSection({{ $section->id }})"><i
+                                    class="zmdi zmdi-delete zmdi-hc-fw"></i> Delete lesson
                             </button>
                         </div>
 
@@ -62,16 +61,14 @@
 
                                                 &nbsp;&nbsp;
                                                 <span class="text-danger">
-
                                                     <div class="toggle-switch">
-                                                        <label for="ts1" class="ts-label">Open to public </label>
-
+                                                        <label for="ts1"
+                                                               class="ts-label">Open to public </label>
                                                         <input id="{{ $lecture->id }}"
                                                                type="checkbox"
                                                                @if ($lecture->lecture_preview == '1')  checked
                                                                @endif
                                                                onclick="PublicCheck('{{ $lecture->id }}#{{ $lecture->lecture_preview }}')">
-
                                                         <label for="ts1" class="ts-helper"></label>
 
                                                     </div>
@@ -80,7 +77,7 @@
 
                                             <div class="actions dropdown">
                                                 <a href="" data-toggle="dropdown" aria-expanded="false"><i
-                                                            class="zmdi zmdi-more"></i></a>
+                                                        class="zmdi zmdi-more"></i></a>
 
                                                 <ul class="dropdown-menu pull-right">
 
@@ -89,7 +86,6 @@
                                                     </li>
                                                 </ul>
                                             </div>
-
                                         </div>
 
 
@@ -102,40 +98,42 @@
                                                         <ul class="tab-nav" role="tablist">
 
                                                             {{--<li role="presentation" class=""><a--}}
-                                                                        {{--href="#ppt{{ $lecture->id }}"--}}
-                                                                        {{--aria-controls="ppt{{ $lecture->id }}"--}}
-                                                                        {{--role="tab" data-toggle="tab"--}}
-                                                                        {{--aria-expanded="false">Power--}}
-                                                                    {{--Point</a></li>--}}
+                                                            {{--href="#ppt{{ $lecture->id }}"--}}
+                                                            {{--aria-controls="ppt{{ $lecture->id }}"--}}
+                                                            {{--role="tab" data-toggle="tab"--}}
+                                                            {{--aria-expanded="false">Power--}}
+                                                            {{--Point</a></li>--}}
 
                                                             <li role="presentation" class=""><a
-                                                                        href="#youtube{{ $lecture->id }}"
-                                                                        aria-controls="youtube{{ $lecture->id }}"
-                                                                        role="tab" data-toggle="tab"
-                                                                        aria-expanded="false">youtube</a>
+                                                                    href="#youtube{{ $lecture->id }}"
+                                                                    aria-controls="youtube{{ $lecture->id }}"
+                                                                    role="tab" data-toggle="tab"
+                                                                    aria-expanded="false">youtube</a>
                                                             </li>
-
                                                             <li role="presentation" class=""><a
-                                                                        href="#article{{ $lecture->id }}"
-                                                                        aria-controls="article{{ $lecture->id }}"
-                                                                        role="tab" data-toggle="tab"
-                                                                        aria-expanded="false">article</a>
+                                                                    href="#article{{ $lecture->id }}"
+                                                                    aria-controls="article{{ $lecture->id }}"
+                                                                    role="tab" data-toggle="tab"
+                                                                    aria-expanded="false">article</a>
                                                             </li>
                                                         </ul>
-
                                                         <div class="row">
 
-                                                        </div>
 
+                                                        </div>
                                                         <div class="tab-content">
+
+
+
+
 
                                                             <div role="tabpanel" class="tab-pane animated fadeIn"
                                                                  id="youtube{{ $lecture->id }}">
                                                                 @if($lecture->youtube)
                                                                     <div class="col-sm-12 m-b-20">
                                                                         <p>See content from Youtube <a
-                                                                                    href="{{ $lecture->youtube }}"
-                                                                                    target="_blank">{{ $lecture->lecture_name }}</a>
+                                                                                href="{{ $lecture->youtube }}"
+                                                                                target="_blank">{{ $lecture->lecture_name }}</a>
                                                                         </p>
                                                                     </div>
                                                                 @else
@@ -154,6 +152,8 @@
 
                                                                 @endif
                                                             </div>
+
+
 
                                                             <div role="tabpanel" class="tab-pane animated fadeIn"
                                                                  id="article{{ $lecture->id }}">
@@ -192,9 +192,9 @@
                     </div>
                 </div>
             </div>
-        @php
-            $i++;
-        @endphp
+            @php
+                $i++;
+            @endphp
         @endforeach
     </div>
 </div>
@@ -219,7 +219,6 @@
 
                     </h2>
                 </div>
-
                 <div id="add_section" class="collapse" role="tabpanel" aria-expanded="false" style="height: 0px;">
                     <div class="panel-body">
 

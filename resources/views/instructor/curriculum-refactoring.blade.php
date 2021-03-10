@@ -7,10 +7,12 @@
 
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title"><a data-toggle="collapse" data-parent="#accordionGreen" href="#{{ $section->id }}"
+                    <h3 class="card-title">
+                        <a data-toggle="collapse" data-parent="#accordionGreen" href="#{{ $section->id }}"
                                               aria-expanded="false" class="collapsed">
                             {{ $section->section_name }}
-                        </a></h3>
+                        </a>
+                    </h3>
 
                     <div class="card-tools">
                         <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
@@ -18,14 +20,16 @@
                     </div>
                 </div>
 
+
                 <div class="card-body">
                     <div class="row">
                         <div class="col-12 col-md-12 col-lg-8 order-2 order-md-1">
                             <div class="row">
 
                                 <div class="col-sm-12 m-t-5 m-b-20">
-                                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#Addcontent" >Add content</button>
-                                    <button type="button" class="btn btn-warning" data-toggle="modal" onclick="addlecture('{{ $section->id }}')" data-target="#Editlesson">Edit lesson</button>
+
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Addcontent" >Add content</button>
+                                    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#Editlesson" onclick="EditSection('{{ $section->id }}')">Edit lesson</button>
                                     <button type="button" class="btn btn-danger"  onclick="DeleteSection('{{ $section->id }}')" >Delete lesson</button>
 
                                     <!-- Modal -->
@@ -80,8 +84,10 @@
                                                         <label for="basic-url">Lesson topic</label>
                                                         <div class="input-group">
 
-                                                            <input type="text" class="form-control" value="{{ $section->section_name }}" name="lecture_title"  id="lecture_title" placeholder="Enter a Title.." maxlength="100"
+                                                            <input type="text" class="form-control" name="section_name1" id="section_name1"
+                                                                   placeholder="Enter a Title.." maxlength="100" value="{{ $section->section_name }}"
                                                                    onkeyup="count_name1()">
+
                                                             <span class="input-group-text "><span id="dd1">100</span></span>
 
                                                         </div>
@@ -94,6 +100,7 @@
                                             </div>
                                         </div>
                                     </div>
+
                                 </div>
 
                                 <div class="c-gray m-l-5">
@@ -214,15 +221,16 @@
 <div class="col-sm-12">
     <div class="col-sm-12 col-sm-offset-0 m-b-25 m-t-30">
         <div class="col-sm-12 col-sm-offset-0 m-b-25 m-t-30">
-            <div class="panel-group" data-collapse-color="green" id="accordionGreen" role="tablist"
+            <div class="panel-group" data-collapse-color="red" id="accordionGreen" role="tablist"
                  aria-multiselectable="true">
                 <p>
-                    <a class="btn btn-success" data-toggle="collapse" href="#collapse" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fas fa-plus" ></i>
+                    <a class="btn btn-primary" data-parent="#accordionGreen"
+                       data-toggle="collapse" href="#add_section" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fas fa-plus" ></i>
                         Add a lesson
                     </a>
 
                 </p>
-                <div class="collapse" id="collapse">
+                <div class="collapse" id="add_section" role="tabpanel" aria-expanded="false">
                     <div class="card card-body">
                         Add a lesson
                         <div class="row mt-4">
@@ -230,7 +238,8 @@
                             <div class="input-group">
 
 
-                                <input type="text" class="form-control"  name="section_name"  id="section_name" placeholder="Enter a Title.." maxlength="100"
+                                <input type="text" class="form-control"  name="section_name"
+                                       id="section_name" placeholder="Enter a Title.." maxlength="100"
                                        onkeyup="count_name()">
                                 <span class="input-group-text "><span id="dd">100</span></span>
 

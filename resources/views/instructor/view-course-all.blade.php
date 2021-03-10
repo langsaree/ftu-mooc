@@ -14,12 +14,12 @@
                             <div class="th-title">หลักสูตรทั้งหมด</div>
                             <div class="text-center">
                                 @if(Auth::user()->status == 1)
-                                <button class="btn btn-info btn-icon-text" onclick="addcourses()"><i
+                                    <button class="btn btn-info btn-icon-text" onclick="addcourses()"><i
                                             class="zmdi zmdi-border-color zmdi-hc-fw"></i> เพิ่มหลักสูตร
-                                </button>
+                                    </button>
 
-                                    @else
-                                <span>ไม่สามารถเพิ่มหลักสูตรได้ เนื่องจากผู้ใช้ยังไม่ได้อนุมัติ</span>
+                                @else
+                                    <span>ไม่สามารถเพิ่มหลักสูตรได้ เนื่องจากผู้ใช้ยังไม่ได้อนุมัติ</span>
 
                                 @endif
                             </div>
@@ -167,7 +167,7 @@
 
                                             <div class="input-group form-group ">
                                                 <span class="input-group-addon"><i
-                                                            class="zmdi zmdi-calendar"></i></span>
+                                                        class="zmdi zmdi-calendar"></i></span>
                                                 <div class="dtp-container">
                                                     <input type='text' class="form-control date-picker"
                                                            name="course_start" id="date_in" placeholder="Click here..."
@@ -180,7 +180,7 @@
 
                                             <div class="input-group form-group ">
                                                 <span class="input-group-addon"><i
-                                                            class="zmdi zmdi-calendar"></i></span>
+                                                        class="zmdi zmdi-calendar"></i></span>
                                                 <div class="dtp-container">
                                                     <input type='text' class="form-control date-picker"
                                                            name="course_end" id="date_out" placeholder="Click here..."

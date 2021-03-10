@@ -29,7 +29,7 @@
             <li><a href="#teams" class="menu-btn">Teams</a></li>
             <li><a href="{{ url('signin') }}" class="menu-btn">Sign in & Sign up</a></li>
             <li><a href="#contact" class="menu-btn">Contact</a></li>
-            <li><a href="{{ url('instructor-register') }}" class="menu-btn">For Teachers</a></li>
+            {{--<li><a href="{{ url('instructor-register') }}" class="menu-btn">For Teachers</a></li>--}}
         </ul>
         @else
             <ul class="menu">
@@ -41,7 +41,8 @@
                 @elseif(Auth::user()->role_id == 2)
                     <li><a href="{{ url('instructor-dashboard') }}">Dashboard</a></li>
                 @elseif(Auth::user()->role_id == 3)
-                    <li><a href="{{ url('Mycourse') }}">My course</a></li>
+                    {{--<li><a href="{{ url('Mycourse') }}">My course</a></li>--}}
+                    <li><a href="{{ url('profile') }}">My Profile</a></li>
                 @endif
                 <li><a href="#about" class="menu-btn">About</a></li>
                 <li><a href="#courses" class="menu-btn">Courses</a></li>
@@ -64,7 +65,7 @@
 <section class="home" id="home">
     <div class="max-width">
         <div class="home-content">
-            <div class="text-1"><img src="{{asset('svg/ftu.png')}}" width="250" /></div>
+            <div class="text-1">FTUMOOC</div>
             <div class="text-2" >Lifelong learning space for everyone</div>
             <div class="text-3">Welcome to <span class="typing"></span></div>
             <div class="dropdown">
@@ -81,7 +82,7 @@
 
                 </div>
             </div>
-        <img src="{{asset('svg/book.svg')}}" alt="..." class="move-me" >
+        <img src="{{asset('svg/f3.png')}}" alt="..." class="move-me" >
     </div>
     </div>
 

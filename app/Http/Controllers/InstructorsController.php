@@ -17,6 +17,8 @@ use App\Group;
 use App\Faculty;
 use App\Lecture;
 use App\Student;
+use RealRashid\SweetAlert\Facades\Alert;
+
 class InstructorsController extends Controller
 {
     /**
@@ -194,7 +196,7 @@ class InstructorsController extends Controller
         $section->section_date = $last->course_start;
         $section->save();
 
-        return redirect('instructor.view-course-all-refactoring');
+        return redirect('instructor-ViewCourseAll');
 
 
     }
@@ -309,6 +311,8 @@ class InstructorsController extends Controller
 
         $section->save();
         return response()->json(['success' => 'เพิ่ม Section ใหม่เรียบร้อย']);
+
+
     }
 
     public function addlecture($id)
@@ -516,6 +520,12 @@ class InstructorsController extends Controller
     {
         $section = Course::findOrFail($r->id);
         $section->delete();
+
+        Alert::success('Success Title', 'Success Message');
+
+
+        /* return redirect('instructor-ViewCourseAll')->with('success','data deleted');*/
+
     }
 
     //pretest

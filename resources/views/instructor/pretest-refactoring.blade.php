@@ -7,7 +7,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Examination</h1>
+                        <h1>Quiz</h1>
                     </div>
 
                     <div class="col-sm-6">
@@ -22,7 +22,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Manage the exam before studying</h3>
+                            <h3 class="card-title">Manage the quiz before studying</h3>
 
                             <div class="card-tools">
                                 <div class="input-group input-group-sm" style="width: 150px;">
@@ -51,7 +51,7 @@
                                     <td>{{ $key->id }}</td>
                                     <td>{{ $key->course_name }}</td>
                                     <td>{{ $key->group->group_nameen }}</td>
-                                    <td><a href="{{url('AddPretest')}}" class="btn btn-info btn-icon-text"><i class="zmdi zmdi-apps"></i>Add test</a></td>
+                                    <td><a href="{{url('AddPretest')}}" class="btn btn-primary btn-icon-text"><i class="zmdi zmdi-apps"></i>Add quiz</a></td>
 
                                     <td>
                                         @if($key->status == 1)
