@@ -11,7 +11,7 @@
 
         <div class="card border-success text-center">
             <div class="card-header text-white bg-success">{{ $focusSection->section_name  }}</div>
-            <div class="card-body text-success">
+            <div class="card-body text-dark">
 
 
 
@@ -48,6 +48,25 @@
                                         </div>
 
                         <h3 class="header text-dark"><i class="fas fa-file-pdf"></i> References</h3>
+
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Title</th>
+                                <th scope="col">Uplode Date</th>
+                                <th scope="col">Download</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>{{$lecture->lecture_name}}</td>
+                                <td>{{$lecture->updated_at}}</td>
+                                <td><a href="download/{{$lecture->pdf}}"><button type="button" class="btn btn-dark"><i class="fas fa-download"></i> Downloade</button></a> </td>
+                            </tr>
+                            </tbody>
+                        </table>
                         <h1>-----------------------------------------------------------------------------</h1>
 
                         @endguest

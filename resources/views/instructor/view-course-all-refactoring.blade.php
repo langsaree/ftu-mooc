@@ -24,7 +24,7 @@
                     <div class="row mb-2">
                             <div class="text-center">
                                 @if(Auth::user()->status == 1)
-                                    <button type="button" class="btn btn-primary" onclick="addcourses()">Add a course</button>
+                                    <button type="button" class="btn btn-primary" onclick="addcourses()"><i class="far fa-plus-square"></i> Add a course</button>
                                 @else
                                     <span>Can't add courses Because the user has not yet approved</span>
                                 @endif
@@ -57,10 +57,10 @@
 
                                             <div class="clearfix"></div>
 
-                                            <a href="{{ url('viewcourse/'.$key->id) }}" type="button" class="btn btn-info">View</a>
+                                            <a href="{{ url('viewcourse/'.$key->id) }}" type="button" class="btn btn-info"><i class="far fa-eye"></i> View</a>
                                             <a href="javascript:void(0)"
                                                onclick="delcourse('{{ $key->id }}', '{{ $key->course_name }}')"
-                                               class="btn bg-danger  btn-icon-text"><i class="zmdi zmdi-close"></i>Delete</a>
+                                               class="btn bg-danger  btn-icon-text"><i class="far fa-trash-alt"></i> Delete</a>
 
 
 
@@ -81,7 +81,7 @@
                     <div class="modal-dialog modal-lg">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h4 class="modal-title">Add a course</h4>
+                                <h4 class="modal-title"> Add a course</h4>
                             </div>
                             <form name="f" action="{{ url('insert-course') }}" method="post">
                                 @csrf

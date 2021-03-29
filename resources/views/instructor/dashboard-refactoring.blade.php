@@ -113,8 +113,8 @@
 
                                                 <div class="clearfix"></div>
 
-                                                <a href="{{ url('viewcourse/'.$key->id) }}" type="button" class="btn btn-info">View</a>
-                                                <a href="javascript:void(0)" onclick="delcourse('{{ $key->id }}','{{ $key->course_name }}')"  type="button" class="btn btn-danger">Delete</a>
+                                                <a href="{{ url('viewcourse/'.$key->id) }}" type="button" class="btn btn-info"><i class="far fa-eye"></i> View</a>
+                                                <a href="javascript:void(0)" onclick="delcourse('{{ $key->id }}','{{ $key->course_name }}')"  type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i> Delete</a>
                                             </div>
                                         </div>
                                     @endforeach
@@ -133,6 +133,15 @@
 @stop
 
 @section('js')
+
+    @include('sweetalert::alert')
+    <link href="{{ asset('pg/superflat/vendors/bower_components/bootstrap-sweetalert/lib/sweet-alert.css') }}"
+          rel="stylesheet">
+
+    <script src="{{ asset('pg/superflat/vendors/bootstrap-growl/bootstrap-growl.min.js') }}"></script>
+    <script src="{{ asset('pg/superflat/vendors/bower_components/bootstrap-sweetalert/lib/sweet-alert.min.js') }}"></script>
+
+
     <script>
         $(document).on('ready', function () {
             //document.getElementById("Dashboard").className = "active";

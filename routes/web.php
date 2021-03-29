@@ -127,7 +127,6 @@ Route::get('profile', function () {
 
 Route::get('profile','FrontendsController@profile');
 
-//Route::resource('editor','CKEditorController');
 
 
 // Google login
@@ -142,7 +141,7 @@ Route::get('login/google/callback','Auth\LoginController@handleProviderCallback'
 //Route::get('login/github', [App\Http\Controllers\Auth\LoginController::class, 'redirectToGithub'])->name('login.github');
 //Route::get('login/github/callback', [App\Http\Controllers\Auth\LoginController::class, 'handleGithubCallback']);
 
-
+Route::post('ckeditor/upload','InstructorsController@upload')->name('ckeditor.upload');
 
 
 

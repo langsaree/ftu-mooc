@@ -402,7 +402,7 @@ class InstructorsController extends Controller
         ]);
     }
 
-    //UploadContentPdf
+    //UploadContentMP4
     public function UploadContentMP4($lecture_id, $course_id)
     {
         return view('instructor.create-mp4', [
@@ -411,7 +411,7 @@ class InstructorsController extends Controller
         ]);
     }
 
-    //UploadContentPdf
+    //UploadContentYoutube
     public function UploadContentYoutube($lecture_id, $course_id)
     {
         return view('instructor.create-youtube', [
@@ -420,7 +420,7 @@ class InstructorsController extends Controller
         ]);
     }
 
-    //UploadContentPdf
+    //UploadContentArticle
     public function UploadContentArticle($lecture_id, $course_id)
     {
         return view('instructor.create-article', [
@@ -448,6 +448,13 @@ class InstructorsController extends Controller
 
         $lecture->save();
         return redirect('viewcourse/' . $request->course_id);
+    }
+
+    public function DownloadPDF(Request $request)
+    {
+
+
+
     }
 
     //PPT
@@ -515,6 +522,8 @@ class InstructorsController extends Controller
         return redirect('viewcourse/' . $request->course_id);
     }
 
+
+
     // Delete Course
     public function DeleteCourse(Request $r)
     {
@@ -555,6 +564,26 @@ class InstructorsController extends Controller
         return view('instructor.results');
     }
 
+    public function upload (Request $request)
+    {
 
+        if ($request->hasFile('upload')) {
+            $originName = $request->file('upload')->getClientOriginalName();
+            $fileName = pathinfo($originName, PATHINFO_FILENAME);
+            $extension = $request->file('upload')->getClientOriginalExtension();
+            $fileName = $fileName . '_' . time() . '.' . $extension;
+
+            $request->file('upload')->move(public_path('images'), $fileName);
+
+            $CKEditorFuncNum = $request->input('CKEditorFuncNum');
+            $url = asset('public/images/' . $fileName);
+            $msg = 'Image uploaded successfully';
+            $response = "<script>window.parent.CKEDITOR.tools.callFunction($CKEditorFuncNum,'$url','$msg')</script>";
+
+            @header('content-type: text/html; charset=utf-8');
+            echo $response;
+        }
+
+    }
 
 }

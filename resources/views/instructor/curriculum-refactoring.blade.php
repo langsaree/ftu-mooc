@@ -28,9 +28,9 @@
 
                                 <div class="col-sm-12 m-t-5 m-b-20">
 
-                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Addcontent" >Add content</button>
-                                    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#Editlesson" onclick="EditSection('{{ $section->id }}')">Edit lesson</button>
-                                    <button type="button" class="btn btn-danger"  onclick="DeleteSection('{{ $section->id }}')" >Delete lesson</button>
+                                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#Addcontent" ><i class="far fa-plus-square"></i> Add content</button>
+                                    <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#Editlesson" onclick="EditSection('{{ $section->id }}')"><i class="far fa-edit"></i> Edit lesson</button>
+                                    <button type="button" class="btn btn-danger btn-sm"  onclick="DeleteSection('{{ $section->id }}')" ><i class="far fa-trash-alt"></i> Delete lesson</button>
 
                                     <!-- Modal -->
                                     <div class="modal fade" id="Addcontent" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -145,7 +145,7 @@
                                                 <div class="nav nav-tabs" id="product-tab" role="tablist">
                                                     <a class="nav-item nav-link active" id="product-desc-tab" data-toggle="tab" href="#youtube{{ $lecture->id }}" role="tab" aria-controls="youtube{{ $lecture->id }}" aria-selected="true">Youtube</a>
                                                     <a class="nav-item nav-link" id="product-comments-tab" data-toggle="tab" href="#article{{ $lecture->id }}" role="tab" aria-controls="article{{ $lecture->id }}" aria-selected="false">Article</a>
-                                                    <a class="nav-item nav-link" id="product-rating-tab" data-toggle="tab" href="#ppt" role="tab" aria-controls="product-rating" aria-selected="false">PowerPoint</a>
+                                                    <a class="nav-item nav-link" id="product-rating-tab" data-toggle="tab" href="#pdf{{ $lecture->id }}" role="tab" aria-controls="pdf{{ $lecture->id }}" aria-selected="false">PDF</a>
                                                 </div>
                                             </nav>
                                             <div class="tab-content p-3" id="nav-tabContent">
@@ -163,10 +163,10 @@
                                                                    class="thumbnail" data-toggle="tooltip"
                                                                    data-placement="bottom" title=""
                                                                    data-original-title="Youtube">
+                                                                    <button type="button" class="btn btn-info btn-sm" ><i class="far fa-plus-square"></i></button>
                                                                     <img class="animated shake"
                                                                          src="{{ asset('upload/icon/MetroUIYouTube.ico') }}"
                                                                          alt="">
-                                                                    <button type="button" class="btn btn-info btn-sm" ></button>
                                                                 </a>
                                                             </div>
                                                         </div>
@@ -184,9 +184,9 @@
                                                                    class="thumbnail" data-toggle="tooltip"
                                                                    data-placement="bottom" title=""
                                                                    data-original-title="Article">
-                                                                    <button type="button" class="btn btn-info btn-sm"></button>
+                                                                    <button type="button" class="btn btn-info btn-sm"><i class="far fa-plus-square"></i></button>
                                                                     <img class="animated bounceIn"
-                                                                         src="{{ asset('upload/icon/f63e58c7113ddbf4ae2ea993d7eccd11.jpg') }}"
+                                                                         src="{{ asset('public/images/f63e58c7113ddbf4ae2ea993d7eccd11.jpg') }}"
                                                                          alt="">
                                                                 </a>
                                                             </div>
@@ -196,7 +196,32 @@
                                                     @endif
                                                 </div>
 
-                                                <div class="tab-pane fade" id="ppt" role="tabpanel" aria-labelledby="product-rating-tab"> ....</div>
+                                                <div class="tab-pane fade" id="pdf{{ $lecture->id }}" role="tabpanel" aria-labelledby="product-rating-tab">
+
+                                                    <div class="tab-pane fade show active" id="pdf{{ $lecture->id }}" role="tabpanel" aria-labelledby="product-desc-tab"> @if($lecture->pdf)
+                                                            <div class="col-sm-12 m-b-20">
+                                                                <p>See content from PDF <a
+                                                                        href="{{ $lecture->pdf }}"
+                                                                        target="_blank">{{ $lecture->lecture_name }}</a>
+                                                                </p>
+                                                            </div>
+                                                        @else
+                                                            <div class="row">
+                                                                <div class="col-xs-6 col-md-2">
+                                                                    <a href="{{ url('UploadContentPdf') }}/{{ $lecture->id }}/{{ $course->id }}"
+                                                                       class="thumbnail" data-toggle="tooltip"
+                                                                       data-placement="bottom" title=""
+                                                                       data-original-title="PDF">
+                                                                        <button type="button" class="btn btn-info btn-sm" ><i class="far fa-plus-square"></i></button>
+                                                                        <img class="animated shake"
+                                                                             src=""
+                                                                             alt="">
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        @endif
+                                                    </div>
+                                                </div>
                                             </div>
 
                                         </div><!-- /.list Y-A-P -->

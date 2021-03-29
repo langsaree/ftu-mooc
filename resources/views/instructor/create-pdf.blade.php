@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('adminlte::page')
 
 @section('content')
 <section id="content">
@@ -27,10 +27,9 @@
                                     <span class="btn btn-primary btn-file m-r-10">
                                         <span class="fileinput-new">Select a file</span>
                                         <span class="fileinput-exists">Change</span>
-                                        <input type="file" name="pdf" name="pdf">
+                                        <input type="file" name="pdf" >
                                     </span>
                             <span class="fileinput-filename"></span>
-                            <a href="#" class="close fileinput-exists" data-dismiss="fileinput">&times;</a>
                         </div>
                     </div>
 
@@ -42,6 +41,9 @@
                         <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">close</button>
                     </div>
                 </form>
+
+
+
             </div>
         </div>
 
