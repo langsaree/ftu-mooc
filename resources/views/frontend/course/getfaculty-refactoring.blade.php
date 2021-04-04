@@ -1,51 +1,51 @@
 @extends('layouts.menu')
 
 @section('content')
-    <html>
 
-    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
-        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        </div>
+    <div class="container-fluid">
 
-        <section class="content-header">
-            <div class="container-fluid">
-                <div class="row mb-2">
-                    <div class="col-sm-6">
-                        <h3>{{ $fac->faculty_name }}</h3>
+        <!-- Page Heading -->
+        <h1 class="h3 mb-4 text-gray-800">{{ $fac->faculty_name }}</h1>
+
+        <div class="row">
+
+            <div class="card-header w-100">
+
+                <!-- Circle Buttons -->
+                <div class="card shadow mb-4">
+                    <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-dark"><i class="far fa-star color-success"></i> COURSES</h6>
                     </div>
+                    @if($course->count() > 0)
+                        @foreach($course as $c)
+                    <div class="card-body">
 
-                </div>
-            </div><!-- /.container-fluid -->
-        </section>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <img src="{{ asset('upload/img/'.$c->course_pic) }}" alt="{{ $c->course_name }}" class="img-thumbnail  mx-auto d-block" >
 
+                                        <h5 class="card-title">{{ $c->course_name }}</h5>
+                                        <p class="card-text">{{ $c->faculty->faculty_name }}</p>
+                                        <div class="team-footer">
+                                            <small>Begin: {{ $c->course_start }} End: {{ $c->course_end }}  </small>
+                                        </div>
+                                        <a href="{{ url('course-view/'.$c->id) }}" class="btn btn-success">Start Study <i class="fas fa-arrow-right"></i></a>
+                                    </div>
+                                </div>
 
-    <section class="content">
-        <div class="container-fluid">
-    <div class="card" style="width: 18rem;">
-        @if($course->count() > 0)
-            @foreach($course as $c)
-        <img class="card-img-top" src="{{ asset('upload/img/'.$c->course_pic) }}" alt="{{ $c->course_name }}" >
-        <div class="card-body">
-            <a href="{{ url('course-view/'.$c->id) }}">
-            <h5 class="card-title">{{ $c->course_name }}</h5>
-            <p class="card-text">{{ $c->faculty->faculty_name }}</p>
-                <p class="card-text">{{ $c->course_name }}</p>
-                <div class="team-footer">
-                    <small>Begin: {{ $c->course_start }} End: {{ $c->course_end }}  </small>
-                </div>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-            </a>
-        </div> @endforeach
-    </div>
+                            </div>  @endforeach
 
-    @else
-        <div class="alert alert-danger" role="alert"></div>
-            **** Course not found****
+                    </div>
+                        @else
+                            <div class="alert alert-danger" role="alert"></div>
+                            **** Course not found****
 
-    @endif
-    </div>
-    </section>
+                        @endif
 
-
+                    </div>
+            </div>
+        </div>
 
 @stop

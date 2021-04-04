@@ -21,7 +21,7 @@
                         <br/>
                         <input type="hidden" name="lecture_id" id="lecture_id" value="{{ $lecture_id }}">
                         <input type="hidden" name="course_id" id="course_id" value="{{ $course_id }}">
-                        <p class=" c-black m-b-20">file PDF  </p>
+                        <p class=" c-black m-b-20">file PDF </p>
 
                         <div class="fileinput fileinput-new" data-provides="fileinput">
                                     <span class="btn btn-primary btn-file m-r-10">
@@ -48,11 +48,6 @@
         </div>
 
 
-        <!--Upload Pic000-->
-
-
-
-        <!--ent modal-->
 
     </div>
 </section>

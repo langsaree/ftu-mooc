@@ -50,7 +50,7 @@
                                     <td>{{ $key->id }}</td>
                                     <td>{{ $key->course_name }}</td>
                                     <td>{{ $key->group->group_nameen }}</td>
-                                    <td><a href="instructor/AddPosttest" class="btn btn-primary btn-icon-text"><i class="zmdi zmdi-apps"></i>Add quiz</a></td>
+                                    <td><a href="instructor/AddPosttest" class="btn btn-sm btn-primary btn-icon-text"><i class="zmdi zmdi-apps"></i>Add quiz</a></td>
 
                                 <td>
                                     @if($key->status == 1)

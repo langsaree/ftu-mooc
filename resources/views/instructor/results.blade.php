@@ -21,7 +21,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">.</h3>
+                            <h3 class="card-title">Results</h3>
 
                             <div class="card-tools">
                                 <div class="input-group input-group-sm" style="width: 150px;">
@@ -38,10 +38,20 @@
                             <table class="table table-hover">
                                 <thead>
                                 <tr>
-                                    <th>Course code</th>
-                                    <th>Course name</th>
                                     <th>Student name</th>
-                                    <th>mark</th>
+                                    <th>Course name</th>
+                                    <th>Score</th>
+                                    <th></th>
+                                </tr>
+
+                                <tr>
+                                    <td>Hiyam</td>
+                                    <td>Data</td>
+                                    <td>0/10</td>
+                                    <td><a href="#" class="btn btn-sm btn-primary btn-icon-text">View</a>
+                                        <a href="#" class="btn btn-sm btn-info btn-icon-text">Edit</a>
+                                        <a href="#" class="btn btn-sm btn-danger btn-icon-text">Delete</a>
+                                    </td>
                                 </tr>
                                 </thead>
 

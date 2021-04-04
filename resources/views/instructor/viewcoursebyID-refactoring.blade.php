@@ -17,6 +17,9 @@
                         <img class="img-thumbnail"
                              src="{{ asset('upload/img/'.$course->course_pic) }}"
                              alt="User profile picture">
+                        <a href="javascript:void(0)" onclick="UploadPic()" class="pmop-edit">
+                            <i class="zmdi zmdi-camera"></i> <span class="hidden-xs">Update pictures</span>
+                        </a>
 
                         <div class="pmo-stat">
                             <h2 class="m-0 c-white">{{ $students->count() }}</h2>
@@ -24,6 +27,62 @@
                         </div>
 
                     </div>
+
+                    <div class="modal fade" id="UploadPic" tabindex="-1" role="dialog" aria-hidden="true"
+                         style="display: none;">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <form action="{{ url('InstructorUploadPic/'.$course->id) }}" method="post" id="upload_file"
+                                      name="upload_file" enctype="multipart/form-data">
+                                    {{ csrf_field() }}
+                                    {{ method_field('PATCH') }}
+                                    <div class="modal-header">
+                                        <h4 class="modal-title">image</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="row">
+                                            <div class="col-sm-6 col-sm-offset-3">
+                                                <div class="thumbnail">
+                                                    <img class="img-responsive"
+                                                         src="{{ asset('upload/img/'.$course->course_pic) }}" alt="">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row m-l-10">
+
+                                        </div>
+                                        <div class="row m-l-10">
+                                            <br/>
+                                            <input type="hidden" name="id_s" id="id_s" value="{{ $course->id }}">
+                                            <input type="hidden" name="id" id="id" value="{{ $course->id }}">
+                                            <input type="hidden" name="id_pic" id="id_code" value="{{ $course->course_pic }}">
+                                            <p class=" c-black m-b-20">Picture show</p>
+
+                                            <div class="fileinput fileinput-new" data-provides="fileinput">
+                                                <div class="fileinput-preview thumbnail" data-trigger="fileinput"></div>
+                                                <div>
+                                            <span class="btn btn-info btn-file">
+                                                <span class="fileinput-new">Select picture</span>
+                                                <span class="fileinput-exists">Change</span>
+                                                <input type="file" name="pic" id="pic">
+                                            </span>
+                                                    {{--<a href="#" class="btn btn-danger fileinput-exists"
+                                                       data-dismiss="fileinput">move</a>--}}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="submit" class="btn btn-sm btn-primary" id="subpic">Save changes</button>
+                                        <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">close</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+
 
 
                     <ul class="list-group list-group-unbordered mb-3">
@@ -545,9 +604,6 @@
 
                                     <script src="{{ asset('pg/superflat/vendors/bootstrap-growl/bootstrap-growl.min.js') }}"></script>
                                     <script src="{{ asset('pg/superflat/vendors/bower_components/bootstrap-sweetalert/lib/sweet-alert.min.js') }}"></script>
-
-
-
 
                                     <script>
                                         $(document).on('ready', function () {

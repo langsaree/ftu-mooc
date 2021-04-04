@@ -30,7 +30,6 @@
                             </div>
                         </div>
                         <!-- ./col -->
-                        <!-- ./col -->
                         <div class="col-lg-3 col-6">
                             <!-- small card -->
                             <div class="small-box bg-success">

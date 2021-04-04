@@ -13,6 +13,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"/>
 
+
 </head>
 <body>
 <div class="scroll-up-btn">
@@ -38,23 +39,78 @@
                     <a href="javascript:void(0)">Hello {{ Auth::User()->name }}</a></li>
                 @if(Auth::user()->role_id == 1)
                     <li><a href="{{ url('myadmin') }}">Dashboard</a></li>
+                    <li><a href="#about" class="menu-btn">About</a></li>
+                    <li><a href="#courses" class="menu-btn">Courses</a></li>
+                    <li><a href="#contact" class="menu-btn">Contact</a></li>
+                    <li>
+                    <div class="dropdown" >
+                        <a class="btn  dropdown-toggle menu-btn " >Profile<i class="fas fa-caret-down"></i></a>
+                        <div class="dropdown-content a" >
+                            <a class="dropdown-item" href="{{ url('profile') }}">
+                                <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                My Profile
+                            </a>
+
+                            <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();"><i class="fas fa-sign-out-alt"></i>Log out</a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                  style="display: none;">
+                                @csrf
+                            </form>
+                        </div>
+                    </div>
+                    </li>
                 @elseif(Auth::user()->role_id == 2)
                     <li><a href="{{ url('instructor-dashboard') }}">Dashboard</a></li>
-                @elseif(Auth::user()->role_id == 3)
-                    {{--<li><a href="{{ url('Mycourse') }}">My course</a></li>--}}
-                    <li><a href="{{ url('profile') }}">My Profile</a></li>
-                @endif
-                <li><a href="#about" class="menu-btn">About</a></li>
-                <li><a href="#courses" class="menu-btn">Courses</a></li>
-                <li><a href="#contact" class="menu-btn">Contact</a></li>
-                <li>
-                    <a href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">Log out</a>
+                    <li><a href="#about" class="menu-btn">About</a></li>
+                    <li><a href="#courses" class="menu-btn">Courses</a></li>
+                    <li><a href="#contact" class="menu-btn">Contact</a></li>
+                    <li>
+                        <div class="dropdown" >
+                            <a class="btn  dropdown-toggle menu-btn " >Profile<i class="fas fa-caret-down"></i></a>
+                            <div class="dropdown-content a" >
+                                <a class="dropdown-item" href="{{ url('profile') }}">
+                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    My Profile
+                                </a>
 
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                          style="display: none;">
-                        @csrf
-                    </form>
+                                <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();"><i class="fas fa-sign-out-alt"></i>Log out</a>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                      style="display: none;">
+                                    @csrf
+                                </form>
+                            </div>
+                        </div>
+                    </li>
+                @elseif(Auth::user()->role_id == 3)
+                    <li><a href="{{ url('Mycourse') }}">My course</a></li>
+                    <li><a href="#about" class="menu-btn">About</a></li>
+                    <li><a href="#courses" class="menu-btn">Courses</a></li>
+                    <li><a href="#contact" class="menu-btn">Contact</a></li>
+                    <li>
+                @endif
+
+                    <div class="dropdown" >
+                        <a class="btn  dropdown-toggle menu-btn " >Profile<i class="fas fa-caret-down"></i></a>
+                        <div class="dropdown-content a" >
+                            <a class="dropdown-item" href="{{ url('profile') }}">
+                                <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                My Profile
+                            </a>
+
+                            <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();"><i class="fas fa-sign-out-alt"></i>Log out</a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                  style="display: none;">
+                                @csrf
+                            </form>
+                        </div>
+                    </div>
+
                 </li>
             </ul><!-- .topbar-menu -->
         @endif
@@ -68,20 +124,24 @@
             <div class="text-1">FTUMOOC</div>
             <div class="text-2" >Lifelong learning space for everyone</div>
             <div class="text-3">Welcome to <span class="typing"></span></div>
-            <div class="dropdown">
-                <button class="dropbtn">Study category<i class="fas fa-caret-down"></i></button>
-                <div class="dropdown-content a">
-                    @php
-                        $faculties = DB::table('faculties')->get();
+            <a class="btn btn-danger" href="{{url('get-faculties/20')}}">Study category</a>
 
-                    @endphp
-                    @foreach($faculties as $f)
-                        <a href="{{ url('get-faculties/'.$f->id) }}">{{ $f->faculty_name }}</a>
+             {{--<div class="dropdown">
+                 <button class="dropbtn">Study category<i class="fas fa-caret-down"></i></button>
+              <div class="dropdown-content a">
+                     @php
+                         $faculties = DB::table('faculties')->get();
 
-                    @endforeach
+                     @endphp
+                     @foreach($faculties as $f)
+                         <a href="{{ url('get-faculties/'.$f->id) }}">{{ $f->faculty_name }}</a>
 
-                </div>
-            </div>
+                     @endforeach
+
+                 </div>
+            </div>--}}
+
+
         <img src="{{asset('svg/f3.png')}}" alt="..." class="move-me" >
     </div>
     </div>
@@ -101,7 +161,7 @@
                 <div class="text">FTUMooc <span class="typing-2"></span></div>
                 <p>Online learning courses on the site as it focuses on the teaching and learning of large groups of people in a free choice of courses.
                     Which accommodates a large number of learners, the content is open content that anyone can access.</p>
-                <a href="#">.....</a>
+                <a href="#">More</a>
             </div>
 
         </div>
@@ -127,56 +187,7 @@
                 </div>@endforeach
 </section>
 
-<!-- skills section start
-<section class="skills" id="skills">
-    <div class="max-width">
-        <h2 class="title">My skills</h2>
-        <div class="skills-content">
-            <div class="column left">
-                <div class="text">My creative skills & experiences.</div>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, ratione error est recusandae consequatur, iusto illum deleniti quidem impedit, quos quaerat quis minima sequi. Cupiditate recusandae laudantium esse, harum animi aspernatur quisquam et delectus ipsum quam alias quaerat? Quasi hic quidem illum. Ad delectus natus aut hic explicabo minus quod.</p>
-                <a href="#">Read more</a>
-            </div>
-            <div class="column right">
-                <div class="bars">
-                    <div class="info">
-                        <span>HTML</span>
-                        <span>90%</span>
-                    </div>
-                    <div class="line html"></div>
-                </div>
-                <div class="bars">
-                    <div class="info">
-                        <span>CSS</span>
-                        <span>60%</span>
-                    </div>
-                    <div class="line css"></div>
-                </div>
-                <div class="bars">
-                    <div class="info">
-                        <span>JavaScript</span>
-                        <span>80%</span>
-                    </div>
-                    <div class="line js"></div>
-                </div>
-                <div class="bars">
-                    <div class="info">
-                        <span>PHP</span>
-                        <span>50%</span>
-                    </div>
-                    <div class="line php"></div>
-                </div>
-                <div class="bars">
-                    <div class="info">
-                        <span>MySQL</span>
-                        <span>70%</span>
-                    </div>
-                    <div class="line mysql"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section> -->
+
 
 <!-- teams section start -->
 <section class="teams" id="teams">

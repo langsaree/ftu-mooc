@@ -121,13 +121,36 @@ Route::get('menu', function () {
     return view('menu');
 });
 
+
 Route::get('profile', function () {
     return view('instructor-profile');
 });
 
 Route::get('profile','FrontendsController@profile');
 
+Route::get('menu','FrontendsController@menu');
 
+Route::get('quiz', function () {
+    return view('quiz');
+});
+Route::get('quiz','FrontendsController@quiz');
+
+Route::get('result', function () {
+    return view('result');
+});
+
+Route::get('result','FrontendsController@result');
+
+Route::get('said-quiz', function () {
+    return view('said-quiz');
+});
+
+
+Route::get('certificate', function () {
+    return view('certificate');
+});
+
+Route::get('certificate','FrontendsController@certificate');
 
 // Google login
 Route::get('login/google', 'Auth\LoginController@redirectToProvider');
