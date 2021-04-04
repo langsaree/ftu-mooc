@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'title' => 'AdminLTE 3',
+    'title' => 'Dashboard FTUMooc',
     'title_prefix' => '',
     'title_postfix' => '',
 
@@ -246,13 +246,13 @@ return [
             'url'  => 'admin/blog',
             'can'  => 'manage-blog',
         ],
-        [
+        /*[
             'text'        => 'Manage Users',
             'url'         => 'myadmin',
             'icon'        => 'far fa-fw fa-file',
             'label'       => 4,
             'label_color' => 'warning',
-        ],
+        ],*/
         [
             'text'        => 'Dashboard',
             'url'         => 'instructor-dashboard',
@@ -268,18 +268,10 @@ return [
         ],
         ['header' => 'Exam'],
         [
-            'text'    => 'Quiz',
-            'icon'    => 'fas fa-fw fa-stream',
-            'submenu' => [
-                [
-                    'text' => 'Before',
-                    'url'  => 'Pretest',
-                ],
-                [
-                    'text' => 'After',
-                    'url'  => 'Posttest',
-                ],
-            ],
+            'text' => 'Quiz',
+            'url'  => 'Pretest',
+            'icon' => 'fas fa-fw fa-stream',
+
         ],
         ['header' => 'Results'],
         [
@@ -299,6 +291,7 @@ return [
             'url'  => 'admin/settings',
             'icon' => 'fas fa-fw fa-lock',
         ],
+
 
 //        [
 //            'text'        => 'pages',
