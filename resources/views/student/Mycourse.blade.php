@@ -1,6 +1,4 @@
-@extends('layouts.menu')
 
-@section('content')
     <!-- slider -->
     <div class="row">
         <div class="col-md-12">
@@ -10,44 +8,26 @@
         </div><!-- .col-md-12 -->
     </div>
 
-    <!-- team -->
-    <div class="team">
-        <div class="container">
-            <div class="row">
-                @foreach ($courses as $key)
-                    <div class="col-md-4">
-                        <a href="{{ url('course-view',['id'=>$key->course_id]) }}">
-                            <div class="pricing-container popular team-container " data-title="">
-                                <div class="team-photo">
-                                    <img src="{{ asset('upload/img/'.$key->course->course_pic)  }}"
-                                         alt="{{ $key->course->course_name }}" style="height:197px;">
-                                </div><!-- .team-photo -->
-
-                                <div class="team-title">
-                                    <h4>{{ $key->course->course_name }}</h4>
-                                    <small>{{ $key->course->faculty->faculty_name }}</small>
-                                </div><!-- .team-title -->
-                                <div class="team-info" style="height:50px;">
-                                    <p>{{ $key->course->course_name }}</p>
-
-                                </div><!-- .team-info -->
-                                <hr/>
-                                <div class="team-footer">
-                                    <small>begin: {{ $key->course->course_start }}
-                                        To: {{ $key->course->course_end }}
-                                    </small>
-                                </div>
-
-                            </div><!-- .team-container -->
-                        </a>
-                    </div><!-- .col-sm-4 -->
-
-                @endforeach
-
-            </div><!-- .row -->
+    @foreach ($courses as $key)
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="{{ asset('upload/img/'.$key->course_pic)  }}" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">{{ $key->course_name }}</h5>
+            <p class="card-text">{{ $key->faculty_name }}</p>
+            <small>begin: {{ $key->course_start }}
+                To: {{ $key->course_end }}
+            </small>
+            <a href="{{ url('course-view',['id'=>$key->course_id]) }}" class="btn btn-primary">View</a>
+        </div>
+    </div><br>@endforeach
 
 
-        </div><!-- .container -->
-    </div><!-- .team -->
-    <!-- team -->
-@stop
+
+
+
+
+
+
+
+
+

@@ -10,8 +10,19 @@
         </div><!-- .col-md-12 -->
     </div>
 
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="..." alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">name course</h5>
+            <p class="card-text">...</p>
+            <a href="#" class="btn btn-primary">View</a>
+        </div>
+    </div>
+
+
+
     <!-- team -->
-    <div class="team">
+    {{--<div class="team">
         <div class="container">
             <div class="row">
                 @foreach ($courses as $key)
@@ -47,6 +58,6 @@
 
 
         </div><!-- .container -->
-    </div><!-- .team -->
+    </div><!-- .team -->--}}
     <!-- team -->
 @stop

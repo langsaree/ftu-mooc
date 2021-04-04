@@ -20,6 +20,7 @@ class StudentsController extends Controller
             return view('student.Mycourse',compact('courses'));
     }
 
+
     /**
      * Show the form for creating a new resource.
      *
@@ -76,8 +77,10 @@ class StudentsController extends Controller
      */
     public function show($id)
     {
-        //
+
     }
+
+
 
     /**
      * Show the form for editing the specified resource.
@@ -112,4 +115,5 @@ class StudentsController extends Controller
     {
         //
     }
+
 }

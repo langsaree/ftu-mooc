@@ -450,12 +450,7 @@ class InstructorsController extends Controller
         return redirect('viewcourse/' . $request->course_id);
     }
 
-    public function DownloadPDF(Request $request)
-    {
 
-
-
-    }
 
     //PPT
     public function UploadContentPPTFile(Request $request)

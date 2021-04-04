@@ -33,11 +33,28 @@ class FrontendsController extends Controller
     }
 
     public function menu(){
-        return view('layout.manu');
+        return view('layouts.manu');
     }
 
+
     public  function profile(){
-        return view('instructor.profile');
+
+        $courses = Course::where('user_id', Auth::id())->get();
+        return view('layouts.profile', compact('courses'));
+    }
+
+
+
+    public  function quiz(){
+        return view('frontend.course.quiz');
+    }
+
+    public  function result(){
+        return view('frontend.course.result');
+    }
+
+    public  function certificate(){
+        return view('frontend.course.certificate');
     }
 
     public function cview($id){
