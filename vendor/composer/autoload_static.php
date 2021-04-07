@@ -108,6 +108,7 @@ class ComposerStaticInit3fdba843a00090e8edc44815ffc9bdf0
         'M' => 
         array (
             'Monolog\\' => 8,
+            'Merujan99\\LaravelVideoEmbed\\' => 28,
         ),
         'L' => 
         array (
@@ -350,6 +351,10 @@ class ComposerStaticInit3fdba843a00090e8edc44815ffc9bdf0
         array (
             0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
         ),
+        'Merujan99\\LaravelVideoEmbed\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/merujan99/laravel-video-embed/src',
+        ),
         'League\\OAuth1\\Client\\' => 
         array (
             0 => __DIR__ . '/..' . '/league/oauth1-client/src',
@@ -466,7 +471,12 @@ class ComposerStaticInit3fdba843a00090e8edc44815ffc9bdf0
         ),
     );
 
+    public static $fallbackDirsPsr0 = array (
+        0 => __DIR__ . '/..' . '/dereuromark/media-embed/src',
+    );
+
     public static $classMap = array (
+        'AdminSeeder' => __DIR__ . '/../..' . '/database/seeds/AdminSeeder.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Course' => __DIR__ . '/../..' . '/app/Course.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
@@ -2678,6 +2688,12 @@ class ComposerStaticInit3fdba843a00090e8edc44815ffc9bdf0
         'League\\OAuth1\\Client\\Signature\\RsaSha1Signature' => __DIR__ . '/..' . '/league/oauth1-client/src/Signature/RsaSha1Signature.php',
         'League\\OAuth1\\Client\\Signature\\Signature' => __DIR__ . '/..' . '/league/oauth1-client/src/Signature/Signature.php',
         'League\\OAuth1\\Client\\Signature\\SignatureInterface' => __DIR__ . '/..' . '/league/oauth1-client/src/Signature/SignatureInterface.php',
+        'MediaEmbed\\MediaEmbed' => __DIR__ . '/..' . '/dereuromark/media-embed/src/MediaEmbed/MediaEmbed.php',
+        'MediaEmbed\\Object\\MediaObject' => __DIR__ . '/..' . '/dereuromark/media-embed/src/MediaEmbed/Object/MediaObject.php',
+        'MediaEmbed\\Object\\ObjectInterface' => __DIR__ . '/..' . '/dereuromark/media-embed/src/MediaEmbed/Object/ObjectInterface.php',
+        'Merujan99\\LaravelVideoEmbed\\Facades\\LaravelVideoEmbed' => __DIR__ . '/..' . '/merujan99/laravel-video-embed/src/Facades/LaravelVideoEmbed.php',
+        'Merujan99\\LaravelVideoEmbed\\Providers\\LaravelVideoEmbedServiceProvider' => __DIR__ . '/..' . '/merujan99/laravel-video-embed/src/Providers/LaravelVideoEmbedServiceProvider.php',
+        'Merujan99\\LaravelVideoEmbed\\Services\\LaravelVideoEmbed' => __DIR__ . '/..' . '/merujan99/laravel-video-embed/src/Services/LaravelVideoEmbed.php',
         'Mockery' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery.php',
         'Mockery\\Adapter\\Phpunit\\Legacy\\TestListenerForV5' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/Adapter/Phpunit/Legacy/TestListenerForV5.php',
         'Mockery\\Adapter\\Phpunit\\Legacy\\TestListenerForV6' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/Adapter/Phpunit/Legacy/TestListenerForV6.php',
@@ -4874,6 +4890,7 @@ class ComposerStaticInit3fdba843a00090e8edc44815ffc9bdf0
             $loader->prefixLengthsPsr4 = ComposerStaticInit3fdba843a00090e8edc44815ffc9bdf0::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInit3fdba843a00090e8edc44815ffc9bdf0::$prefixDirsPsr4;
             $loader->prefixesPsr0 = ComposerStaticInit3fdba843a00090e8edc44815ffc9bdf0::$prefixesPsr0;
+            $loader->fallbackDirsPsr0 = ComposerStaticInit3fdba843a00090e8edc44815ffc9bdf0::$fallbackDirsPsr0;
             $loader->classMap = ComposerStaticInit3fdba843a00090e8edc44815ffc9bdf0::$classMap;
 
         }, null, ClassLoader::class);

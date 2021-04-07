@@ -197,6 +197,7 @@
 </a>
 
 
+
 <!-- Bootstrap core JavaScript-->
 <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
 <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
@@ -217,6 +218,8 @@
 <script src="{{ asset('pg/superflat/vendors/bootstrap-growl/bootstrap-growl.min.js') }}"></script>
 <script src="{{ asset('pg/superflat/vendors/bower_components/bootstrap-sweetalert/lib/sweet-alert.min.js') }}"></script>
 <script src="https://www.youtube.com/player_api"></script>
+
+@yield('js')
 
 </body>
 </html>

@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'AdminSeeder' => $baseDir . '/database/seeds/AdminSeeder.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Course' => $baseDir . '/app/Course.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
@@ -2217,6 +2218,12 @@ return array(
     'League\\OAuth1\\Client\\Signature\\RsaSha1Signature' => $vendorDir . '/league/oauth1-client/src/Signature/RsaSha1Signature.php',
     'League\\OAuth1\\Client\\Signature\\Signature' => $vendorDir . '/league/oauth1-client/src/Signature/Signature.php',
     'League\\OAuth1\\Client\\Signature\\SignatureInterface' => $vendorDir . '/league/oauth1-client/src/Signature/SignatureInterface.php',
+    'MediaEmbed\\MediaEmbed' => $vendorDir . '/dereuromark/media-embed/src/MediaEmbed/MediaEmbed.php',
+    'MediaEmbed\\Object\\MediaObject' => $vendorDir . '/dereuromark/media-embed/src/MediaEmbed/Object/MediaObject.php',
+    'MediaEmbed\\Object\\ObjectInterface' => $vendorDir . '/dereuromark/media-embed/src/MediaEmbed/Object/ObjectInterface.php',
+    'Merujan99\\LaravelVideoEmbed\\Facades\\LaravelVideoEmbed' => $vendorDir . '/merujan99/laravel-video-embed/src/Facades/LaravelVideoEmbed.php',
+    'Merujan99\\LaravelVideoEmbed\\Providers\\LaravelVideoEmbedServiceProvider' => $vendorDir . '/merujan99/laravel-video-embed/src/Providers/LaravelVideoEmbedServiceProvider.php',
+    'Merujan99\\LaravelVideoEmbed\\Services\\LaravelVideoEmbed' => $vendorDir . '/merujan99/laravel-video-embed/src/Services/LaravelVideoEmbed.php',
     'Mockery' => $vendorDir . '/mockery/mockery/library/Mockery.php',
     'Mockery\\Adapter\\Phpunit\\Legacy\\TestListenerForV5' => $vendorDir . '/mockery/mockery/library/Mockery/Adapter/Phpunit/Legacy/TestListenerForV5.php',
     'Mockery\\Adapter\\Phpunit\\Legacy\\TestListenerForV6' => $vendorDir . '/mockery/mockery/library/Mockery/Adapter/Phpunit/Legacy/TestListenerForV6.php',

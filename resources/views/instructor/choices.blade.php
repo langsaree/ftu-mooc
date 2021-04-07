@@ -22,37 +22,30 @@
             <div class="row">
                 <div class="col-12">
                     <p>Question number 1 :</p>
-
                     <div class="col-md-12">
-                        <textarea rows="3" cols="5" name="qns'.$i.'" class="form-control" placeholder="Write question number 1"></textarea>
+                        <textarea rows="3" cols="5" name="qns'.$i.'" class="form-control"
+                                  placeholder="Write question number 1"></textarea>
                     </div>
-
                     <div class="input-group mb-3"> </div>
-
                     <div class="col-md-12">
-                        <input id="'.$i.'1" name="'.$i.'1" placeholder="Enter option a" class="form-control input-md" type="text">
+                        <input id="'.$i.'1" name="'.$i.'1"
+                               placeholder="Enter option a" class="form-control input-md" type="text">
                     </div>
-
                     <div class="input-group mb-3"> </div>
-
                     <div class="col-md-12">
-                        <input id="'.$i.'1" name="'.$i.'1" placeholder="Enter option b" class="form-control input-md" type="text">
+                        <input id="'.$i.'1" name="'.$i.'1"
+                               placeholder="Enter option b"
+                               class="form-control input-md" type="text">
                     </div>
-
                     <div class="input-group mb-3"> </div>
-
                     <div class="col-md-12">
                         <input id="'.$i.'1" name="'.$i.'1" placeholder="Enter option c" class="form-control input-md" type="text">
                     </div>
-
                     <div class="input-group mb-3"> </div>
-
                     <div class="col-md-12">
                         <input id="'.$i.'1" name="'.$i.'1" placeholder="Enter option d" class="form-control input-md" type="text">
                     </div>
-
                     <div class="input-group mb-3"> </div>
-
                     <p>Correct answer :</p>
                     <div class="input-group mb-3">
                         <select class="custom-select" id="inputGroupSelect01">
@@ -62,14 +55,11 @@
                             <option value="3">d</option>
                         </select>
                     </div>
-
-
-
                     <div class="input-group mb-3"></div>
-
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <a href="#" class="btn  btn-icon-text btn-success"><i class="zmdi zmdi-apps"></i>Submit</a>
+                            <a href="#" class="btn  btn-icon-text btn-success">
+                                <i class="zmdi zmdi-apps"></i>Submit</a>
                         </ol>
                         <ol class="breadcrumb float-sm-right">
                             <a href="{{url('AddPretest')}}" class="btn  btn-icon-text btn-info"><i class="long-arrow-alt-left"></i>Back</a>

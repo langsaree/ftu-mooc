@@ -11,9 +11,6 @@
                 <i class="far fa-bookmark"></i> ENROLL</button>
         </h1>
 
-
-
-
             <div class="card-header w-100">
 
                 <!-- Circle Buttons -->
@@ -36,11 +33,9 @@
                                                 <span class="glyphicon glyphicon-globe" aria-hidden="true"></span> {{ $course->course_languages }}</a>
                            </span>
                                                 </div>
-                                                <!-- /.user-block -->
                                                 <p>
                                                     {{ $course->course_about }}
                                                 </p>
-
                                             </div>
                                         </div>
                                     </div>

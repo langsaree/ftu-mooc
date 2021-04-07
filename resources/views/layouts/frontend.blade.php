@@ -124,7 +124,7 @@
             <div class="text-1">FTUMOOC</div>
             <div class="text-2" >Lifelong learning space for everyone</div>
             <div class="text-3">Welcome to <span class="typing"></span></div>
-            <a class="btn btn-danger" href="{{url('get-faculties/20')}}">Study category</a>
+            <a class="btn btn-danger" href="{{url('get-faculties/70')}}">Study category</a>
 
              {{--<div class="dropdown">
                  <button class="dropbtn">Study category<i class="fas fa-caret-down"></i></button>

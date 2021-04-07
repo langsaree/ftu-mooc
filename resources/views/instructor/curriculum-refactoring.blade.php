@@ -164,11 +164,13 @@
                                                                    data-placement="bottom" title=""
                                                                    data-original-title="Youtube">
                                                                     <button type="button" class="btn btn-info btn-sm" ><i class="far fa-plus-square"></i></button>
+
                                                                     <img class="animated shake"
                                                                          src="{{ asset('upload/icon/MetroUIYouTube.ico') }}"
                                                                          alt="">
                                                                 </a>
                                                             </div>
+
                                                         </div>
                                                     @endif
                                                 </div>

@@ -60,9 +60,11 @@
                                     </td>
                                     <td>
                                         @if($key->status == 1)
-                                            <a href="{{ url('status0/'.$key->id) }}" class="btn btn-sm btn-danger btn-icon-text"><i class="far fa-window-close"></i> Cancel</a>
+                                            <a href="{{ url('status0/'.$key->id) }}"
+                                               class="btn btn-sm btn-danger btn-icon-text"><i class="far fa-window-close"></i> Cancel</a>
                                         @else
-                                            <a href="{{ url('status1/'.$key->id) }}" class="btn btn-sm btn-success btn-icon-text"><i class="far fa-thumbs-up"></i> Approved</a>
+                                            <a href="{{ url('status1/'.$key->id) }}"
+                                               class="btn btn-sm btn-success btn-icon-text"><i class="far fa-thumbs-up"></i> Approved</a>
                                         @endif
 
                                     </td>

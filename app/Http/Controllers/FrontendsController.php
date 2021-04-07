@@ -32,8 +32,10 @@ class FrontendsController extends Controller
         return view('contact');
     }
 
-    public function menu(){
-        return view('layouts.manu');
+    public function menu($id){
+        $fac = Faculty::where('id',$id)->first();
+
+        return view('layouts.menu', compact('fac'));
     }
 
 

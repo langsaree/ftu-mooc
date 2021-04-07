@@ -164,14 +164,14 @@
                                                 <option value="1">Have exam before studying</option>
                                             </select>
                                         </div>
-                                        <div class="col-sm-4 m-b-20">
+                                       {{-- <div class="col-sm-4 m-b-20">
                                             <p class="c-black">Exam after study</p>
 
                                             <select class="selectpicker" name="course_posttest">
                                                 <option value="0">no exam after studying</option>
                                                 <option value="1">Have exam after studying</option>
                                             </select>
-                                        </div>
+                                        </div>--}}
 
                                     </div>
                                     <hr>

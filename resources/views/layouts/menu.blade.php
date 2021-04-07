@@ -58,7 +58,7 @@
             @endphp
             @foreach($faculties as $f)
                      <hr class="sidebar-divider">
-                <a class="nav-link" href="{{ url('get-faculties/'.$f->id) }}">{{ $f->faculty_name }}
+                <a class="nav-link" href="{{ url('get-faculties/'.$f->id) }}">j
                    <span data-feather="file"></span>
                 </a>
             @endforeach

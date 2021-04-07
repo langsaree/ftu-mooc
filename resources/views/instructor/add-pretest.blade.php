@@ -9,7 +9,6 @@
                     <div class="col-sm-6">
                         <h1>Add Question Details</h1>
                     </div>
-
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="#">Home</a></li>
@@ -21,13 +20,31 @@
             </div>
             <div class="row">
                 <div class="col-12">
-                    <p>Enter Exam title :</p>
+                    <p>Enter Quiz title :</p>
                     <div class="input-group flex-nowrap">
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="addon-wrapping"></span>
                         </div>
                         <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping">
                     </div>
+                    <div class="input-group mb-3"> </div>
+                    <p>Select the lesson that you will put the quiz :</p>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="addon-wrapping"></span>
+                        </div>
+                        <select class="custom-select" id="inputGroupSelect01">
+                            @php
+                                $sections = DB::table('sections')->get();
+
+                            @endphp
+                            @foreach($sections as $S)
+
+                                <option value="1">{{ $S->section_name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+
 
                     <div class="input-group mb-3"> </div>
 
@@ -54,20 +71,12 @@
                         <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping">
                     </div>
 
-                    <div class="input-group mb-3"></div>
 
-                    <p>Enter minus marks on wrong answer :</p>
-                    <div class="input-group flex-nowrap">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="addon-wrapping"></span>
-                        </div>
-                        <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping">
-                    </div>
                     <div class="input-group mb-3"></div>
 
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <a href="{{url('Choices')}}" class="btn  btn-icon-text btn-success"><i class="zmdi zmdi-apps"></i>Submit</a>
+                            <a href="{{url('Choices')}}" class="btn  btn-icon-text btn-success"><i class="zmdi zmdi-apps"></i>Next</a>
                         </ol>
                     </div>
                 </div>

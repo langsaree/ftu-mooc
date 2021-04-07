@@ -265,6 +265,11 @@
                             <div class="col-md-8">
                                 <div class="tab-content profile-tab" id="myTabContent">
                                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                       {{-- @php
+                                            $students = DB::table('students')->get();
+
+                                        @endphp
+                                        @foreach($students as $St)--}}
                                         <div class="row">
                                             <div class="col-md-6"><label>User Id</label></div>
                                             <div class="col-md-6"><p>602431008</p></div>

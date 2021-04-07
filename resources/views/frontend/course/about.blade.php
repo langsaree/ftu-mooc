@@ -32,7 +32,6 @@
                                                         @guest
 
                                                         @else
-
                                                             <section class="content text-left">
                                                                 <div class="container-fluid">
                                                                     <div class="row">
@@ -44,17 +43,16 @@
                                                                                 {!! $lecture->lecture_article  !!}
                                                                             </div>
 
-
                                                                             <hr class="sidebar-divider d-none d-md-block">
                                                                             <h3 class="header text-dark"><i class="fab fa-youtube"></i> video</h3>
                                                                             <div class="embed-responsive embed-responsive-16by9">
 
                                                                                 <iframe  width="560" height="315" src="{{$lecture->youtube}}"
-                                                                                        frameborder="0" allow="accelerometer; autoplay; clipboard-write;crypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                                                                        frameborder="0" allow="accelerometer; autoplay;
+                                                                                        clipboard-write;crypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
                                                                             </div>
-
-
-                                                                            <!-- Line -->
+                                                                                <!-- Line -->
                                                                             <hr class="sidebar-divider d-none d-md-block">
 
 
@@ -75,15 +73,13 @@
                                                                                     <th scope="row">1</th>
                                                                                     <td>{{$lecture->lecture_name}}</td>
                                                                                     <td>{{$lecture->updated_at}}</td>
-                                                                                    <td><a href="download/{{$lecture->pdf}}" download="{{$lecture->pdf}}"><button type="button" class="btn btn-dark"><i class="fas fa-download"></i> Download</button></a> </td>
+                                                                                    <td><a href="{{ asset('upload/content/'. $lecture->pdf )  }}" download="{{$lecture->pdf}}"><button type="button" class="btn btn-dark"><i class="fas fa-download"></i> Download</button></a> </td>
                                                                                 </tr>
 
                                                                                 </tbody>
                                                                             </table>
 
                                                                             <h1>---------------------------------------------------</h1>
-
-
 
                                                                         </div>
                                                                         @endguest
@@ -95,9 +91,6 @@
                     </div>
                 </div>
             </div>
-
-
-
 
 
 
