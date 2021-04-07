@@ -33,7 +33,7 @@ class CreateLecturesTable extends Migration {
 			$table->integer('user_id')->nullable();
 			$table->timestamp('lecture_create')->nullable()->default(DB::raw('CURRENT_TIMESTAMP'));
 			$table->string('lecture_status', 1)->nullable()->default('1');
-			$table->timestamps(10);
+			$table->timestamps();
 		});
 	}
 

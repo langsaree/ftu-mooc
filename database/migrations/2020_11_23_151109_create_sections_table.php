@@ -23,7 +23,7 @@ class CreateSectionsTable extends Migration {
 			$table->integer('user_id')->nullable();
 			$table->date('section_date')->nullable();
 			$table->timestamp('section_create')->nullable()->default(DB::raw('CURRENT_TIMESTAMP'));
-			$table->timestamps(10);
+			$table->timestamps();
 		});
 	}
 

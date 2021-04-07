@@ -31,7 +31,7 @@ class CreateInstructorsTable extends Migration {
 			$table->string('instructor_approve', 1)->nullable()->default('1');
 			$table->timestamp('instructor_create')->nullable()->default(DB::raw('CURRENT_TIMESTAMP'));
 			$table->string('instructor_pic', 50)->nullable();
-			$table->timestamps(10);
+			$table->timestamps();
 		});
 	}
 

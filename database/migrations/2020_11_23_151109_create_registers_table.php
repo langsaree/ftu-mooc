@@ -20,7 +20,7 @@ class CreateRegistersTable extends Migration {
 			$table->integer('user_id')->nullable();
 			$table->timestamp('reg_date')->nullable()->default(DB::raw('CURRENT_TIMESTAMP'));
 			$table->string('reg_status', 1)->nullable();
-			$table->timestamps(10);
+			$table->timestamps();
 		});
 	}
 

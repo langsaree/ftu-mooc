@@ -21,7 +21,7 @@ class CreateStudyingTbTable extends Migration {
 			$table->time('studying_time')->nullable();
 			$table->timestamp('studying_create')->nullable()->default(DB::raw('CURRENT_TIMESTAMP'));
 			$table->integer('course_id')->nullable();
-			$table->timestamps(10);
+			$table->timestamps();
 		});
 	}
 

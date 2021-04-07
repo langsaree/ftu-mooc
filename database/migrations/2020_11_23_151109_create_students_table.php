@@ -29,7 +29,7 @@ class CreateStudentsTable extends Migration {
 			$table->timestamp('student_create')->nullable()->default(DB::raw('CURRENT_TIMESTAMP'));
 			$table->string('student_status', 1)->nullable()->default('1');
 			$table->string('student_picture', 100)->nullable();
-			$table->timestamps(10);
+			$table->timestamps();
 		});
 	}
 

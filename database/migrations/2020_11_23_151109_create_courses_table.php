@@ -40,7 +40,7 @@ class CreateCoursesTable extends Migration {
 			$table->string('course_approve', 1)->nullable()->default('0');
 			$table->dateTime('course_published')->nullable();
 			$table->integer('faculty_id')->nullable();
-			$table->timestamps(10);
+			$table->timestamps();
 		});
 	}
 
